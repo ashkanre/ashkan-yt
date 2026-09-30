@@ -11,7 +11,7 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;min-height:100vh;background:#070916;color:var(--text);font-family:Tahoma,"Segoe UI",Arial,sans-serif;overflow-x:hidden}
 body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(ellipse at 15% 20%,#275cff55,transparent 35%),radial-gradient(ellipse at 85% 18%,#972cff44,transparent 34%),radial-gradient(ellipse at 52% 92%,#00d2ff2c,transparent 36%),linear-gradient(135deg,#060815,#0b1026 48%,#070916)}
-#bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.38;pointer-events:none}.veil{position:fixed;inset:0;z-index:-1;background:linear-gradient(135deg,#040714aa,#050a1c9c,#080517b8);pointer-events:none}
+#ambient{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}.orb{position:absolute;width:42vw;height:42vw;min-width:260px;min-height:260px;border-radius:50%;filter:blur(65px);opacity:.24;animation:drift 16s ease-in-out infinite alternate}.orb.one{background:#275cff;top:-12%;left:-8%}.orb.two{background:#9b35ff;top:18%;right:-14%;animation-delay:-6s}.orb.three{background:#00d5e8;bottom:-24%;left:30%;animation-delay:-10s}@keyframes drift{from{transform:translate3d(-2%,0,0) scale(.92)}to{transform:translate3d(7%,12%,0) scale(1.12)}}.veil{position:fixed;inset:0;z-index:-1;background:linear-gradient(135deg,#04071488,#050a1c88,#08051799);pointer-events:none}
 .wrap{width:min(1080px,92%);margin:auto}header{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff16;gap:12px}
 .brand{display:flex;align-items:center;gap:12px;color:var(--text);text-decoration:none;font-weight:900;font-size:20px}.logo{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,#4b8cff,#a35cff,#37e7ff);box-shadow:0 0 30px #5070ff55}.brand span,h1{background:linear-gradient(90deg,#fff,#4feaff,#b88aff);background-clip:text;color:transparent}
 .status{font-size:12px;color:#d2defb;border:1px solid var(--line);border-radius:99px;padding:9px 13px}
@@ -27,7 +27,7 @@ footer{border-top:1px solid #ffffff1b;padding:23px 0 30px;margin-top:42px;color:
 </style>
 </head>
 <body>
-<video id="bg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="background.mp4" type="video/mp4"></video><div class="veil"></div>
+<div id="ambient" aria-hidden="true"><span class="orb one"></span><span class="orb two"></span><span class="orb three"></span></div><div class="veil"></div>
 <div class="wrap">
 <header><a class="brand" href="#top"><span class="logo">AY</span><span>ASHKAN YT</span></a><div class="status">صفحه رسمی اشکان وای تی</div></header>
 <main id="top">
