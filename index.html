@@ -235,6 +235,68 @@ footer{margin-top:58px}
  .profile-strip{border-radius:19px;padding:17px 13px}
 }
 </style></style></style>
+<style>
+/* Background upgrade — deep space / aurora */
+html{background:#02030a}
+body{background:
+  radial-gradient(circle at 50% 0%,#111a36 0%,#070a16 38%,#03040b 100%);
+}
+body:before{
+  background:
+    radial-gradient(ellipse 55% 38% at 12% 8%,#1d63ff45,transparent 70%),
+    radial-gradient(ellipse 48% 42% at 88% 18%,#a63dff3b,transparent 70%),
+    radial-gradient(ellipse 55% 40% at 52% 92%,#00d8e044,transparent 72%),
+    radial-gradient(ellipse 28% 25% at 68% 58%,#ff4fae16,transparent 70%),
+    linear-gradient(145deg,#02030a 0%,#080c1c 48%,#06040f 100%);
+  animation:bgAurora 18s ease-in-out infinite alternate;
+}
+body:after{
+  opacity:.18;
+  background-image:
+    radial-gradient(circle,#ffffffaa 0 1px,transparent 1.5px),
+    radial-gradient(circle,#72eaff66 0 1px,transparent 1.5px),
+    linear-gradient(#9abaff0b 1px,transparent 1px),
+    linear-gradient(90deg,#9abaff0b 1px,transparent 1px);
+  background-size:97px 97px,151px 151px,56px 56px,56px 56px;
+  background-position:12px 18px,73px 44px,0 0,0 0;
+  mask-image:linear-gradient(to bottom,black 0%,black 55%,transparent 100%);
+}
+@keyframes bgAurora{
+  0%{filter:hue-rotate(0deg) scale(1)}
+  50%{filter:hue-rotate(8deg) scale(1.025)}
+  100%{filter:hue-rotate(-6deg) scale(1.045)}
+}
+#ambient{z-index:-2}
+.orb{opacity:.16;filter:blur(85px);mix-blend-mode:screen}
+.orb:nth-child(1){width:34vw;height:34vw;top:-10%;left:-8%}
+.orb:nth-child(2){width:40vw;height:40vw;top:18%;right:-15%}
+.orb:nth-child(3){width:36vw;height:36vw;bottom:-20%;left:34%}
+.hero,.profile-strip,.card,.panel,.spotlight{
+  background-color:#080d1acc;
+  backdrop-filter:blur(14px) saturate(1.18);
+}
+.hero{box-shadow:0 30px 100px #0007,0 0 70px #315dff0c,inset 0 1px #ffffff12}
+.card,.panel{box-shadow:0 18px 48px #0004,inset 0 1px #ffffff0a}
+body.light-mode{
+  background:#eef4ff;
+}
+body.light-mode:before{
+  animation:none;
+  background:
+    radial-gradient(ellipse 55% 40% at 10% 5%,#68c9ff55,transparent 70%),
+    radial-gradient(ellipse 50% 42% at 90% 12%,#c69aff4f,transparent 70%),
+    radial-gradient(ellipse 55% 40% at 50% 95%,#67e8dc38,transparent 72%),
+    linear-gradient(145deg,#f7faff,#e9efff 52%,#f8f1ff);
+}
+body.light-mode:after{opacity:.06}
+@media(max-width:680px){
+  body:after{display:block;opacity:.11;background-size:120px 120px,180px 180px}
+  .orb{filter:blur(55px);opacity:.10}
+}
+@media(prefers-reduced-motion:reduce){
+  body:before{animation:none}
+}
+</style>
 </head>
 <body>
 <div id="appSplash" aria-hidden="true"><div class="splash-mark">AY</div><div class="splash-title">ASHKAN YT</div><div class="splash-caption">دنیای اشکان در یک نگاه</div><div class="splash-track"><span></span></div></div>
