@@ -800,4 +800,33 @@ if("serviceWorker" in navigator)window.addEventListener("load",()=>{setTimeout((
 /* تشخیص دستگاه ضعیف: هیچ قابلیتی حذف نمی‌شود، فقط افکت‌های پرهزینه سبک‌تر می‌شوند. */
 (()=>{const mobile=matchMedia('(max-width:700px)').matches,mem=Number(navigator.deviceMemory||0),cores=Number(navigator.hardwareConcurrency||0);if(mobile&&((mem>0&&mem<=2)||(cores>0&&cores<=4)))document.documentElement.classList.add('mobile-lite')})();
 </script>
+
+<style id="ultra-smooth-low-end">
+@media (max-width:700px){
+  html.mobile-lite .hero,
+  html.mobile-lite .card,
+  html.mobile-lite .panel,
+  html.mobile-lite .spotlight,
+  html.mobile-lite .profile-strip{contain:layout paint;transform:translateZ(0)}
+  html.mobile-lite .hero:after,
+  html.mobile-lite .hero:before,
+  html.mobile-lite body:before,
+  html.mobile-lite body:after{will-change:auto}
+  html.mobile-lite .orb{will-change:auto;transform:translate3d(0,0,0)}
+  html.mobile-lite .card:hover .icon,
+  html.mobile-lite .theme-dot:hover,
+  html.mobile-lite .bottomnav a:hover{transform:none}
+}
+</style>
+<script>
+(()=>{ 
+  const low=document.documentElement.classList.contains('mobile-lite');
+  if(!low)return;
+  const idle=window.requestIdleCallback||((fn)=>setTimeout(fn,1200));
+  idle(()=>{
+    document.querySelectorAll('iframe').forEach(x=>{x.loading='lazy'});
+    document.querySelectorAll('img:not(.avatar)').forEach(x=>{x.loading='lazy';x.decoding='async'});
+  },{timeout:2000});
+})();
+</script>
 </body></html>
