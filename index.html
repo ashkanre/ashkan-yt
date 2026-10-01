@@ -624,6 +624,45 @@ body:after{
  box-shadow:0 30px 100px rgba(0,0,0,.55),0 0 70px rgba(61,170,255,.08),inset 0 1px rgba(255,255,255,.14)!important;
 }
 @media(prefers-reduced-motion:reduce){#ambient:after{animation:none}}
+
+/* ASHKAN YT — ULTRA GAMING 2026 */
+:root{--a:#63f6ff;--b:#9b7cff;--hot:#ff4fa8;--lime:#5dffb0}
+html{background:#02040b}
+body{background:#02040b;isolation:isolate}
+body:before{content:"";position:fixed;inset:0;z-index:-5;background:radial-gradient(circle at 15% 10%,#00d9ff22,transparent 25%),radial-gradient(circle at 85% 20%,#8b5cff24,transparent 28%),radial-gradient(circle at 55% 95%,#ff2f9d18,transparent 30%),linear-gradient(135deg,#02040b 0%,#080b18 45%,#03040b 100%)}
+body:after{content:"";position:fixed;inset:0;z-index:-4;pointer-events:none;background-image:linear-gradient(#70e9ff0b 1px,transparent 1px),linear-gradient(90deg,#70e9ff0b 1px,transparent 1px);background-size:56px 56px;transform:perspective(650px) rotateX(58deg) scale(1.8) translateY(20%);transform-origin:center bottom;mask-image:linear-gradient(to top,black,transparent 72%);animation:gridMove 16s linear infinite}
+@keyframes gridMove{to{background-position:0 56px,56px 0}}
+#ambient:before{content:"";position:absolute;inset:-20%;background:repeating-linear-gradient(90deg,transparent 0 90px,#62edff08 91px 92px),repeating-linear-gradient(0deg,transparent 0 90px,#a875ff07 91px 92px);transform:perspective(900px) rotateX(65deg) translateY(18%);mask-image:linear-gradient(to top,black,transparent 70%);animation:ambientGrid 18s linear infinite}
+@keyframes ambientGrid{to{background-position:0 180px,180px 0}}
+.wrap{width:min(1180px,93%)}
+header{height:82px;border-bottom:1px solid #ffffff12;backdrop-filter:blur(18px)}
+.hero{min-height:500px;margin-top:24px;padding:58px 48px;border:1px solid #72eaff2c;border-radius:36px;background:radial-gradient(circle at 75% 35%,#6b55ff15,transparent 30%),radial-gradient(circle at 25% 65%,#00e5ff10,transparent 35%),linear-gradient(135deg,#0b1226e8,#060a16f2);box-shadow:0 35px 100px #0008,inset 0 1px #ffffff14,0 0 80px #5d77ff08;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:-2px;border-radius:inherit;padding:1px;background:linear-gradient(120deg,#62f6ff66,transparent 35%,#a477ff55,transparent 72%,#ff63ba44);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.hero:after{content:"";position:absolute;width:420px;height:420px;right:-150px;top:-180px;border-radius:50%;background:radial-gradient(circle,#5df5ff22,transparent 68%);filter:blur(8px);animation:heroOrb 8s ease-in-out infinite alternate}
+@keyframes heroOrb{to{transform:translate(-70px,80px) scale(1.25)}}
+.hero h1{font-size:clamp(52px,9vw,100px);font-weight:1000;line-height:.98;letter-spacing:-4px;text-shadow:0 0 35px #5cf4ff18,0 8px 35px #0008}
+.hero p{max-width:680px;font-size:16px}
+.tag{box-shadow:0 0 25px #5cf4ff0c,inset 0 1px #ffffff10}
+.avatar-wrap{width:238px;height:238px}.avatar{box-shadow:0 0 35px #62eaff33,0 0 90px #a46cff20}
+.creator-chips{margin-top:26px}.creator-chip{background:#071022b8;backdrop-filter:blur(14px);border-color:#75eaff25}
+.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{min-height:174px;border-radius:24px;background:linear-gradient(145deg,#0d1830ee,#050a17f5);border-color:#8ba7ff25;box-shadow:0 18px 45px #0005,inset 0 1px #ffffff0a;backdrop-filter:blur(14px)}
+.card:before{width:230px;height:230px;filter:blur(55px);opacity:.16}.card:after{background:linear-gradient(110deg,#62f5ff0c,transparent 35%,#9b6dff0d 65%,#ff5fb20b)}
+.card:hover{transform:translateY(-8px) scale(1.012);box-shadow:0 25px 60px #0008,0 0 35px color-mix(in srgb,var(--c) 16%,transparent)}
+.card .icon{width:58px;height:58px;border-radius:18px;box-shadow:inset 0 0 24px color-mix(in srgb,var(--c) 13%,transparent),0 0 18px color-mix(in srgb,var(--c) 10%,transparent)}
+.panel,.spotlight{border-radius:26px;background:linear-gradient(145deg,#0d1730ee,#070b18f4);border-color:#8ba7ff25;box-shadow:0 20px 55px #0005,inset 0 1px #ffffff0a;backdrop-filter:blur(16px)}
+.spotlight{padding:30px;overflow:hidden}.spotlight:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 100% 0,#7e64ff20,transparent 45%);pointer-events:none}
+.searchbox{height:54px;border-radius:18px;background:#050a16d9;border-color:#82a5ff28;box-shadow:inset 0 1px #ffffff08,0 12px 35px #0003}
+.searchbox::placeholder{color:#7183a8}.searchbox:focus{box-shadow:0 0 0 4px #62efff10,0 0 35px #62efff10}
+.btn,.toolbtn{border-radius:16px}.primary{background:linear-gradient(110deg,#60f5ff,#718fff 48%,#b276ff);box-shadow:0 12px 35px #61eaff20,inset 0 1px #ffffff55}.primary:hover{transform:translateY(-4px) scale(1.02)}
+.status{background:#071022aa;backdrop-filter:blur(12px);border-color:#73eaff30}
+.profile-strip{box-shadow:0 18px 50px #0004;backdrop-filter:blur(16px)}
+.clocktime{font-size:clamp(38px,8vw,58px);text-shadow:0 0 35px #5cf3ff25}
+#scrollProgress{height:4px;box-shadow:0 0 18px #62f6ff,0 0 35px #a56cff}
+.bottomnav{backdrop-filter:blur(22px);background:#040916df}
+footer{border-top-color:#ffffff0d}
+@media(max-width:680px){.hero{min-height:0;padding:34px 18px 30px;border-radius:26px}.hero h1{font-size:clamp(46px,15vw,70px);letter-spacing:-2.5px}.avatar-wrap{width:178px;height:178px}.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{min-height:172px;padding:14px 11px}.card .icon{width:46px;height:46px}.spotlight{padding:20px}.wrap{width:min(94%,1180px)}}
+@media(prefers-reduced-motion:reduce){body:after,#ambient:before,.hero:after{animation:none!important}}
 </style></head>
 <body>
 <div id="appSplash" aria-hidden="true"><div class="splash-mark">AY</div><div class="splash-title">ASHKAN YT</div><div class="splash-caption">دنیای اشکان در یک نگاه</div><div class="splash-track"><span></span></div></div>
