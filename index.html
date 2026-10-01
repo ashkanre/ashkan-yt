@@ -749,7 +749,8 @@ const searchInput=document.getElementById("linkSearch"),favoritesFilter=document
 function getFavorites(){try{return JSON.parse(localStorage.getItem("ashkanYTFavorites")||"[]")}catch(e){return []}}
 function setFavorites(items){try{localStorage.setItem("ashkanYTFavorites",JSON.stringify(items))}catch(e){}}
 document.querySelectorAll("#socialCards .card").forEach(card=>{const wrap=document.createElement("div");wrap.className="card-wrap";card.before(wrap);wrap.appendChild(card);const star=document.createElement("button");star.className="favorite-btn";star.type="button";star.setAttribute("aria-label","افزودن به علاقه‌مندی‌ها");star.addEventListener("click",()=>{const id=card.href;let items=getFavorites();if(items.includes(id)){items=items.filter(x=>x!==id);showToast("از علاقه‌مندی‌ها حذف شد")}else{items.push(id);showToast("★ به علاقه‌مندی‌ها اضافه شد")}setFavorites(items);updateCards()});wrap.appendChild(star)});
-function updateCards(){const q=searchInput.value.trim().toLowerCase(),items=getFavorites();let visible=0;document.querySelectorAll("#socialCards .card-wrap").forEach(w=>{const c=w.querySelector(".card"),star=w.querySelector(".favorite-btn"),favorite=items.includes(c.href),match=(c.innerText+" "+c.dataset.search).toLowerCase().includes(q),show=match&&(!favoritesOnly||favorite);w.style.display=show?"":"none";star.textContent=favorite?"★":"☆";star.setAttribute("aria-pressed",String(favorite));star.setAttribute("aria-label",favorite?"حذف از علاقه‌مندی‌ها":"افزودن به علاقه‌مندی‌ها");if(show)visible++});document.getElementById("noResults").style.display=visible?"none":"block"}
+const cardWraps=[...document.querySelectorAll("#socialCards .card-wrap")].map(w=>{const c=w.querySelector(".card"),star=w.querySelector(".favorite-btn");return{w,c,star,href:c.href,text:((c.textContent||"")+" "+(c.dataset.search||"")).toLowerCase()}});const favoriteSet=()=>new Set(getFavorites());
+function updateCards(){const q=searchInput.value.trim().toLowerCase(),items=favoriteSet();let visible=0;for(const item of cardWraps){const favorite=items.has(item.href),show=(!q||item.text.includes(q))&&(!favoritesOnly||favorite);item.w.style.display=show?"":"none";item.star.textContent=favorite?"★":"☆";item.star.setAttribute("aria-pressed",String(favorite));item.star.setAttribute("aria-label",favorite?"حذف از علاقه‌مندی‌ها":"افزودن به علاقه‌مندی‌ها");if(show)visible++}document.getElementById("noResults").style.display=visible?"none":"block"}
 searchInput.addEventListener("input",updateCards);favoritesFilter.addEventListener("click",()=>{favoritesOnly=!favoritesOnly;favoritesFilter.setAttribute("aria-pressed",String(favoritesOnly));favoritesFilter.textContent=favoritesOnly?"★ نمایش همه لینک‌ها":"☆ فقط لینک‌های محبوب";updateCards()});
 document.getElementById("resetFilters").addEventListener("click",()=>{searchInput.value="";favoritesOnly=false;favoritesFilter.setAttribute("aria-pressed","false");favoritesFilter.textContent="☆ فقط لینک‌های محبوب";updateCards()});
 document.getElementById("copyAllLinks").addEventListener("click",async()=>{const text=[...document.querySelectorAll("#socialCards .card")].map(c=>c.querySelector("h3").innerText+" — "+c.href).join("\n");if(await copyText(text))showToast("✓ همه لینک‌های شبکه‌ها کپی شد");else showToast("کپی انجام نشد؛ دوباره امتحان کن")});
@@ -766,8 +767,8 @@ document.getElementById("copyBtn").addEventListener("click",async()=>{if(await c
 document.getElementById("copySiteUrl").addEventListener("click",async()=>{if(await copyLink())showToast("✓ لینک سایت کپی شد");else showToast("لطفاً لینک سایت را از نوار آدرس کپی کن")});
 document.getElementById("shareBtn").addEventListener("click",async()=>{if(navigator.share){try{await navigator.share({title:"Ashkan YT",text:"صفحه رسمی اشکان وای تی",url:SITE_URL})}catch(e){if(e.name!=="AbortError")showToast("اشتراک‌گذاری انجام نشد")}}else if(await copyLink())showToast("✓ لینک برای اشتراک‌گذاری کپی شد");else showToast("لطفاً لینک سایت را از نوار آدرس کپی کن")});
 const progress=document.getElementById("scrollProgress"),topBtn=document.getElementById("topBtn");
-function updateScrollUI(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?Math.min(100,scrollY/max*100):0)+"%";topBtn.classList.toggle("visible",scrollY>420)}
-let scrollRaf=0;function scheduleScrollUI(){if(scrollRaf)return;scrollRaf=requestAnimationFrame(()=>{scrollRaf=0;updateScrollUI()})}window.addEventListener("scroll",scheduleScrollUI,{passive:true});window.addEventListener("resize",scheduleScrollUI,{passive:true});updateScrollUI();
+let scrollMax=0;function refreshScrollMetrics(){scrollMax=Math.max(0,document.documentElement.scrollHeight-innerHeight)}function updateScrollUI(){if(!scrollMax)refreshScrollMetrics();const pct=scrollMax?Math.min(100,scrollY/scrollMax*100):0;progress.style.transform="scaleX("+(pct/100)+")";topBtn.classList.toggle("visible",scrollY>420)}
+let scrollRaf=0;function scheduleScrollUI(){if(scrollRaf)return;scrollRaf=requestAnimationFrame(()=>{scrollRaf=0;updateScrollUI()})}window.addEventListener("scroll",scheduleScrollUI,{passive:true});window.addEventListener("resize",()=>{refreshScrollMetrics();scheduleScrollUI()},{passive:true});if("ResizeObserver"in window)new ResizeObserver(()=>{refreshScrollMetrics();scheduleScrollUI()}).observe(document.documentElement);refreshScrollMetrics();updateScrollUI();
 topBtn.addEventListener("click",()=>window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}));
 const navLinks=[...document.querySelectorAll(".bottomnav a")],sections=navLinks.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
 if("IntersectionObserver" in window){const navObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(a=>a.classList.toggle("nav-active",a.getAttribute("href")==="#"+entry.target.id))}}),{rootMargin:"-25% 0px -60% 0px"});sections.forEach(section=>navObserver.observe(section))}
@@ -802,6 +803,7 @@ if("serviceWorker" in navigator)window.addEventListener("load",()=>{setTimeout((
 </script>
 
 <style id="ultra-smooth-low-end">
+#scrollProgress{transform-origin:100% 50%;will-change:transform}
 @media (max-width:700px){
   html.mobile-lite .hero,
   html.mobile-lite .card,
@@ -812,16 +814,28 @@ if("serviceWorker" in navigator)window.addEventListener("load",()=>{setTimeout((
   html.mobile-lite .hero:before,
   html.mobile-lite body:before,
   html.mobile-lite body:after{will-change:auto}
-  html.mobile-lite .orb{will-change:auto;transform:translate3d(0,0,0)}
+  html.mobile-lite .orb{filter:blur(24px);opacity:.10;animation-duration:60s;will-change:auto;transform:translate3d(0,0,0)}
+  html.mobile-lite .hero h1{animation-duration:40s}
+  html.mobile-lite .avatar-wrap:before{animation-duration:30s}
+  html.mobile-lite .hero,.mobile-lite .profile-strip,.mobile-lite .card,.mobile-lite .panel,.mobile-lite .spotlight{backdrop-filter:blur(6px) saturate(110%);-webkit-backdrop-filter:blur(6px) saturate(110%)}
+  html.mobile-lite header{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  html.mobile-lite .bottomnav{backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 6px 18px #0005}
+  html.mobile-lite .favorite-btn{backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
   html.mobile-lite .card:hover .icon,
   html.mobile-lite .theme-dot:hover,
-  html.mobile-lite .bottomnav a:hover{transform:none}
+  html.mobile-lite .bottomnav a:hover,
+  html.mobile-lite .card:hover,
+  html.mobile-lite .btn:hover,
+  html.mobile-lite .toolbtn:hover{transform:none}
+}
+@media (max-width:700px){
+  html.mobile-device{scroll-behavior:auto}
+  html.mobile-device body{text-rendering:auto}
 }
 </style>
 <script>
-(()=>{ 
+(()=>{
   const low=document.documentElement.classList.contains('mobile-lite');
-  if(!low)return;
   const idle=window.requestIdleCallback||((fn)=>setTimeout(fn,1200));
   idle(()=>{
     document.querySelectorAll('iframe').forEach(x=>{x.loading='lazy'});
