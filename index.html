@@ -768,7 +768,7 @@ document.getElementById("copySiteUrl").addEventListener("click",async()=>{if(awa
 document.getElementById("shareBtn").addEventListener("click",async()=>{if(navigator.share){try{await navigator.share({title:"Ashkan YT",text:"صفحه رسمی اشکان وای تی",url:SITE_URL})}catch(e){if(e.name!=="AbortError")showToast("اشتراک‌گذاری انجام نشد")}}else if(await copyLink())showToast("✓ لینک برای اشتراک‌گذاری کپی شد");else showToast("لطفاً لینک سایت را از نوار آدرس کپی کن")});
 const progress=document.getElementById("scrollProgress"),topBtn=document.getElementById("topBtn");
 let scrollMax=0;function refreshScrollMetrics(){scrollMax=Math.max(0,document.documentElement.scrollHeight-innerHeight)}function updateScrollUI(){if(!scrollMax)refreshScrollMetrics();const pct=scrollMax?Math.min(100,scrollY/scrollMax*100):0;progress.style.transform="scaleX("+(pct/100)+")";topBtn.classList.toggle("visible",scrollY>420)}
-let scrollRaf=0,scrollBoostTimer=0,lastMobilePaint=0,mobileScrollTicks=0;const isMobileViewport=matchMedia("(max-width:700px)");function endScrollBoost(){document.documentElement.classList.remove("is-scrolling")}function scheduleScrollUI(){if(!document.documentElement.classList.contains("is-scrolling"))document.documentElement.classList.add("is-scrolling");clearTimeout(scrollBoostTimer);scrollBoostTimer=setTimeout(endScrollBoost,120);if(scrollRaf)return;scrollRaf=requestAnimationFrame(()=>{scrollRaf=0;const now=performance.now();if(isMobileViewport.matches){if(now-lastMobilePaint<32)return;mobileScrollTicks++;if(mobileScrollTicks%2!==0)return;lastMobilePaint=now}updateScrollUI()})}window.addEventListener("scroll",scheduleScrollUI,{passive:true});window.addEventListener("resize",refreshScrollMetrics,{passive:true});if("ResizeObserver"in window)new ResizeObserver(refreshScrollMetrics).observe(document.documentElement);refreshScrollMetrics();updateScrollUI();
+let scrollRaf=0,scrollBoostTimer=0,scrollLastEvent=0,lastScrollPaint=0;function finishScrollBoost(){const wait=performance.now()-scrollLastEvent;if(wait<120){scrollBoostTimer=setTimeout(finishScrollBoost,120-wait);return}scrollBoostTimer=0;document.documentElement.classList.remove("is-scrolling")}function scheduleScrollUI(){const now=performance.now();scrollLastEvent=now;if(!document.documentElement.classList.contains("is-scrolling"))document.documentElement.classList.add("is-scrolling");if(!scrollBoostTimer)scrollBoostTimer=setTimeout(finishScrollBoost,140);if(scrollRaf)return;scrollRaf=requestAnimationFrame(()=>{scrollRaf=0;const t=performance.now();if(t-lastScrollPaint<33)return;lastScrollPaint=t;updateScrollUI()})}window.addEventListener("scroll",scheduleScrollUI,{passive:true});window.addEventListener("resize",refreshScrollMetrics,{passive:true});if("ResizeObserver"in window)new ResizeObserver(refreshScrollMetrics).observe(document.documentElement);refreshScrollMetrics();updateScrollUI();
 topBtn.addEventListener("click",()=>window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}));
 const navLinks=[...document.querySelectorAll(".bottomnav a")],sections=navLinks.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
 if("IntersectionObserver" in window){let activeNavId="";const navObserver=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting&&entry.target.id!==activeNavId){activeNavId=entry.target.id;const hash="#"+activeNavId;for(const a of navLinks)a.classList.toggle("nav-active",a.getAttribute("href")===hash);break}}},{rootMargin:"-25% 0px -60% 0px"});sections.forEach(section=>navObserver.observe(section))}
@@ -1214,6 +1214,102 @@ section[id]{
 }
 @media (hover:hover) and (pointer:fine){
   .card:hover{will-change:transform,box-shadow}
+}
+</style>
+
+
+<style id="final-no-jank-glass">
+/* آخرین حالت بدون لگ: شیشه و پس‌زمینه همیشه وجود دارند؛ فقط هنگام حرکت، نسخهٔ کم‌هزینهٔ همان ظاهر استفاده می‌شود. */
+html.is-scrolling #scrollProgress{
+  box-shadow:none!important;
+}
+html.is-scrolling body:before{
+  background:linear-gradient(145deg,#03050c,#080d1c 48%,#050713)!important;
+}
+html.is-scrolling body:after{
+  display:block!important;
+  opacity:.04!important;
+  animation-play-state:paused!important;
+}
+html.is-scrolling #ambient{
+  opacity:.35!important;
+}
+html.is-scrolling #ambient:before,
+html.is-scrolling #ambient:after{
+  animation-play-state:paused!important;
+  opacity:.18!important;
+}
+html.is-scrolling .orb{
+  display:block!important;
+  filter:blur(18px)!important;
+  opacity:.055!important;
+  animation-play-state:paused!important;
+}
+html.is-scrolling .hero:before,
+html.is-scrolling .hero:after,
+html.is-scrolling .brandmark:after,
+html.is-scrolling .card:before,
+html.is-scrolling .card:after{
+  display:block!important;
+  filter:none!important;
+  animation-play-state:paused!important;
+  opacity:.06!important;
+}
+html.is-scrolling .hero,
+html.is-scrolling .profile-strip,
+html.is-scrolling .card,
+html.is-scrolling .panel,
+html.is-scrolling .spotlight,
+html.is-scrolling header,
+html.is-scrolling .bottomnav,
+html.is-scrolling .favorite-btn,
+html.is-scrolling .creator-chip,
+html.is-scrolling .searchbox,
+html.is-scrolling .message-box textarea,
+html.is-scrolling .faq-list details{
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  filter:none!important;
+}
+html.is-scrolling .hero,
+html.is-scrolling .profile-strip,
+html.is-scrolling .card,
+html.is-scrolling .panel,
+html.is-scrolling .spotlight{
+  background:linear-gradient(145deg,rgba(17,28,53,.90),rgba(5,10,23,.94))!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.07),0 4px 14px rgba(0,0,0,.20)!important;
+}
+html.is-scrolling header,
+html.is-scrolling .bottomnav,
+html.is-scrolling .favorite-btn,
+html.is-scrolling .creator-chip,
+html.is-scrolling .searchbox,
+html.is-scrolling .message-box textarea,
+html.is-scrolling .faq-list details{
+  background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025))!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.07),0 4px 12px rgba(0,0,0,.16)!important;
+}
+html.is-scrolling .icon,
+html.is-scrolling .app-icon{
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  filter:none!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.10),0 5px 12px rgba(0,0,0,.16)!important;
+}
+html.is-scrolling .avatar-wrap,
+html.is-scrolling .avatar{
+  filter:none!important;
+  box-shadow:0 0 22px rgba(82,181,255,.18)!important;
+}
+@media (max-width:700px){
+  html.is-scrolling .hero,
+  html.is-scrolling .profile-strip,
+  html.is-scrolling .card,
+  html.is-scrolling .panel,
+  html.is-scrolling .spotlight{
+    background:linear-gradient(145deg,rgba(14,24,47,.92),rgba(5,10,22,.95))!important;
+    box-shadow:inset 0 1px rgba(255,255,255,.06),0 3px 10px rgba(0,0,0,.18)!important;
+  }
 }
 </style>
 
