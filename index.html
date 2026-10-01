@@ -768,7 +768,7 @@ document.getElementById("copySiteUrl").addEventListener("click",async()=>{if(awa
 document.getElementById("shareBtn").addEventListener("click",async()=>{if(navigator.share){try{await navigator.share({title:"Ashkan YT",text:"صفحه رسمی اشکان وای تی",url:SITE_URL})}catch(e){if(e.name!=="AbortError")showToast("اشتراک‌گذاری انجام نشد")}}else if(await copyLink())showToast("✓ لینک برای اشتراک‌گذاری کپی شد");else showToast("لطفاً لینک سایت را از نوار آدرس کپی کن")});
 const progress=document.getElementById("scrollProgress"),topBtn=document.getElementById("topBtn");
 let scrollMax=0;function refreshScrollMetrics(){scrollMax=Math.max(0,document.documentElement.scrollHeight-innerHeight)}function updateScrollUI(){if(!scrollMax)refreshScrollMetrics();const pct=scrollMax?Math.min(100,scrollY/scrollMax*100):0;progress.style.transform="scaleX("+(pct/100)+")";topBtn.classList.toggle("visible",scrollY>420)}
-let scrollRaf=0,scrollBoostTimer=0;function scheduleScrollUI(){if(scrollRaf)return;document.documentElement.classList.add("is-scrolling");clearTimeout(scrollBoostTimer);scrollBoostTimer=setTimeout(()=>document.documentElement.classList.remove("is-scrolling"),110);scrollRaf=requestAnimationFrame(()=>{scrollRaf=0;updateScrollUI()})}window.addEventListener("scroll",scheduleScrollUI,{passive:true});window.addEventListener("resize",()=>{refreshScrollMetrics();scheduleScrollUI()},{passive:true});if("ResizeObserver"in window)new ResizeObserver(()=>{refreshScrollMetrics();scheduleScrollUI()}).observe(document.documentElement);refreshScrollMetrics();updateScrollUI();
+let scrollRaf=0,scrollBoostTimer=0,lastMobilePaint=0,mobileScrollTicks=0;const isMobileViewport=matchMedia("(max-width:700px)");function endScrollBoost(){document.documentElement.classList.remove("is-scrolling")}function scheduleScrollUI(){if(!document.documentElement.classList.contains("is-scrolling"))document.documentElement.classList.add("is-scrolling");clearTimeout(scrollBoostTimer);scrollBoostTimer=setTimeout(endScrollBoost,120);if(scrollRaf)return;scrollRaf=requestAnimationFrame(()=>{scrollRaf=0;const now=performance.now();if(isMobileViewport.matches){if(now-lastMobilePaint<32)return;mobileScrollTicks++;if(mobileScrollTicks%2!==0)return;lastMobilePaint=now}updateScrollUI()})}window.addEventListener("scroll",scheduleScrollUI,{passive:true});window.addEventListener("resize",()=>{refreshScrollMetrics();scheduleScrollUI()},{passive:true});if("ResizeObserver"in window)new ResizeObserver(()=>{refreshScrollMetrics();scheduleScrollUI()}).observe(document.documentElement);refreshScrollMetrics();updateScrollUI();
 topBtn.addEventListener("click",()=>window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}));
 const navLinks=[...document.querySelectorAll(".bottomnav a")],sections=navLinks.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
 if("IntersectionObserver" in window){const navObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(a=>a.classList.toggle("nav-active",a.getAttribute("href")==="#"+entry.target.id))}}),{rootMargin:"-25% 0px -60% 0px"});sections.forEach(section=>navObserver.observe(section))}
@@ -868,4 +868,74 @@ if("serviceWorker" in navigator)window.addEventListener("load",()=>{setTimeout((
   },{timeout:2000});
 })();
 </script>
+
+<style id="max-mobile-scroll-performance">
+@media (max-width:700px){
+  html.is-scrolling #ambient,
+  html.is-scrolling body:after{display:none!important}
+  html.is-scrolling body:before{
+    background:linear-gradient(145deg,#040610,#080d1e 50%,#080719)!important;
+    opacity:1!important;
+  }
+  html.is-scrolling .orb,
+  html.is-scrolling .hero:before,
+  html.is-scrolling .hero:after,
+  html.is-scrolling .brandmark:after,
+  html.is-scrolling .card:before,
+  html.is-scrolling .card:after{display:none!important}
+  html.is-scrolling *,
+  html.is-scrolling *::before,
+  html.is-scrolling *::after{
+    animation-play-state:paused!important;
+    transition:none!important;
+  }
+  html.is-scrolling .card,
+  html.is-scrolling .panel,
+  html.is-scrolling .spotlight,
+  html.is-scrolling .hero,
+  html.is-scrolling .profile-strip,
+  html.is-scrolling .header,
+  html.is-scrolling header,
+  html.is-scrolling .bottomnav,
+  html.is-scrolling .favorite-btn{
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+    box-shadow:none!important;
+    filter:none!important;
+  }
+  html.is-scrolling .avatar-wrap,
+  html.is-scrolling .avatar{
+    filter:none!important;
+    box-shadow:none!important;
+  }
+  html.is-scrolling .card .icon,
+  html.is-scrolling .theme-dot,
+  html.is-scrolling .bottomnav a,
+  html.is-scrolling .btn,
+  html.is-scrolling .toolbtn{
+    transform:none!important;
+    box-shadow:none!important;
+  }
+  html.mobile-device body,
+  html.mobile-device main{
+    -webkit-overflow-scrolling:touch;
+  }
+}
+</style>
+<script>
+(()=>{
+  const root=document.documentElement;
+  const mobile=matchMedia("(max-width:700px)");
+  if(!mobile.matches)return;
+  let endTimer=0;
+  const boost=()=>{
+    root.classList.add("is-scrolling");
+    clearTimeout(endTimer);
+    endTimer=setTimeout(()=>root.classList.remove("is-scrolling"),130);
+  };
+  window.addEventListener("touchmove",boost,{passive:true});
+  window.addEventListener("scrollend",()=>{clearTimeout(endTimer);root.classList.remove("is-scrolling")},{passive:true});
+})();
+</script>
+
 </body></html>
