@@ -938,4 +938,79 @@ if("serviceWorker" in navigator)window.addEventListener("load",()=>{setTimeout((
 })();
 </script>
 
+
+<style id="all-device-scroll-performance">
+/* حالت اسکرول سریع برای همه دستگاه‌ها؛ بعد از توقف، تمام افکت‌ها برمی‌گردند. */
+@media (min-width:701px){
+  html.is-scrolling #ambient,
+  html.is-scrolling body:after{display:none!important}
+  html.is-scrolling body:before{
+    background:linear-gradient(145deg,#040610,#080d1e 50%,#080719)!important;
+    opacity:1!important;
+  }
+  html.is-scrolling .orb,
+  html.is-scrolling .hero:before,
+  html.is-scrolling .hero:after,
+  html.is-scrolling .brandmark:after,
+  html.is-scrolling .card:before,
+  html.is-scrolling .card:after{
+    display:none!important;
+  }
+  html.is-scrolling *,
+  html.is-scrolling *::before,
+  html.is-scrolling *::after{
+    animation-play-state:paused!important;
+  }
+  html.is-scrolling .hero,
+  html.is-scrolling .profile-strip,
+  html.is-scrolling .card,
+  html.is-scrolling .panel,
+  html.is-scrolling .spotlight,
+  html.is-scrolling header,
+  html.is-scrolling .favorite-btn{
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+    box-shadow:none!important;
+    filter:none!important;
+  }
+  html.is-scrolling .avatar-wrap,
+  html.is-scrolling .avatar,
+  html.is-scrolling .icon{
+    filter:none!important;
+  }
+  html.is-scrolling .card,
+  html.is-scrolling .card .icon,
+  html.is-scrolling .btn,
+  html.is-scrolling .toolbtn,
+  html.is-scrolling .theme-dot{
+    transform:none!important;
+    box-shadow:none!important;
+  }
+}
+@media (min-width:701px) and (prefers-reduced-motion:no-preference){
+  html:not(.is-scrolling) .card:hover .icon{transform:rotate(-5deg) scale(1.06)}
+}
+@media (min-width:701px){
+  .card,.panel,.spotlight,.profile-strip,.hero{
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+  }
+}
+</style>
+<script>
+(()=>{
+  const root=document.documentElement;
+  const finePointer=matchMedia("(min-width:701px) and (pointer:fine)");
+  if(!finePointer.matches)return;
+  let t=0;
+  const boost=()=>{
+    root.classList.add("is-scrolling");
+    clearTimeout(t);
+    t=setTimeout(()=>root.classList.remove("is-scrolling"),120);
+  };
+  window.addEventListener("wheel",boost,{passive:true});
+  window.addEventListener("scrollend",()=>{clearTimeout(t);root.classList.remove("is-scrolling")},{passive:true});
+})();
+</script>
+
 </body></html>
