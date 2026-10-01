@@ -37,6 +37,58 @@ main{padding:42px 0 100px}.hero{display:grid;grid-template-columns:1fr 230px;ali
 .toolrow,.theme-options{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin:18px auto}.toolbtn{font-size:12px;padding:11px 14px}.clockbox{text-align:center}.clocktime{font-size:clamp(30px,7vw,46px);font-weight:1000;direction:ltr;background:linear-gradient(90deg,#fff,var(--a),var(--b));background-clip:text;color:transparent}.clockdate{font-size:13px;color:var(--muted);margin-top:8px}.theme-dot{width:38px;height:38px;border-radius:50%;border:2px solid #ffffff88;cursor:pointer}.theme-dot:focus-visible,.btn:focus-visible,.toolbtn:focus-visible,.card:focus-visible{outline:2px solid var(--a);outline-offset:3px}.notice{display:flex;align-items:flex-start;gap:12px}.notice .icon{--c:#ffcb62}.notice p{color:var(--muted);font-size:13px;line-height:2;margin:7px 0 0}.counter{font-size:12px;color:var(--muted);margin-top:10px}.bottomnav{display:none}footer{border-top:1px solid #ffffff1b;padding:23px 0 30px;margin-top:38px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.footbrand{direction:ltr;font-weight:1000;color:white}body.no-motion .orb,body.no-motion .avatar-wrap:before{animation:none!important}body.no-motion *,body.no-motion *:before,body.no-motion *:after{transition:none!important;animation:none!important}
 @media(max-width:680px){header{height:68px}.status{font-size:0;padding:8px}.status:before{content:"●";font-size:12px;color:#32e6a0}.hero{grid-template-columns:1fr;gap:24px;text-align:center;padding-top:28px}.hero-copy{order:2}.avatar-wrap{order:1;width:166px;height:166px}.hero p{margin:auto}.actions{justify-content:center}.actions .btn{flex:1 1 210px}.cards{gap:10px}.card{padding:15px 12px;min-height:165px;border-radius:18px}.cardtop{display:block}.card h3{font-size:14px;line-height:1.8;margin-top:10px}.card p{font-size:11px}.icon{width:45px;height:45px;border-radius:14px}.handle{font-size:10px}.section-head h2{font-size:22px}.panel{padding:16px 13px}.bottomnav{display:flex;position:fixed;z-index:10;bottom:9px;left:4%;width:92%;justify-content:space-around;gap:4px;padding:9px 5px calc(9px + env(safe-area-inset-bottom));border:1px solid #7189ff55;border-radius:20px;background:#090e20ed;backdrop-filter:blur(18px);box-shadow:0 12px 40px #0008}.bottomnav a{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;color:#dce5ff;text-decoration:none;font-size:10px}.bottomnav a span{font-size:19px;color:var(--a)}footer{padding-bottom:95px}.youtube .icon{width:50px;height:50px}.profile-strip{gap:10px;padding:15px 9px}.profile-strip small{font-size:11px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* ASHKAN YT — neon creator edition */
+:root{--bg:#050711;--panel:#0e1428;--line:#6ee7ff3b;--text:#f8fbff;--muted:#a9b8d5;--a:#61f3ff;--b:#a98bff;--hot:#ff65bb}
+body:before{background:radial-gradient(ellipse at 50% -20%,#1b5b9c66,transparent 48%),radial-gradient(ellipse at 4% 40%,#6129c933,transparent 32%),radial-gradient(ellipse at 96% 72%,#00c9c233,transparent 32%),linear-gradient(145deg,#040610,#080d1e 45%,#080719)}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.14;background-image:linear-gradient(#9abaff12 1px,transparent 1px),linear-gradient(90deg,#9abaff12 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+header{border-bottom-color:#70e9ff20}
+.brandmark{position:relative;overflow:hidden;background:linear-gradient(135deg,#66f6ff,#6b7bff 48%,#e05cff);box-shadow:0 0 0 5px #61f3ff0c,0 0 34px #6c78ff6b}
+.brandmark:after{content:"";position:absolute;inset:-50%;background:linear-gradient(110deg,transparent 35%,#ffffff9c 50%,transparent 65%);transform:translateX(-100%);animation:logoShine 5s ease-in-out infinite}
+@keyframes logoShine{0%,65%{transform:translateX(-100%)}90%,100%{transform:translateX(100%)}}
+.hero{position:relative;isolation:isolate;min-height:390px;padding:46px 32px 40px;border:1px solid #77ddff1c;border-radius:32px;margin-top:26px;background:linear-gradient(115deg,#101a32c9,#0a0d1fd9 62%,#19102bc2);box-shadow:0 24px 90px #0005,inset 0 1px #ffffff12;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 16% 12%,#55eaff18,transparent 46%),radial-gradient(ellipse at 85% 90%,#bd68ff1b,transparent 42%)}
+.hero:after{content:"";position:absolute;inset:0;z-index:-1;opacity:.23;background:linear-gradient(120deg,transparent 30%,#ffffff0b 50%,transparent 70%);background-size:220% 100%;animation:heroSweep 12s linear infinite}
+@keyframes heroSweep{to{background-position:-220% 0}}
+.hero h1{font-size:clamp(45px,8vw,86px);letter-spacing:-2.5px;text-shadow:0 0 38px #61f3ff24;background:linear-gradient(100deg,#fff 4%,#9af8ff 34%,#b6a4ff 65%,#ff91d1 90%);background-size:180% auto;animation:titleFlow 7s ease-in-out infinite alternate}
+@keyframes titleFlow{to{background-position:100% center}}
+.tag{border-color:#69edff45;background:#0e263c99;color:#c8fbff;box-shadow:inset 0 0 18px #61f3ff08}
+.avatar-wrap{width:220px;height:220px;filter:drop-shadow(0 18px 34px #0008)}
+.avatar-wrap:before{inset:-7px;background:conic-gradient(from 0deg,#5df7ff,#6f82ff,#df6cff,#ff7dc5,#5df7ff);box-shadow:0 0 32px #6c8dff3d}
+.avatar{border-color:#080d1e;padding:3px}
+.online{box-shadow:0 0 16px #32e6a0a6}
+.profile-strip{border-color:#76efff32;background:linear-gradient(110deg,#101b35d9,#10162de8 48%,#1b1030db);box-shadow:0 16px 45px #0002}
+.section-head{margin-top:52px}
+.section-head h2{letter-spacing:-.4px}
+.card,.panel{border-color:#8a9fff2c;background:linear-gradient(145deg,#121c36ed,#0a0f20f5);box-shadow:inset 0 1px #ffffff09,0 14px 40px #0001}
+.card{transition:transform .25s,border-color .25s,box-shadow .25s;isolation:isolate}
+.card:after{content:"";position:absolute;inset:0;z-index:-1;opacity:0;background:linear-gradient(120deg,#61f3ff12,transparent 45%,#c276ff14);transition:opacity .25s}
+.card:hover{border-color:color-mix(in srgb,var(--c) 70%,transparent);box-shadow:0 15px 40px #0005,0 0 25px color-mix(in srgb,var(--c) 12%,transparent);transform:translateY(-5px)}
+.card:hover:after{opacity:1}
+.card .icon{box-shadow:inset 0 0 18px color-mix(in srgb,var(--c) 8%,transparent);transition:transform .25s}
+.card:hover .icon{transform:rotate(-5deg) scale(1.06)}
+.favorite-btn{backdrop-filter:blur(12px);box-shadow:0 6px 18px #0004}
+.searchbox{background:#090e20c9;border-color:#8a9fff30}
+.searchbox:focus{border-color:#61f3ff9c;box-shadow:0 0 0 4px #61f3ff12,0 0 30px #61f3ff0b}
+.btn,.toolbtn{transition:transform .22s,border-color .22s,box-shadow .22s}
+.primary{box-shadow:0 8px 26px #54e6ff20}
+.primary:hover{box-shadow:0 12px 34px #54e6ff35}
+.secondary:hover,.toolbtn:hover{border-color:#61f3ff8a;box-shadow:0 8px 25px #0003}
+.theme-dot{transition:transform .2s,box-shadow .2s}
+.theme-dot:hover{transform:scale(1.12);box-shadow:0 0 20px #ffffff35}
+.bottomnav{border-color:#7deeff42;background:#070c1deF;box-shadow:0 12px 42px #0009,0 0 35px #5e75ff0c}
+.bottomnav a{transition:transform .2s,color .2s}.bottomnav a:hover{transform:translateY(-2px)}
+.creator-chips{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:20px auto 8px}
+.creator-chip{display:inline-flex;align-items:center;gap:7px;border:1px solid #7e9bff32;background:#0c1429c9;border-radius:99px;padding:9px 13px;font-size:11px;color:#dbe8ff;box-shadow:inset 0 1px #ffffff08}
+.creator-chip i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--a);box-shadow:0 0 12px var(--a)}
+.spotlight{position:relative;overflow:hidden;border:1px solid #8a8aff45;border-radius:24px;padding:24px;background:radial-gradient(ellipse at 0 0,#5b8dff22,transparent 60%),linear-gradient(120deg,#11182deF,#15102beF);box-shadow:0 18px 55px #0003}
+.spotlight-row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.spotlight h3{font-size:19px;margin:0 0 8px}.spotlight p{color:var(--muted);font-size:13px;line-height:2;margin:0;max-width:620px}
+.spotlight-badge{font-size:34px;filter:drop-shadow(0 0 16px #b58cff4a)}
+.intro-copy{margin-top:15px;border:1px dashed #8d9dff42;border-radius:14px;padding:12px 14px;color:#c8d4f3;font-size:12px;line-height:2;overflow-wrap:anywhere}
+@media(max-width:680px){.hero{margin-top:15px;padding:28px 16px 25px;border-radius:24px;min-height:0}.avatar-wrap{width:160px;height:160px}.hero h1{letter-spacing:-1.4px}.section-head{margin-top:40px}.spotlight{padding:18px 15px}.spotlight-row{justify-content:center;text-align:center}.creator-chip{padding:8px 10px;font-size:10px}}
+@media(prefers-reduced-motion:reduce){.brandmark:after,.hero:after,.hero h1{animation:none!important}}
+
 </style>
 </head>
 <body>
@@ -49,7 +101,9 @@ main{padding:42px 0 100px}.hero{display:grid;grid-template-columns:1fr 230px;ali
 <div class="hero-copy"><span class="tag">✦ WELCOME TO MY WORLD ✦</span><h1>ASHKAN YT</h1><p>به صفحه رسمی من خوش اومدی! 🎮 اینجا همه لینک‌ها، شبکه‌های اجتماعی و راه‌های ارتباط با اشکان وای تی رو یک‌جا پیدا می‌کنی.</p><div class="actions"><a class="btn primary" href="https://t.me/ashkan_sh0p" target="_blank" rel="noopener noreferrer">✈ ارتباط مستقیم در تلگرام ↗</a><a class="btn secondary" href="https://t.me/ASHKAN_YT_FF" target="_blank" rel="noopener noreferrer">＋ عضویت در کانال ↗</a></div></div>
 <div class="avatar-wrap"><img class="avatar" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDACQZGyAbFyQgHiApJyQrNls7NjIyNm9PVEJbhHSKiIF0f32Ro9GxkZrFnX1/tve4xdje6uzqja////7j/9Hl6uH/2wBDAScpKTYwNms7O2vhln+W4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eH/wAARCABgAGADASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAgMF/8QANRAAAgIBAwIDBAYLAAAAAAAAAQIAEQMEEiExQRNRgSIyYXEFMzRyobEUIyQ1QkNSc7LB0f/EABgBAAMBAQAAAAAAAAAAAAAAAAABAgME/8QAGxEAAwEBAQEBAAAAAAAAAAAAAAERAjESIQP/2gAMAwEAAhEDEQA/AOHCEIAEISQp78QAiEuFAkxwVM4TSWOBvB8Xb7G7bfxhApjCSVqREMIQhAAhCaYks7mDbAeSICbhCpQth16TfKLTFfkZDJtXghkPcSCQQtXwDLIbv0zMix5ywQ5GVR3jPg6fBiDZQ2Qk9iQJGtQ0zm/RWavqMuTCmJmHhpyFAAk6kYVcLiRlrruPW5lKTqpLUcIl10zZMbsgJKdQPKWbEFxI4dSWv2R1Ec+jePH5/hjhGtRVHKhLvjZVD17JJAPxlJBqEaweJhwjKpoMa879IrHz+70/uH8hKRG+Qqrp731b96FqfTtMyv6ta6k1NGA/Q0Pfe3PoIZcOxn2n2UAY33uv+xkSGSlsbhh1UzqplDadGzICCL6WJxnayfjNBqMxQKMrccVcy3n1w6Pz156a63MmbINnIA61VzEqu1NpJY+8CJRm9s9+Zqh3EknnrzLzEoZ7bbpAHtDzuMaTUJh8XdZ3CgB3mK4myMAvQnr8aktjC4cbi7Ym/SUQ/qhXKznTqhFICWHHWLR7P9l0/wB1vzMRksvIR88aDHY/mE16CIRzEWy6MY1Qkq5JPbpBNLoaTfC+Q7tKrUBeRjQ7cCGrfa+Qf1Ko/AGQQBiGNsiAAk8Gzz8pTKr5sink7qFniHpCWXRU9Z1MP0eTpQ6/aPrE5sMPL5xHJhfTZk8UcXdjvGn1+M2PDZ77se/cxdNJOiLMWck9SbM00pHiAMAQfOa5NYHR1GFV3dTIGlK4Fzk2CekLBNVMbxe8v31/wMwJVdPgLLuFvxJGXYQdxBu+zDpUqVL40RWRtt1zR5+cr0jNZZOf7Lgs1SN68xCOaosuDEjIylQRyOvNxOJulZU6EsjUeekrCIoc2sigtiFeZuZ9/KZI9cHpNZaM38HdR+2aDcPrMfJE5dx/RbwzsrUKqvOGXRoTatsMhZapq9JxiFxxc4OgXCb3BvwgmjUnnJf3RNNTjCYUCilB/wBR+aL1KLggHlQfnBiD0UD5XIlHzNtKKxC9xfWU/hmvpR23H4DpKwhINAhCEACSrlekiEAHtLqsSJte1N3fWatqMRHGRZzIR0UH8ObEFG5gPWRqdXjfFsS2N3faIwhQhLMW6yIQiGEIQgB//9k=" alt="عکس پروفایل پیکسلی اشکان" loading="eager"><span class="online" aria-label="فعال"></span></div>
 </section>
-<div class="profile-strip"><span class="symbol">⚡</span><div><strong>OFFICIAL CREATOR PROFILE</strong><small>گیمینگ • محتوا • ارتباط مستقیم<br>همه راه‌های ارتباط با Ashkan YT در یک صفحه</small></div><span class="symbol">🎮</span></div>
+<div class="creator-chips"><span class="creator-chip"><i></i> OFFICIAL PROFILE</span><span class="creator-chip">🎮 GAMING VIBES</span><span class="creator-chip">⚡ ASHKAN UNIVERSE</span></div>
+<div class="spotlight"><div class="spotlight-row"><div><h3 id="spotlightTitle">⚡ اینجا دنیای اشکانه!</h3><p id="spotlightText">یه مسیر سریع برای رسیدن به همه صفحه‌های من؛ انتخاب کن، دنبال کن و باهم در ارتباط باشیم.</p><div class="actions"><button class="btn primary" id="surpriseBtn">✨ سورپرایزم کن</button><button class="btn secondary" id="copyBioBtn">⧉ کپی متن معرفی من</button></div></div><span class="spotlight-badge" aria-hidden="true">✦</span></div><div class="intro-copy" id="bioPreview">من Ashkan YT هستم 🎮 برای دیدن محتوا و ارتباط با من، شبکه‌های اجتماعی‌ام را دنبال کن!</div></div>
+<div class="profile-strip"><span class="symbol">⚡</span><div><strong>WELCOME TO ASHKAN UNIVERSE</strong><small>گیمینگ • محتوا • ارتباط مستقیم<br>همه راه‌های ارتباط با Ashkan YT در یک صفحه</small></div><span class="symbol">🎮</span></div>
 <section id="links"><div class="section-head"><h2>🌐 شبکه‌های اجتماعی من</h2><p>جست‌وجو کن یا روی کارت دلخواهت بزن.</p></div><input id="linkSearch" class="searchbox" type="search" placeholder="🔎 جست‌وجوی تلگرام، اینستاگرام، روبیکا... (کلید /)" aria-label="جست‌وجوی شبکه‌های اجتماعی"><div class="favorite-tools"><button class="toolbtn" id="favoritesFilter" aria-pressed="false">☆ فقط لینک‌های محبوب</button><button class="toolbtn" id="copyAllLinks">⧉ کپی همه لینک‌ها</button><button class="toolbtn" id="resetFilters">↺ نمایش همه لینک‌ها</button></div>
 <div class="cards" id="socialCards">
 <a class="card" data-search="تلگرام شخصی سفارش ارتباط پیام" style="--c:#32b9ff" href="https://t.me/ashkan_sh0p" target="_blank" rel="noopener noreferrer"><div class="cardtop"><span class="icon">➤</span><div><h3>تلگرام شخصی / سفارش</h3><p>پیام مستقیم و ارتباط با من</p></div></div><span class="handle">@ashkan_sh0p ↗</span></a>
@@ -72,6 +126,13 @@ main{padding:42px 0 100px}.hero{display:grid;grid-template-columns:1fr 230px;ali
 </div>
 <script>
 document.getElementById("year").textContent=new Date().getFullYear();
+const spotlights=[
+["🎮 آماده‌ای وارد دنیای اشکان بشی؟","همه شبکه‌ها و راه‌های ارتباط با من فقط با یک کلیک در دسترسه."],
+["⚡ یک کلیک تا ارتباط با من","تلگرام، اینستاگرام و روبیکا رو ببین و هرکدوم رو دوست داری انتخاب کن."],
+["🚀 به جمع Ashkan YT خوش اومدی","اگه از محتوا خوشت اومد، کانال رو دنبال کن و سایت رو برای دوستات بفرست."],
+["💜 اینجا فقط شروع ماجراست","سایت رو ذخیره کن تا هر وقت خواستی سریع به صفحه‌هام برسی."]
+];let spotIndex=0;document.getElementById("surpriseBtn").addEventListener("click",()=>{spotIndex=(spotIndex+1+Math.floor(Math.random()*(spotlights.length-1)))%spotlights.length;document.getElementById("spotlightTitle").textContent=spotlights[spotIndex][0];document.getElementById("spotlightText").textContent=spotlights[spotIndex][1];document.querySelector(".spotlight-badge").textContent=["✦","⚡","🚀","💜"][spotIndex]});
+document.getElementById("copyBioBtn").addEventListener("click",async()=>{const bio="من Ashkan YT هستم 🎮\nهمه شبکه‌های اجتماعی من:\nتلگرام: https://t.me/ashkan_sh0p\nکانال تلگرام: https://t.me/ASHKAN_YT_FF\nاینستاگرام: https://instagram.com/ashkan_yt_ir\nروبیکا: https://rubika.ir/ashkan_yt\nسایت: https://ashkanre.github.io/ashkan-yt/";if(await copyText(bio))showToast("✓ متن معرفی و لینک‌ها کپی شد");else showToast("کپی انجام نشد؛ دوباره امتحان کن")});
 function tick(){const n=new Date();document.getElementById("clock").textContent=n.toLocaleTimeString("fa-IR",{hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false});document.getElementById("clockDate").textContent=n.toLocaleDateString("fa-IR",{weekday:"long",year:"numeric",month:"long",day:"numeric"});}tick();setInterval(tick,1000);
 const themes={blue:["#54e6ff","#b58cff","#ff5ca8"],red:["#ffb84d","#ff5d78","#ff4545"],green:["#48f0c4","#55ddff","#00d5b5"],pink:["#ff75c8","#b58cff","#ff65b8"]};
 function applyTheme(t){const c=themes[t]||themes.blue;document.documentElement.style.setProperty("--a",c[0]);document.documentElement.style.setProperty("--b",c[1]);document.documentElement.style.setProperty("--hot",c[2]);try{localStorage.setItem("ashkanYTTheme",t)}catch(e){}}
