@@ -172,7 +172,69 @@ footer{align-items:center}
  .creator-chip{font-size:9px}
  .section-head h2{font-size:20px}
 }
-</style></style>
+<style>
+/* Beauty pass — visual hierarchy, depth, spacing */
+html{scroll-behavior:smooth}
+body{background:#050711}
+body:before{background:
+ radial-gradient(ellipse at 15% 8%,#4f7cff30,transparent 30%),
+ radial-gradient(ellipse at 85% 18%,#c15cff28,transparent 30%),
+ radial-gradient(ellipse at 50% 100%,#00e0ff20,transparent 38%),
+ linear-gradient(145deg,#03050d,#080d1e 48%,#090615)}
+.wrap{width:min(1120px,92%)}
+header{box-shadow:0 12px 40px #0003}
+.brandmark{position:relative;box-shadow:0 0 35px #667cff55,inset 0 1px #ffffff55}
+.brandmark:after{content:"";position:absolute;inset:1px;border-radius:inherit;background:linear-gradient(135deg,#ffffff35,transparent 42%);pointer-events:none}
+main{padding-top:28px}
+.hero{min-height:455px;margin-top:12px;padding:46px 42px;border:1px solid #8beaff22;border-radius:34px;background:
+ radial-gradient(ellipse at 92% 15%,#8a65ff18,transparent 34%),
+ radial-gradient(ellipse at 8% 85%,#37eaff12,transparent 36%),
+ linear-gradient(135deg,#111a32e8,#080d1ce8 62%,#150d25e8);
+ box-shadow:0 30px 90px #0005,inset 0 1px #ffffff12;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 25%,#ffffff06 50%,transparent 75%);background-size:220% 100%;animation:beautySweep 12s linear infinite}
+@keyframes beautySweep{to{background-position:-220% 0}}
+.hero h1{font-size:clamp(48px,7.5vw,88px);line-height:1.03;text-shadow:0 10px 40px #0005}
+.hero p{max-width:670px;color:#b8c6e4}
+.tag{box-shadow:inset 0 0 20px #61f3ff08,0 8px 24px #0002}
+.avatar-wrap{width:235px;height:235px}
+.avatar-wrap:after{content:"";position:absolute;inset:-24px;border-radius:50%;background:radial-gradient(circle,#61f3ff12,transparent 65%);z-index:-1}
+.avatar{box-shadow:0 0 55px #458cff45,0 20px 45px #0008}
+.actions{margin-top:26px}
+.btn{min-height:47px;border-radius:15px}
+.section-head{position:relative;margin:64px 0 23px}
+.section-head:after{content:"";display:block;width:46px;height:3px;margin:15px auto 0;border-radius:99px;background:linear-gradient(90deg,var(--a),var(--b),var(--hot));box-shadow:0 0 15px #61f3ff55}
+.section-head h2{font-size:28px}
+.section-head p{color:#91a1c2}
+.profile-strip{margin:22px 0 38px;padding:22px 26px;background:linear-gradient(110deg,#0f1a34e8,#18102de8);box-shadow:0 18px 50px #0003,inset 0 1px #ffffff0a}
+.cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{min-height:175px;padding:22px;border-radius:23px;background:linear-gradient(145deg,#131e3ae8,#090f21f5);box-shadow:0 12px 34px #0003,inset 0 1px #ffffff0a}
+.card:before{opacity:.55}
+.cardtop{margin-bottom:12px}
+.card h3{font-size:17px}
+.card p{font-size:12px;line-height:2}
+.card .icon{width:54px;height:54px;border-radius:17px;box-shadow:0 10px 25px #0004,inset 0 0 18px color-mix(in srgb,var(--c) 12%,transparent)}
+.handle{opacity:.85}
+.favorite-btn{box-shadow:0 8px 22px #0005}
+.searchbox{box-shadow:0 12px 30px #0003,inset 0 1px #ffffff08}
+.panel,.spotlight{border-radius:24px;box-shadow:0 18px 50px #0003,inset 0 1px #ffffff0b}
+.spotlight{background:radial-gradient(ellipse at 0 0,#6d7cff1b,transparent 52%),linear-gradient(120deg,#121b32ef,#130e26ef)}
+.qr-image{box-shadow:0 15px 35px #0004}
+.tool-panel-grid{gap:16px}
+footer{margin-top:58px}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding:38px 28px}}
+@media(max-width:680px){
+ .wrap{width:min(94%,560px)}
+ .hero{min-height:0;margin-top:8px;padding:29px 17px 25px;border-radius:26px}
+ .hero h1{font-size:clamp(42px,13vw,64px)}
+ .avatar-wrap{width:170px;height:170px}
+ .cards{grid-template-columns:1fr;gap:11px}
+ .card{min-height:145px;padding:17px;border-radius:19px}
+ .card h3{font-size:15px}
+ .section-head{margin-top:48px}
+ .section-head h2{font-size:23px}
+ .profile-strip{border-radius:19px;padding:17px 13px}
+}
+</style></style></style>
 </head>
 <body>
 <div id="appSplash" aria-hidden="true"><div class="splash-mark">AY</div><div class="splash-title">ASHKAN YT</div><div class="splash-caption">دنیای اشکان در یک نگاه</div><div class="splash-track"><span></span></div></div>
