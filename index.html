@@ -297,6 +297,164 @@ body.light-mode:after{opacity:.06}
   body:before{animation:none}
 }
 </style>
+<style>
+/* ULTIMATE VISUAL REDESIGN */
+:root{
+ --bg:#03050d;--surface:#0a1020;--surface2:#0d1630;
+ --a:#56efff;--b:#8b7dff;--hot:#ff5fb7;--gold:#ffd166;
+ --line:#8ba8ff2b;--text:#f7f9ff;--muted:#9eaccb;
+}
+html{background:#02030a}
+body{
+ background:#02030a;
+ font-family:"Vazirmatn","Segoe UI",sans-serif;
+}
+body:before{
+ background:
+ radial-gradient(900px 520px at 8% -5%,#236dff38,transparent 70%),
+ radial-gradient(850px 560px at 95% 8%,#9c3cff32,transparent 68%),
+ radial-gradient(700px 500px at 55% 48%,#00d9ff12,transparent 72%),
+ radial-gradient(700px 520px at 35% 105%,#ff3d9d1c,transparent 70%),
+ linear-gradient(155deg,#010209,#060a18 48%,#05030c);
+}
+body:after{
+ opacity:.16;
+ background-image:
+ radial-gradient(circle,#ffffffaa 0 1px,transparent 1.5px),
+ radial-gradient(circle,#61efff88 0 1px,transparent 1.5px);
+ background-size:113px 113px,173px 173px;
+ background-position:20px 30px,80px 100px;
+ mask-image:linear-gradient(to bottom,#000,transparent 90%);
+}
+#ambient .orb{mix-blend-mode:screen;filter:blur(90px);opacity:.14}
+.wrap{width:min(1180px,92%)}
+header{
+ height:72px;margin-top:12px;padding:0 16px;
+ border:1px solid #86eaff24;border-radius:22px;
+ background:#060b18b8;
+ backdrop-filter:blur(24px) saturate(1.4);
+ box-shadow:0 18px 55px #0006,inset 0 1px #ffffff0d;
+}
+.brandmark{width:46px;height:46px;border-radius:16px;box-shadow:0 0 45px #647bff75,0 0 0 6px #61efff0a}
+.topnav a{font-size:12px;padding:10px 14px}
+.status{background:#0a1428a8}
+main{padding-top:34px}
+.hero{
+ min-height:520px;margin-top:16px;padding:58px 52px;
+ grid-template-columns:minmax(0,1fr) 270px;gap:50px;
+ border:1px solid #8deaff24;border-radius:38px;
+ background:
+ radial-gradient(500px 300px at 92% 15%,#8d67ff1b,transparent 72%),
+ radial-gradient(500px 340px at 5% 95%,#31eaff12,transparent 72%),
+ linear-gradient(135deg,#0d1730e8,#070b18ed 55%,#130a22e8);
+ box-shadow:0 35px 110px #0008,0 0 80px #4d6dff10,inset 0 1px #ffffff12;
+}
+.hero:before{
+ background:
+ linear-gradient(105deg,transparent 35%,#ffffff07 50%,transparent 65%);
+ background-size:220% 100%;animation:heroLight 10s linear infinite;
+}
+@keyframes heroLight{to{background-position:-220% 0}}
+.hero-copy{max-width:760px}
+.tag{
+ padding:9px 15px;border-radius:999px;
+ border:1px solid #65efff55;background:#0b263aa8;
+ box-shadow:0 0 28px #4ceaff0b,inset 0 1px #ffffff0b;
+}
+.hero h1{
+ margin:25px 0 18px;font-size:clamp(54px,8vw,96px);
+ line-height:.98;letter-spacing:-3px;
+ text-shadow:0 15px 50px #0008;
+}
+.hero p{font-size:16px;line-height:2.15;color:#b5c3e0}
+.actions{margin-top:30px;gap:12px}
+.btn{min-height:50px;padding:14px 20px;border-radius:16px}
+.primary{box-shadow:0 12px 34px #55eaff24,inset 0 1px #ffffff44}
+.secondary{background:#0b1225c9;backdrop-filter:blur(10px)}
+.avatar-wrap{width:250px;height:250px}
+.avatar-wrap:before{inset:-9px;filter:blur(1px);box-shadow:0 0 50px #697fff52}
+.avatar{border-width:6px;box-shadow:0 0 70px #4d83ff52,0 30px 60px #000a}
+.online{width:25px;height:25px;box-shadow:0 0 24px #32e6a0}
+.creator-chips{margin-top:24px}
+.creator-chip{
+ padding:10px 14px;background:#091328a8;
+ border-color:#819aff35;backdrop-filter:blur(10px);
+}
+.section-head{margin:78px 0 27px}
+.section-head h2{font-size:31px}
+.section-head:after{width:70px;height:4px;margin-top:16px;box-shadow:0 0 22px #5eeeff66}
+.section-head p{font-size:13px}
+.profile-strip{
+ margin:25px 0 42px;padding:24px 30px;border-radius:25px;
+ background:linear-gradient(110deg,#0b1832e8,#110c25e8);
+ border-color:#73eaff30;box-shadow:0 20px 55px #0004,inset 0 1px #ffffff0b;
+}
+.searchbox{
+ width:min(650px,100%);padding:16px 20px;border-radius:17px;
+ background:#060c1bc9;border-color:#7f9aff35;
+ box-shadow:0 14px 40px #0005,inset 0 1px #ffffff09;
+}
+.cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{
+ min-height:195px;padding:24px;border-radius:25px;
+ background:linear-gradient(145deg,#0e1934ee,#070c1cf7);
+ border-color:#829cff2d;
+ box-shadow:0 18px 45px #0005,inset 0 1px #ffffff0b;
+}
+.card:before{width:180px;height:180px;opacity:.16;filter:blur(45px)}
+.cardtop{margin-bottom:16px}
+.card .icon{width:58px;height:58px;border-radius:19px;box-shadow:0 12px 30px #0005,inset 0 0 24px color-mix(in srgb,var(--c) 13%,transparent)}
+.card h3{font-size:18px}
+.card p{font-size:12.5px;line-height:2.05}
+.handle{margin-top:15px}
+.favorite-btn{top:12px;left:12px;width:38px;height:38px;border-radius:13px;background:#050b19d9;backdrop-filter:blur(10px)}
+.panel,.spotlight{
+ border-radius:27px;padding:25px;
+ background:linear-gradient(145deg,#0d1730e8,#080d1df5);
+ border-color:#829aff2c;box-shadow:0 20px 55px #0005,inset 0 1px #ffffff0b;
+}
+.spotlight{
+ padding:30px;
+ background:radial-gradient(500px 260px at 0 0,#587dff1e,transparent 72%),linear-gradient(120deg,#0d1730f2,#130b24f2);
+}
+.spotlight h3{font-size:21px}
+.spotlight-badge{font-size:42px}
+.youtube{min-height:135px}
+.youtube .icon{width:70px;height:70px}
+.qr-image{width:200px;border-radius:22px;padding:12px;box-shadow:0 20px 45px #0006}
+.tool-panel-grid{gap:18px}
+.tool-list li{padding:12px;border-radius:14px;background:#050b19a8}
+.faq-list details{border-radius:17px;background:#0b1328b8;padding:18px 19px}
+footer{margin-top:70px;padding:28px 0 38px}
+.bottomnav{backdrop-filter:blur(24px) saturate(1.4)}
+@media(max-width:1000px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr 230px;padding:45px 35px}}
+@media(max-width:680px){
+ body:after{opacity:.09;background-size:140px 140px,210px 210px}
+ .wrap{width:min(94%,600px)}
+ header{height:64px;margin-top:7px;border-radius:18px}
+ main{padding-top:16px}
+ .hero{display:grid;grid-template-columns:1fr;min-height:0;padding:32px 18px 27px;gap:25px;border-radius:28px;text-align:center}
+ .hero-copy{order:2}.avatar-wrap{order:1;width:185px;height:185px}
+ .hero h1{font-size:clamp(46px,14vw,68px);letter-spacing:-2px}
+ .hero p{font-size:13.5px;line-height:2}
+ .actions .btn{flex:1 1 100%}
+ .section-head{margin:55px 0 22px}.section-head h2{font-size:24px}
+ .profile-strip{padding:18px 13px;border-radius:20px}
+ .cards{grid-template-columns:1fr;gap:12px}
+ .card{min-height:155px;padding:19px;border-radius:21px}
+ .card h3{font-size:16px}
+ .card p{font-size:11.5px}
+ .card .icon{width:52px;height:52px}
+ .panel,.spotlight{padding:19px 15px;border-radius:21px}
+ .youtube{min-height:0}
+ .youtube .icon{width:56px;height:56px}
+ .qr-image{width:195px}
+ footer{margin-top:48px}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero:before{animation:none!important}
+}
+</style>
 </head>
 <body>
 <div id="appSplash" aria-hidden="true"><div class="splash-mark">AY</div><div class="splash-title">ASHKAN YT</div><div class="splash-caption">دنیای اشکان در یک نگاه</div><div class="splash-track"><span></span></div></div>
