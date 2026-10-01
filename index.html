@@ -768,7 +768,7 @@ document.getElementById("copySiteUrl").addEventListener("click",async()=>{if(awa
 document.getElementById("shareBtn").addEventListener("click",async()=>{if(navigator.share){try{await navigator.share({title:"Ashkan YT",text:"صفحه رسمی اشکان وای تی",url:SITE_URL})}catch(e){if(e.name!=="AbortError")showToast("اشتراک‌گذاری انجام نشد")}}else if(await copyLink())showToast("✓ لینک برای اشتراک‌گذاری کپی شد");else showToast("لطفاً لینک سایت را از نوار آدرس کپی کن")});
 const progress=document.getElementById("scrollProgress"),topBtn=document.getElementById("topBtn");
 let scrollMax=0;function refreshScrollMetrics(){scrollMax=Math.max(0,document.documentElement.scrollHeight-innerHeight)}function updateScrollUI(){if(!scrollMax)refreshScrollMetrics();const pct=scrollMax?Math.min(100,scrollY/scrollMax*100):0;progress.style.transform="scaleX("+(pct/100)+")"}
-let scrollBoostTimer=0,scrollLastEvent=0;const cssScrollTimeline=CSS.supports?.("animation-timeline:scroll()")===true;function finishScrollBoost(){const wait=performance.now()-scrollLastEvent;if(wait<120){scrollBoostTimer=setTimeout(finishScrollBoost,120-wait);return}scrollBoostTimer=0;document.documentElement.classList.remove("is-scrolling")}function scheduleScrollUI(){scrollLastEvent=performance.now();document.documentElement.classList.add("is-scrolling");clearTimeout(scrollBoostTimer);scrollBoostTimer=setTimeout(finishScrollBoost,140);if(!cssScrollTimeline)updateScrollUI()}window.addEventListener("scroll",scheduleScrollUI,{passive:true});window.addEventListener("resize",refreshScrollMetrics,{passive:true});if("ResizeObserver"in window)new ResizeObserver(refreshScrollMetrics).observe(document.documentElement);refreshScrollMetrics();updateScrollUI();
+let scrollBoostTimer=0,scrollLastEvent=0,scrollFallbackRaf=0;const cssScrollTimeline=typeof CSS!=="undefined"&&CSS.supports("animation-timeline:scroll()");function finishScrollBoost(){const wait=performance.now()-scrollLastEvent;if(wait<120){scrollBoostTimer=setTimeout(finishScrollBoost,120-wait);return}scrollBoostTimer=0;document.documentElement.classList.remove("is-scrolling")}function scheduleScrollUI(){scrollLastEvent=performance.now();document.documentElement.classList.add("is-scrolling");clearTimeout(scrollBoostTimer);scrollBoostTimer=setTimeout(finishScrollBoost,140);if(cssScrollTimeline||scrollFallbackRaf)return;scrollFallbackRaf=requestAnimationFrame(()=>{scrollFallbackRaf=0;updateScrollUI()})}window.addEventListener("scroll",scheduleScrollUI,{passive:true});window.addEventListener("resize",refreshScrollMetrics,{passive:true});if("ResizeObserver"in window)new ResizeObserver(refreshScrollMetrics).observe(document.documentElement);refreshScrollMetrics();updateScrollUI();
 topBtn.addEventListener("click",()=>window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}));
 const navLinks=[...document.querySelectorAll(".bottomnav a")],sections=navLinks.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
 if("IntersectionObserver" in window){let activeNavId="";const navObserver=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting&&entry.target.id!==activeNavId){activeNavId=entry.target.id;const hash="#"+activeNavId;for(const a of navLinks)a.classList.toggle("nav-active",a.getAttribute("href")===hash);break}}},{rootMargin:"-25% 0px -60% 0px"});sections.forEach(section=>navObserver.observe(section))}
@@ -1355,5 +1355,67 @@ section[id],.creator-hub,.ultimate-panel{
   onScrollEnd();
 })();
 </script>
+
+
+<style id="mobile-final-performance-tools">
+/* Mobile performance profile: glass, background, icons and all features stay visible. */
+@media (max-width:700px){
+  .hero,.profile-strip,.spotlight,.panel,.card{
+    backdrop-filter:blur(4px) saturate(108%)!important;
+    -webkit-backdrop-filter:blur(4px) saturate(108%)!important;
+  }
+  header,.bottomnav,.favorite-btn,.creator-chip,.searchbox,.message-box textarea,.faq-list details{
+    backdrop-filter:blur(3px) saturate(105%)!important;
+    -webkit-backdrop-filter:blur(3px) saturate(105%)!important;
+  }
+  .icon,.app-icon{
+    backdrop-filter:blur(3px) saturate(115%)!important;
+    -webkit-backdrop-filter:blur(3px) saturate(115%)!important;
+  }
+  .hero,.profile-strip,.spotlight,.panel,.card{
+    box-shadow:inset 0 1px #ffffff08,0 5px 14px #0002!important;
+  }
+  #ambient .orb{
+    filter:blur(30px)!important;
+    opacity:.105!important;
+    animation-duration:48s!important;
+  }
+  body:after{opacity:.07!important}
+  #ambient:before,#ambient:after{opacity:.38!important}
+  .hero h1{animation-duration:34s!important}
+  .avatar-wrap:before{animation-duration:28s!important}
+  .brandmark:after{animation-duration:26s!important}
+}
+@media (max-width:700px) and (max-resolution:1.5dppx){
+  .hero,.profile-strip,.spotlight,.panel,.card{
+    backdrop-filter:blur(3px) saturate(105%)!important;
+    -webkit-backdrop-filter:blur(3px) saturate(105%)!important;
+  }
+}
+</style>
+<script id="mobile-browser-performance-tools">
+(()=>{
+  const root=document.documentElement;
+  const mobile=matchMedia("(max-width:700px)");
+  if(!mobile.matches)return;
+  const pauseWhenHidden=()=>root.classList.toggle("tab-hidden",document.hidden);
+  document.addEventListener("visibilitychange",pauseWhenHidden,{passive:true});
+  pauseWhenHidden();
+})();
+</script>
+<style id="mobile-hidden-work">
+@media (max-width:700px){
+  html.tab-hidden body:after,
+  html.tab-hidden #ambient:before,
+  html.tab-hidden #ambient:after,
+  html.tab-hidden .orb,
+  html.tab-hidden .hero h1,
+  html.tab-hidden .hero:after,
+  html.tab-hidden .brandmark:after,
+  html.tab-hidden .avatar-wrap:before{
+    animation-play-state:paused!important;
+  }
+}
+</style>
 
 </body></html>
