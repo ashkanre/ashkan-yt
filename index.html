@@ -990,18 +990,13 @@ if("serviceWorker" in navigator)window.addEventListener("load",()=>{setTimeout((
 /* بهینه‌سازی متعادل: شیشه، پس‌زمینه، نورها و آیکون‌ها حفظ می‌شوند؛ فقط هزینهٔ رندر پایین می‌آید. */
 body:before{
   contain:paint;
-  transform:translateZ(0);
-  -webkit-backface-visibility:hidden;
-  backface-visibility:hidden;
 }
 #ambient{
-  contain:strict;
-  transform:translateZ(0);
+  contain:paint;
 }
 .orb{
   will-change:auto;
   animation-duration:24s;
-}
 .card,.panel,.spotlight,.profile-strip,.hero{
   -webkit-backface-visibility:hidden;
   backface-visibility:hidden;
@@ -1319,10 +1314,10 @@ body:after{
 }
 section[id],.creator-hub,.ultimate-panel{
   content-visibility:auto;
-  contain-intrinsic-size:480px;
+  contain-intrinsic-size:auto 500px;
 }
 @media(max-width:700px){
-  section[id],.creator-hub,.ultimate-panel{contain-intrinsic-size:360px}
+  section[id],.creator-hub,.ultimate-panel{contain-intrinsic-size:auto 420px}
   .orb{animation-duration:42s!important}
   .hero:after,.brandmark:after{animation-duration:22s!important}
   .hero h1{animation-duration:26s!important}
@@ -1417,5 +1412,141 @@ section[id],.creator-hub,.ultimate-panel{
   }
 }
 </style>
+
+
+<style id="adaptive-performance-suite">
+/* Adaptive browser-native performance suite: no feature is removed. */
+html.adaptive-lite .orb{
+  filter:blur(18px)!important;
+  opacity:.06!important;
+}
+html.adaptive-lite body:after{
+  opacity:.035!important;
+}
+html.adaptive-lite #ambient:before,
+html.adaptive-lite #ambient:after{
+  opacity:.16!important;
+  animation-play-state:paused!important;
+}
+html.adaptive-lite .hero:after,
+html.adaptive-lite .brandmark:after{
+  animation-play-state:paused!important;
+}
+html.adaptive-lite .hero h1,
+html.adaptive-lite .avatar-wrap:before{
+  animation-duration:60s!important;
+}
+@media (max-width:700px){
+  html.adaptive-lite .hero,
+  html.adaptive-lite .profile-strip,
+  html.adaptive-lite .spotlight,
+  html.adaptive-lite .panel,
+  html.adaptive-lite .card{
+    backdrop-filter:blur(3px) saturate(106%)!important;
+    -webkit-backdrop-filter:blur(3px) saturate(106%)!important;
+    box-shadow:inset 0 1px #ffffff07,0 4px 12px #0002!important;
+  }
+  html.adaptive-lite .icon,
+  html.adaptive-lite .app-icon{
+    backdrop-filter:blur(2px) saturate(110%)!important;
+    -webkit-backdrop-filter:blur(2px) saturate(110%)!important;
+  }
+}
+html.page-hidden .orb,
+html.page-hidden #ambient:before,
+html.page-hidden #ambient:after,
+html.page-hidden .hero h1,
+html.page-hidden .hero:after,
+html.page-hidden .brandmark:after,
+html.page-hidden .avatar-wrap:before{
+  animation-play-state:paused!important;
+}
+html.hero-offscreen .hero h1,
+html.hero-offscreen .hero:after,
+html.hero-offscreen .avatar-wrap:before{
+  animation-play-state:paused!important;
+}
+</style>
+<script id="adaptive-performance-suite-script">
+(()=>{
+  const root=document.documentElement;
+  const mobile=matchMedia("(max-width:700px)");
+  const fine=matchMedia("(pointer:fine)");
+  const connection=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
+  const defer=(fn)=>{
+    if(globalThis.scheduler?.postTask){
+      scheduler.postTask(fn,{priority:"background"}).catch(()=>{});
+    }else if("requestIdleCallback"in window){
+      requestIdleCallback(fn,{timeout:1200});
+    }else{
+      setTimeout(fn,900);
+    }
+  };
+
+  // Network/device hints: keep every feature, reduce only expensive rendering when needed.
+  const adapt=()=>{
+    const slowNet=!!connection&&(
+      connection.saveData===true ||
+      /^(slow-2g|2g)$/.test(connection.effectiveType||"")
+    );
+    const lowDevice=root.classList.contains("mobile-lite") ||
+      (mobile.matches && (
+        (navigator.deviceMemory>0&&navigator.deviceMemory<=3) ||
+        (navigator.hardwareConcurrency>0&&navigator.hardwareConcurrency<=4)
+      ));
+    root.classList.toggle("adaptive-lite",lowDevice||slowNet);
+  };
+  adapt();
+  connection?.addEventListener?.("change",adapt);
+  mobile.addEventListener?.("change",adapt);
+
+  // Pause non-essential motion when the tab is not visible.
+  const visibility=()=>{
+    root.classList.toggle("page-hidden",document.visibilityState!=="visible");
+  };
+  document.addEventListener("visibilitychange",visibility,{passive:true});
+  visibility();
+
+  // Pause hero-only animation after the hero leaves the viewport.
+  const hero=document.querySelector(".hero");
+  if(hero&&"IntersectionObserver"in window){
+    new IntersectionObserver(([entry])=>{
+      root.classList.toggle("hero-offscreen",!entry.isIntersecting);
+    },{rootMargin:"120px 0px 120px 0px",threshold:0}).observe(hero);
+  }
+
+  // Long Tasks API: adapt only on devices/browser sessions that actually show main-thread pressure.
+  if("PerformanceObserver"in window){
+    try{
+      let longTasks=0,lastHit=0;
+      const observer=new PerformanceObserver(list=>{
+        const now=performance.now();
+        for(const entry of list.getEntries()){
+          if(entry.duration>=70)longTasks++;
+        }
+        if(longTasks>=3&&now-lastHit>1500){
+          lastHit=now;
+          root.classList.add("adaptive-lite");
+          setTimeout(()=>{
+            if(document.visibilityState==="visible")root.classList.remove("adaptive-lite");
+            longTasks=0;
+          },5000);
+        }
+      });
+      observer.observe({type:"longtask",buffered:true});
+    }catch(e){}
+  }
+
+  // Push non-critical media setup away from the first interaction frame.
+  defer(()=>{
+    document.querySelectorAll("iframe").forEach(el=>el.loading="lazy");
+    document.querySelectorAll("img:not(.avatar)").forEach(el=>{
+      el.loading="lazy";
+      el.decoding="async";
+      if(!el.hasAttribute("fetchpriority"))el.fetchPriority="low";
+    });
+  });
+})();
+</script>
 
 </body></html>
