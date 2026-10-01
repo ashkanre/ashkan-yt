@@ -517,7 +517,71 @@ footer{margin-top:70px;padding:28px 0 38px}
 .instagram-icon svg{filter:drop-shadow(0 3px 8px #0008)!important}
 .card:hover .instagram-icon{box-shadow:0 0 32px #e1306c55,0 12px 30px #0005!important}
 </style>
-</head>
+<style id="glass-4k-premium">
+/* GLASS 4K PREMIUM — Ashkan YT */
+:root{
+ --glass:rgba(13,20,42,.58);
+ --glass2:rgba(18,28,58,.46);
+ --glass-line:rgba(166,222,255,.22);
+ --glass-hi:rgba(255,255,255,.12);
+ --glass-shadow:0 24px 70px rgba(0,0,0,.34);
+}
+body:before{background:
+ radial-gradient(circle at 12% 8%,rgba(72,226,255,.20),transparent 28%),
+ radial-gradient(circle at 88% 18%,rgba(171,108,255,.19),transparent 30%),
+ radial-gradient(circle at 52% 100%,rgba(255,74,174,.12),transparent 34%),
+ linear-gradient(135deg,#02040b,#080d1c 48%,#060713)}
+body:after{opacity:.08;background-image:
+ linear-gradient(rgba(255,255,255,.10) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(255,255,255,.10) 1px,transparent 1px);
+ background-size:56px 56px;mask-image:linear-gradient(to bottom,black,transparent 78%)}
+.hero,.profile-strip,.spotlight,.panel,.card{
+ background:linear-gradient(135deg,rgba(25,39,76,.54),rgba(6,12,28,.62))!important;
+ border:1px solid var(--glass-line)!important;
+ box-shadow:var(--glass-shadow),inset 0 1px 0 var(--glass-hi),inset 0 0 45px rgba(117,190,255,.035)!important;
+ backdrop-filter:blur(24px) saturate(145%);
+ -webkit-backdrop-filter:blur(24px) saturate(145%);
+}
+.hero{overflow:hidden}
+.hero:before{background:
+ radial-gradient(circle at 15% 20%,rgba(82,235,255,.15),transparent 30%),
+ radial-gradient(circle at 90% 80%,rgba(202,105,255,.13),transparent 32%),
+ linear-gradient(120deg,transparent 25%,rgba(255,255,255,.035) 50%,transparent 75%)!important}
+.card{transform:translateZ(0);will-change:transform,box-shadow}
+.card:before{opacity:.17!important;filter:blur(45px)!important}
+.card:after{background:linear-gradient(120deg,rgba(255,255,255,.10),transparent 38%,rgba(102,229,255,.08),transparent 72%)!important}
+.card:hover{
+ transform:translateY(-7px) scale(1.012)!important;
+ box-shadow:0 28px 65px rgba(0,0,0,.42),0 0 35px color-mix(in srgb,var(--c) 16%,transparent),inset 0 1px rgba(255,255,255,.16)!important;
+}
+.icon,.app-icon{
+ border:1px solid rgba(255,255,255,.20)!important;
+ background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.035))!important;
+ backdrop-filter:blur(18px) saturate(170%);
+ -webkit-backdrop-filter:blur(18px) saturate(170%);
+ box-shadow:inset 0 1px rgba(255,255,255,.16),inset 0 -10px 22px rgba(0,0,0,.10),0 12px 28px rgba(0,0,0,.24),0 0 24px color-mix(in srgb,var(--c) 14%,transparent)!important;
+}
+.app-icon svg{filter:drop-shadow(0 3px 9px rgba(0,0,0,.42));shape-rendering:geometricPrecision}
+.btn,.toolbtn,.status,.tag,.creator-chip,.favorite-btn,.searchbox,.message-box textarea,.faq-list details,.bottomnav{
+ background:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.035))!important;
+ border-color:rgba(166,222,255,.20)!important;
+ backdrop-filter:blur(20px) saturate(155%);
+ -webkit-backdrop-filter:blur(20px) saturate(155%);
+ box-shadow:inset 0 1px rgba(255,255,255,.11),0 10px 30px rgba(0,0,0,.18);
+}
+.primary{background:linear-gradient(110deg,#61f4ff,#8d8aff,#ef73c7)!important;color:#06101e!important;border:0!important;box-shadow:0 14px 36px rgba(83,221,255,.22),inset 0 1px rgba(255,255,255,.42)!important}
+.avatar{box-shadow:0 0 55px rgba(82,181,255,.28),inset 0 0 25px rgba(255,255,255,.08)!important}
+.avatar-wrap:before{filter:blur(.4px) drop-shadow(0 0 18px rgba(107,151,255,.55))!important}
+.qr-image{box-shadow:0 18px 50px rgba(0,0,0,.35),0 0 30px rgba(86,239,255,.10)}
+#ambient .orb{opacity:.15;filter:blur(85px)}
+@media(max-width:680px){
+ .hero,.profile-strip,.spotlight,.panel,.card{backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%)}
+ .card:hover{transform:translateY(-4px) scale(1.005)!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .card:hover{transform:none!important}
+}
+</style></head>
 <body>
 <div id="appSplash" aria-hidden="true"><div class="splash-mark">AY</div><div class="splash-title">ASHKAN YT</div><div class="splash-caption">دنیای اشکان در یک نگاه</div><div class="splash-track"><span></span></div></div>
 <div id="scrollProgress" aria-hidden="true"></div><div class="toast" id="toast" role="status" aria-live="polite"></div><button class="topbtn" id="topBtn" aria-label="بازگشت به بالای صفحه" title="رفتن به بالا">↑</button>
