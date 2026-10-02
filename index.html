@@ -45,7 +45,7 @@ main{padding:42px 0 100px}.hero{display:grid;grid-template-columns:1fr 230px;ali
 @media(max-width:680px){header{height:68px}.status{font-size:0;padding:8px}.status:before{content:"●";font-size:12px;color:#32e6a0}.hero{grid-template-columns:1fr;gap:24px;text-align:center;padding-top:28px}.hero-copy{order:2}.avatar-wrap{order:1;width:166px;height:166px}.hero p{margin:auto}.actions{justify-content:center}.actions .btn{flex:1 1 210px}.cards{gap:10px}.card{padding:15px 12px;min-height:165px;border-radius:18px}.cardtop{display:block}.card h3{font-size:14px;line-height:1.8;margin-top:10px}.card p{font-size:11px}.icon{width:45px;height:45px;border-radius:14px}.handle{font-size:10px}.section-head h2{font-size:22px}.panel{padding:16px 13px}.bottomnav{display:flex;position:fixed;z-index:10;bottom:9px;left:4%;width:92%;justify-content:space-around;gap:4px;padding:9px 5px calc(9px + env(safe-area-inset-bottom));border:1px solid #7189ff55;border-radius:20px;background:#090e20ed;backdrop-filter:blur(18px);box-shadow:0 12px 40px #0008}.bottomnav a{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;color:#dce5ff;text-decoration:none;font-size:10px}.bottomnav a span{font-size:19px;color:var(--a)}footer{padding-bottom:95px}.youtube .icon{width:50px;height:50px}.profile-strip{gap:10px;padding:15px 9px}.profile-strip small{font-size:11px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 
-/* ASHKAN YT — neon creator edition */
+
 :root{--bg:#050711;--panel:#0e1428;--line:#6ee7ff3b;--text:#f8fbff;--muted:#a9b8d5;--a:#61f3ff;--b:#a98bff;--hot:#ff65bb}
 body:before{background:radial-gradient(ellipse at 50% -20%,#1b5b9c66,transparent 48%),radial-gradient(ellipse at 4% 40%,#6129c933,transparent 32%),radial-gradient(ellipse at 96% 72%,#00c9c233,transparent 32%),linear-gradient(145deg,#040610,#080d1e 45%,#080719)}
 body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.14;background-image:linear-gradient(#9abaff12 1px,transparent 1px),linear-gradient(90deg,#9abaff12 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
@@ -97,7 +97,7 @@ header{border-bottom-color:#70e9ff20}
 @media(prefers-reduced-motion:reduce){.brandmark:after,.hero:after,.hero h1{animation:none!important}}
 
 
-/* Performance: render lower sections only when needed and simplify effects on small screens */
+
 main>section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 620px}
 @media(max-width:680px){.orb{filter:blur(32px);opacity:.12}body:after{display:none}.card:hover,.btn:hover,.toolbtn:hover{transform:none}}
 .tool-panel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;text-align:right}
@@ -111,7 +111,7 @@ main>section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 620p
 .mini-btn{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:#10172bcc;color:var(--text);cursor:pointer;font:12px "Vazirmatn","Segoe UI",Tahoma,Arial}
 @media(max-width:680px){.tool-panel-grid{grid-template-columns:1fr}.tool-panel-grid .panel{padding:16px 13px}}
 
-/* App-like polish: lightweight splash, refined glass surfaces, keyboard focus */
+
 #appSplash{position:fixed;inset:0;z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:radial-gradient(ellipse at 50% 38%,#283d7655,transparent 42%),#070a16;transition:opacity .35s ease,visibility .35s ease}
 #appSplash.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
 .splash-mark{display:grid;place-items:center;width:76px;height:76px;border-radius:25px;background:linear-gradient(135deg,#388dff,#9e56ff,#37eaff);box-shadow:0 0 42px #5070ff66;font-weight:1000;font-size:25px;animation:splashPulse 1.1s ease-in-out infinite alternate}
@@ -128,7 +128,7 @@ button:active,.btn:active,.toolbtn:active{transform:scale(.98)}
 @media(prefers-reduced-motion:reduce){#appSplash,.splash-mark,.splash-track span{animation:none!important;transition:none!important}.splash-track span{width:100%}.btn,.toolbtn,.card,.panel,.spotlight{transition:none!important}}
 
 <style>
-/* Final creator UI polish */
+
 header{position:sticky;top:10px;z-index:20;height:68px;margin-top:10px;padding:0 14px;border:1px solid #78eaff24;border-radius:20px;background:#080d1bd9;backdrop-filter:blur(18px) saturate(1.25);box-shadow:0 12px 35px #0004,inset 0 1px #ffffff0b}
 .header-meta{display:flex;align-items:center;gap:10px}
 .topnav{display:flex;align-items:center;justify-content:center;gap:4px}
@@ -176,7 +176,7 @@ footer{align-items:center}
  .section-head h2{font-size:20px}
 }
 <style>
-/* Beauty pass — visual hierarchy, depth, spacing */
+
 html{scroll-behavior:smooth}
 body{background:#050711}
 body:before{background:
@@ -239,7 +239,7 @@ footer{margin-top:58px}
 }
 .smart-dashboard{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:16px}.smart-stat{border:1px solid #7deeff2d;border-radius:18px;padding:15px;background:#0d1428e8;text-align:center}.smart-stat b{display:block;font-size:18px;margin-top:5px;color:var(--a)}.smart-stat span{font-size:11px;color:var(--muted)}@media(max-width:680px){.smart-dashboard{grid-template-columns:repeat(2,1fr)}}.creator-hub{margin:22px auto;max-width:1100px;padding:22px;border:1px solid #7deeff2d;border-radius:28px;background:linear-gradient(135deg,#10182df0,#160d29e8);box-shadow:0 20px 60px #0008}.creator-hub-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:14px}.hub-card{padding:18px;border-radius:22px;background:#ffffff08;border:1px solid #ffffff12}.hub-title{font-size:24px;font-weight:900;margin:0 0 6px}.hub-sub{color:var(--muted);font-size:13px}.hub-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}.hub-btn{border:0;border-radius:14px;padding:11px 14px;color:#fff;background:linear-gradient(135deg,#00d9ff,#8b5cf6);cursor:pointer;font-weight:800}.hub-btn.alt{background:#ffffff0c;border:1px solid #ffffff14}.hub-meter{height:10px;background:#ffffff0b;border-radius:99px;overflow:hidden;margin:13px 0}.hub-meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,#00e5ff,#a855f7,#ff3cac);border-radius:99px;transition:width .6s}.hub-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.hub-mini{padding:12px;text-align:center;border-radius:15px;background:#0003}.hub-mini b{display:block;font-size:18px}@media(max-width:700px){.creator-hub-grid{grid-template-columns:1fr}.hub-stats{grid-template-columns:repeat(3,1fr)}}.quick-launch{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.quick-launch button{min-height:74px;border:1px solid #ffffff14;border-radius:18px;background:linear-gradient(145deg,#ffffff0b,#ffffff03);color:inherit;cursor:pointer;font-weight:800;transition:.25s}.quick-launch button:hover{transform:translateY(-3px);border-color:#6ee7ff66;box-shadow:0 12px 30px #0005}.quick-launch em{display:block;font-style:normal;font-size:25px;margin-bottom:5px}@media(max-width:600px){.quick-launch{grid-template-columns:repeat(2,1fr)}}.ultimate-panel{max-width:1100px;margin:24px auto;padding:24px;border-radius:30px;background:radial-gradient(circle at 15% 20%,#00d9ff12,transparent 35%),radial-gradient(circle at 85% 80%,#a855f712,transparent 35%),#080d19e8;border:1px solid #7deeff25;box-shadow:0 25px 80px #0008}.ultimate-head{display:flex;justify-content:space-between;gap:15px;align-items:center}.ultimate-head h2{margin:0;font-size:25px}.ultimate-head p{margin:5px 0;color:var(--muted);font-size:13px}.ultimate-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}.ultimate-btn{border:1px solid #ffffff12;border-radius:18px;padding:16px 10px;background:#ffffff08;color:inherit;cursor:pointer;font-weight:800;transition:.22s}.ultimate-btn:hover{transform:translateY(-4px);border-color:#5ee7ff66;box-shadow:0 14px 35px #0006}.ultimate-btn strong{display:block;font-size:25px;margin-bottom:6px}.ultimate-progress{height:9px;background:#ffffff0a;border-radius:99px;overflow:hidden;margin-top:16px}.ultimate-progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#00e5ff,#8b5cf6,#ff3cac);transition:width .5s}.ultimate-badge{display:inline-flex;padding:7px 11px;border-radius:99px;background:#00d9ff12;border:1px solid #00d9ff25;font-size:12px}@media(max-width:700px){.ultimate-grid{grid-template-columns:repeat(2,1fr)}.ultimate-head{align-items:flex-start;flex-direction:column}}@media(max-width:700px){html{scroll-padding-top:16px}body{-webkit-text-size-adjust:100%;touch-action:pan-y}.ultimate-grid,.quick-launch,.smart-dashboard{gap:8px}.ultimate-btn,.quick-launch button{min-height:68px;touch-action:manipulation}.creator-hub,.ultimate-panel{margin:14px 8px;padding:17px;border-radius:22px}button,a{ -webkit-tap-highlight-color:transparent }img{max-width:100%;height:auto}.card,.glass,.hero,.ultimate-panel,.creator-hub{will-change:auto}.hero,.card,.section,.creator-hub,.ultimate-panel{contain:layout paint}.bottomnav{padding-bottom:max(10px,env(safe-area-inset-bottom));}}@media(max-width:700px){body{contain:style;overscroll-behavior-x:none}.ambient,.bg-grid,.aurora,.particles{pointer-events:none}.hero,.card,.glass,.ultimate-panel,.creator-hub,.smart-stat{contain:layout style}.hero img,.card img{content-visibility:auto;contain-intrinsic-size:300px 200px}.ultimate-btn,.hub-btn,.quick-launch button{will-change:transform}.bottomnav{contain:layout paint}.quick-launch,.ultimate-grid,.smart-dashboard{grid-auto-flow:row}.wrap{contain:layout style}}</style></style></style>
 <style>
-/* Background upgrade — deep space / aurora */
+
 html{background:#02030a}
 body{background:
   radial-gradient(circle at 50% 0%,#111a36 0%,#070a16 38%,#03040b 100%);
@@ -301,7 +301,7 @@ body.light-mode:after{opacity:.06}
 }
 </style>
 <style>
-/* ULTIMATE VISUAL REDESIGN */
+
 :root{
  --bg:#03050d;--surface:#0a1020;--surface2:#0d1630;
  --a:#56efff;--b:#8b7dff;--hot:#ff5fb7;--gold:#ffd166;
@@ -460,7 +460,7 @@ footer{margin-top:70px;padding:28px 0 38px}
 </style>
 
 <style id="4k-app-icons">
-/* 4K-ready app icons */
+
 .app-icon{
   width:58px!important;height:58px!important;
   display:grid!important;place-items:center!important;
@@ -521,7 +521,7 @@ footer{margin-top:70px;padding:28px 0 38px}
 .card:hover .instagram-icon{box-shadow:0 0 32px #e1306c55,0 12px 30px #0005!important}
 </style>
 <style id="glass-4k-premium">
-/* GLASS 4K PREMIUM — Ashkan YT */
+
 :root{
  --glass:rgba(13,20,42,.58);
  --glass2:rgba(18,28,58,.46);
@@ -585,7 +585,7 @@ body:after{opacity:.08;background-image:
  .card:hover{transform:none!important}
 }
 </style><style id="gaming-bg-4k">
-/* 4K GAMING CINEMATIC BACKGROUND */
+
 body:before{
  background:
  radial-gradient(ellipse at 18% 12%,rgba(0,229,255,.22),transparent 27%),
@@ -628,7 +628,7 @@ body:after{
 }
 @media(prefers-reduced-motion:reduce){#ambient:after{animation:none}}
 
-/* ASHKAN YT — ULTRA GAMING 2026 */
+
 :root{--a:#63f6ff;--b:#9b7cff;--hot:#ff4fa8;--lime:#5dffb0}
 html{background:#02040b}
 body{background:#02040b;isolation:isolate}
@@ -816,7 +816,7 @@ if("serviceWorker" in navigator)window.addEventListener("load",()=>{setTimeout((
 (()=>{const m=matchMedia("(max-width:680px)"),f=()=>{document.getElementById("deviceType").textContent=m.matches?"موبایل":"دسکتاپ";document.getElementById("screenSize").textContent=innerWidth+"×"+innerHeight;document.getElementById("networkType").textContent=navigator.onLine?"آنلاین":"آفلاین"};try{const k="ashkanYTSessionCount",v=Number(localStorage.getItem(k)||0)+1;localStorage.setItem(k,String(v));document.getElementById("sessionCount").textContent=v.toLocaleString("fa-IR")}catch(e){}f();addEventListener("resize",f);addEventListener("online",f);addEventListener("offline",f)})();(()=>{document.querySelectorAll("#quickLaunch button").forEach(b=>b.onclick=async()=>{const a=b.dataset.act;if(a==="top")scrollTo({top:0,behavior:"smooth"});if(a==="share"&&navigator.share)try{await navigator.share({title:document.title,url:location.href})}catch(e){}if(a==="random"){const x=[...document.querySelectorAll("a[href]")].filter(a=>a.href.startsWith("http"));if(x.length)x[Math.floor(Math.random()*x.length)].click()}if(a==="qr"){const q=document.querySelector("#qr")||document.querySelector("[id*='qr']");q?.scrollIntoView({behavior:"smooth"})}})})();(()=>{let t;const reduce=()=>{clearTimeout(t);t=setTimeout(()=>document.documentElement.classList.toggle("mobile-lite",innerWidth<=700),120)};reduce();addEventListener("resize",reduce,{passive:true});})();(()=>{const low=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);if(low){document.documentElement.classList.add("mobile-device");const reduce=()=>{document.querySelectorAll("video").forEach(v=>{v.preload="metadata";v.playsInline=true});};if("requestIdleCallback"in window)requestIdleCallback(reduce,{timeout:1500});else setTimeout(reduce,1500)}})();</script>
 
 <style id="ultimate-mobile-performance">
-/* همه قابلیت‌ها حفظ شده؛ فقط روی دستگاه‌های ضعیف، هزینهٔ paint/composite کم می‌شود. */
+
 @media (max-width:700px){
   html.mobile-lite .orb{filter:blur(28px);opacity:.12;animation-duration:30s}
   html.mobile-lite body:after{opacity:.07;background-size:56px 56px}
@@ -833,12 +833,12 @@ if("serviceWorker" in navigator)window.addEventListener("load",()=>{setTimeout((
 }
 </style>
 <script>
-/* تشخیص دستگاه ضعیف: هیچ قابلیتی حذف نمی‌شود، فقط افکت‌های پرهزینه سبک‌تر می‌شوند. */
+
 (()=>{const mobile=matchMedia('(max-width:700px)').matches,mem=Number(navigator.deviceMemory||0),cores=Number(navigator.hardwareConcurrency||0);if(mobile&&((mem>0&&mem<=2)||(cores>0&&cores<=4)))document.documentElement.classList.add('mobile-lite')})();
 </script>
 
 <style id="scroll-boost">
-/* اسکرول سریع‌تر روی موبایل: هنگام حرکت، افکت‌های سنگین موقتاً سبک می‌شوند و بعد از توقف برمی‌گردند. هیچ قابلیتی حذف نمی‌شود. */
+
 @media (max-width:700px){
   html.is-scrolling .orb,
   html.is-scrolling .hero:before,
@@ -961,7 +961,7 @@ if("serviceWorker" in navigator)window.addEventListener("load",()=>{setTimeout((
 
 
 <style id="all-device-scroll-performance">
-/* حالت اسکرول سریع برای همه دستگاه‌ها؛ بعد از توقف، تمام افکت‌ها برمی‌گردند. */
+
 @media (min-width:701px){
   html.is-scrolling #ambient,
   html.is-scrolling body:after{display:none!important}
@@ -1022,7 +1022,7 @@ if("serviceWorker" in navigator)window.addEventListener("load",()=>{setTimeout((
 
 
 <style id="balanced-all-device-performance">
-/* بهینه‌سازی متعادل: شیشه، پس‌زمینه، نورها و آیکون‌ها حفظ می‌شوند؛ فقط هزینهٔ رندر پایین می‌آید. */
+
 body:before{
   contain:paint;
 }
@@ -1079,7 +1079,7 @@ body:before{
 </style>
 
 <style id="preserve-glass-during-scroll">
-/* هنگام اسکرول، ظاهر سایت باقی می‌ماند؛ فقط شدت افکت‌ها کمتر می‌شود. */
+
 html.is-scrolling #ambient,
 html.is-scrolling body:after{
   display:block!important;
@@ -1160,7 +1160,7 @@ html.is-scrolling body:before{
 
 
 <style id="final-performance-tune">
-/* آخرین تیون عملکرد: ظاهر شیشه‌ای، پس‌زمینه و آیکون‌ها باقی می‌مانند؛ رندر غیرضروری کمتر می‌شود. */
+
 section[id]{
   content-visibility:auto;
   contain-intrinsic-size:420px;
@@ -1221,7 +1221,7 @@ section[id]{
 
 
 <style id="final-no-jank-glass">
-/* آخرین حالت بدون لگ: شیشه و پس‌زمینه همیشه وجود دارند؛ فقط هنگام حرکت، نسخهٔ کم‌هزینهٔ همان ظاهر استفاده می‌شود. */
+
 html.is-scrolling #scrollProgress{
   box-shadow:none!important;
 }
@@ -1317,7 +1317,7 @@ html.is-scrolling .avatar{
 
 
 <style id="tool-assisted-ultra-performance">
-/* Performance tuning: keep every feature and visual layer, move expensive animation work off paint. */
+
 @supports (animation-timeline:scroll()){
   #scrollProgress{
     width:100%!important;
@@ -1388,7 +1388,7 @@ section[id],.creator-hub,.ultimate-panel{
 
 
 <style id="mobile-final-performance-tools">
-/* Mobile performance profile: glass, background, icons and all features stay visible. */
+
 @media (max-width:700px){
   .hero,.profile-strip,.spotlight,.panel,.card{
     backdrop-filter:blur(4px) saturate(108%)!important;
@@ -1450,7 +1450,7 @@ section[id],.creator-hub,.ultimate-panel{
 
 
 <style id="adaptive-performance-suite">
-/* Adaptive browser-native performance suite: no feature is removed. */
+
 html.adaptive-lite .orb{
   filter:blur(18px)!important;
   opacity:.06!important;
@@ -1586,7 +1586,7 @@ html.hero-offscreen .avatar-wrap:before{
 
 
 <style id="ultra-light-final-pass">
-/* Extra lightweight layer: preserves all visuals and tools while reducing unnecessary invalidation. */
+
 @media (hover:hover) and (pointer:fine){
   .card,.btn,.toolbtn,.theme-dot,.bottomnav a{
     will-change:auto;
@@ -1871,7 +1871,7 @@ html.data-saver .card:before{filter:blur(24px)!important;opacity:.08!important}
 </style>
 
 <style id="legacy-phone-maximum-performance">
-/* Very old phone profile: all content/tools remain; only expensive effects use lightweight equivalents. */
+
 html.legacy-phone,
 html.legacy-phone body{
   overscroll-behavior-x:none;
