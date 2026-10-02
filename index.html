@@ -2013,7 +2013,7 @@ html.legacy-phone #scrollProgress{
   const cssOk=typeof CSS!=="undefined"&&CSS.supports("backdrop-filter","blur(1px)");
   const mem=Number(navigator.deviceMemory||0);
   const cores=Number(navigator.hardwareConcurrency||0);
-  const oldEngine=!("IntersectionObserver"in window)||!CSS?.supports?.("content-visibility","auto");
+  const cssApi=typeof CSS!=="undefined";const oldEngine=!("IntersectionObserver"in window)||!(cssApi&&CSS.supports("content-visibility","auto"));
   const weak=(mem>0&&mem<=2)||(cores>0&&cores<=4);
   if(!fine&&(weak||!cssOk||oldEngine)){
     root.classList.add("legacy-phone");
