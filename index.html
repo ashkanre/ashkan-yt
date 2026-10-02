@@ -2026,4 +2026,90 @@ html.legacy-phone #scrollProgress{
 })();
 </script>
 
+
+<style id="ultra-low-ram-profile">
+@media(max-width:700px){
+  html.ultra-low-ram body:before,
+  html.ultra-low-ram body:after,
+  html.ultra-low-ram #ambient,
+  html.ultra-low-ram #ambient .orb,
+  html.ultra-low-ram .hero:after,
+  html.ultra-low-ram .brandmark:after,
+  html.ultra-low-ram .hero h1,
+  html.ultra-low-ram .avatar-wrap:before{
+    animation:none!important;
+  }
+  html.ultra-low-ram #ambient .orb{
+    filter:none!important;
+    opacity:.025!important;
+  }
+  html.ultra-low-ram .hero,
+  html.ultra-low-ram .profile-strip,
+  html.ultra-low-ram .spotlight,
+  html.ultra-low-ram .card,
+  html.ultra-low-ram .panel,
+  html.ultra-low-ram .creator-chip,
+  html.ultra-low-ram .bottomnav,
+  html.ultra-low-ram .mobile-quick-tools,
+  html.ultra-low-ram .favorite-btn,
+  html.ultra-low-ram .card-action,
+  html.ultra-low-ram .searchbox,
+  html.ultra-low-ram .message-box textarea,
+  html.ultra-low-ram .faq-list details{
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+    box-shadow:inset 0 1px #ffffff06,0 2px 8px #0002!important;
+  }
+  html.ultra-low-ram .hero,
+  html.ultra-low-ram .profile-strip,
+  html.ultra-low-ram .spotlight,
+  html.ultra-low-ram .card,
+  html.ultra-low-ram .panel{
+    background:linear-gradient(145deg,rgba(13,21,42,.94),rgba(5,9,20,.98))!important;
+  }
+  html.ultra-low-ram .card:before,
+  html.ultra-low-ram .card:after{
+    filter:none!important;
+    opacity:.03!important;
+  }
+  html.ultra-low-ram .avatar-wrap,
+  html.ultra-low-ram .avatar,
+  html.ultra-low-ram .icon,
+  html.ultra-low-ram .app-icon{
+    filter:none!important;
+    box-shadow:none!important;
+  }
+  html.ultra-low-ram .online{
+    box-shadow:none!important;
+  }
+  html.ultra-low-ram .section-head:after{
+    box-shadow:none!important;
+  }
+  html.ultra-low-ram #scrollProgress{
+    box-shadow:none!important;
+  }
+  html.ultra-low-ram .btn,
+  html.ultra-low-ram .toolbtn,
+  html.ultra-low-ram .theme-dot,
+  html.ultra-low-ram .card,
+  html.ultra-low-ram .bottomnav a{
+    transition:none!important;
+  }
+}
+</style>
+
+<script id="ultra-low-ram-detection">
+(()=>{
+  const root=document.documentElement;
+  const mobile=matchMedia("(max-width:700px)");
+  if(!mobile.matches)return;
+  const mem=Number(navigator.deviceMemory||0);
+  const cores=Number(navigator.hardwareConcurrency||0);
+  const saveData=!!navigator.connection?.saveData;
+  if((mem>0&&mem<=2)||(saveData&&cores>0&&cores<=4)){
+    root.classList.add("ultra-low-ram");
+  }
+})();
+</script>
+
 </body></html>
