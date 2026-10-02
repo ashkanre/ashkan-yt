@@ -4,7 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080a18">
-<meta name="color-scheme" content="dark">\n<meta name="referrer" content="strict-origin-when-cross-origin">\n
+<meta name="color-scheme" content="dark">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">\n<meta name="referrer" content="strict-origin-when-cross-origin">\n
 <meta name="robots" content="index,follow">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ashkan YT | صفحه رسمی">
@@ -724,6 +727,14 @@ footer{border-top-color:#ffffff0d}
     <div id="commandList" class="command-list"></div>
     <div class="counter">میانبر: Ctrl/Cmd + K • بستن: Esc • انتخاب: Enter</div>
   </div>
+</div>
+
+<div class="mobile-quick-tools" id="mobileQuickTools" aria-label="ابزارهای سریع موبایل">
+  <button type="button" data-mobile-act="share"><span>📤</span>اشتراک</button>
+  <button type="button" data-mobile-act="vibrate"><span>📳</span>لرزش</button>
+  <button type="button" data-mobile-act="qr"><span>▦</span>QR</button>
+  <button type="button" data-mobile-act="full"><span>⛶</span>تمام‌صفحه</button>
+  <button type="button" data-mobile-act="top"><span>↑</span>بالا</button>
 </div>
 <div class="quick-launch" id="quickLaunch"><button data-act="top"><em>🚀</em>اول صفحه</button><button data-act="qr"><em>🔳</em>QR من</button><button data-act="share"><em>📤</em>اشتراک‌گذاری</button><button data-act="random"><em>🎲</em>لینک شانسی</button></div><section id="smart" class="wrap"><div class="section-head"><h2>🧠 داشبورد هوشمند</h2><p>اطلاعات لحظه‌ای دستگاه و وضعیت اتصال.</p></div><div class="smart-dashboard"><div class="smart-stat"><span>📱 دستگاه</span><b id="deviceType">—</b></div><div class="smart-stat"><span>🌐 شبکه</span><b id="networkType">—</b></div><div class="smart-stat"><span>📐 صفحه</span><b id="screenSize">—</b></div><div class="smart-stat"><span>⚡ نشست</span><b id="sessionCount">—</b></div></div></section></main>
 <nav class="bottomnav" aria-label="منوی پایین"><a href="#top"><span>⌂</span>خانه</a><a href="#links"><span>✦</span>شبکه‌ها</a><a href="#videos"><span>▶</span>ویدیوها</a><a href="#qr"><span>▦</span>QR کد</a><a href="#message"><span>✉</span>پیام</a><a href="#extras"><span>⚙</span>تنظیمات</a></nav>
@@ -1645,6 +1656,28 @@ html.data-saver .card:before{filter:blur(24px)!important;opacity:.08!important}
   const root=document.documentElement;
   const toastSafe=msg=>typeof showToast==="function"&&showToast(msg);
 
+  const mobileQuery=matchMedia("(max-width:700px)");
+  document.querySelectorAll("#mobileQuickTools [data-mobile-act]").forEach(btn=>btn.addEventListener("click",async()=>{
+    const act=btn.dataset.mobileAct;
+    if(act==="share"){
+      if(navigator.share){try{await navigator.share({title:document.title,text:"صفحه رسمی Ashkan YT",url:location.href})}catch(e){}}
+      else if(await copyLink())toastSafe("✓ لینک سایت کپی شد");
+    }else if(act==="vibrate"){
+      if(navigator.vibrate){navigator.vibrate([18,28,18]);toastSafe("📳 لرزش انجام شد")}
+      else toastSafe("لرزش توسط این گوشی/مرورگر پشتیبانی نمی‌شود");
+    }else if(act==="qr"){
+      document.getElementById("qr")?.scrollIntoView({behavior:"smooth"});
+    }else if(act==="full"){
+      try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen()}
+      catch(e){toastSafe("تمام‌صفحه در این مرورگر در دسترس نیست")}
+    }else if(act==="top"){
+      window.scrollTo({top:0,behavior:"smooth"});
+    }
+  }));
+
+  if(!mobileQuery.matches){
+
+
   // Low-power/manual data saver, persisted locally.
   try{
     if(localStorage.getItem("ashkanYTDataSaver")==="1")root.classList.add("data-saver");
@@ -1712,8 +1745,10 @@ html.data-saver .card:before{filter:blur(24px)!important;opacity:.08!important}
     tools.append(copy,share);wrap.append(tools);
   });
 
-  // Command palette.
+  // Desktop-only command palette: keyboard-centric UI is not initialized on touch phones.
+  const desktopCommand=matchMedia("(min-width:701px) and (pointer:fine)").matches;
   const palette=$("commandPalette"),search=$("commandSearch"),list=$("commandList");
+  if(!desktopCommand){palette?.remove();return;}
   const cmds=[
     ["🔎 جست‌وجوی شبکه‌ها",()=>{$("linkSearch").focus();palette.hidden=true}],
     ["📤 اشتراک‌گذاری صفحه",()=>$("quickShareBtn").click()],
@@ -1755,7 +1790,83 @@ html.data-saver .card:before{filter:blur(24px)!important;opacity:.08!important}
   });
   search.addEventListener("input",()=>{active=0;renderCommands()});
   renderCommands();
+  }
 })();
 </script>
 
+
+<style id="mobile-native-toolbar">
+.mobile-quick-tools{display:none}
+@media(max-width:700px){
+  .topnav{display:none!important}
+  .quick-launch{display:none!important}
+  .command-palette{display:none!important}
+  .mobile-quick-tools{
+    position:fixed;
+    z-index:12;
+    left:4%;
+    bottom:84px;
+    width:92%;
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:6px;
+    padding:7px;
+    border:1px solid #7deeff35;
+    border-radius:18px;
+    background:linear-gradient(145deg,rgba(7,13,29,.92),rgba(10,15,34,.88));
+    box-shadow:0 10px 30px #0007,inset 0 1px #ffffff08;
+    backdrop-filter:blur(10px) saturate(120%);
+    -webkit-backdrop-filter:blur(10px) saturate(120%);
+    contain:layout paint;
+  }
+  .mobile-quick-tools button{
+    min-width:0;
+    min-height:52px;
+    border:0;
+    border-radius:13px;
+    background:transparent;
+    color:var(--text);
+    font:800 10px/1.2 "Vazirmatn","Segoe UI",Tahoma,Arial,sans-serif;
+    cursor:pointer;
+    touch-action:manipulation;
+  }
+  .mobile-quick-tools button:active{
+    transform:scale(.97);
+    background:#ffffff0b;
+  }
+  .mobile-quick-tools span{
+    display:block;
+    font-size:18px;
+    margin-bottom:3px;
+    color:var(--a);
+  }
+  footer{padding-bottom:160px}
+}
+@media(max-width:380px){
+  .mobile-quick-tools button{font-size:9px;min-height:48px}
+  .mobile-quick-tools span{font-size:16px}
+}
+</style>
+
+<style id="mobile-final-touch-tuning">
+@media(max-width:700px){
+  html{scroll-behavior:auto!important}
+  body{
+    -webkit-overflow-scrolling:touch;
+  }
+  .card,.btn,.toolbtn,.theme-dot,.bottomnav a,.quick-launch button{
+    transition:none!important;
+  }
+  .card:after,.card:hover:after{
+    transition:none!important;
+  }
+  .card:hover,.btn:hover,.toolbtn:hover,.theme-dot:hover,.bottomnav a:hover{
+    transform:none!important;
+  }
+  .mobile-quick-tools button{
+    -webkit-user-select:none;
+    user-select:none;
+  }
+}
+</style>
 </body></html>
