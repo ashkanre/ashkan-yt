@@ -697,10 +697,35 @@ footer{border-top-color:#ffffff0d}
 <div class="panel"><strong>📝 دفترچه یادداشت</strong><p class="counter">یادداشتت خودکار روی همین دستگاه ذخیره می‌شود.</p><textarea class="tool-input" id="quickNotes" rows="6" maxlength="5000" placeholder="ایده‌ها، لینک‌ها یا یادداشت‌هایت را اینجا بنویس…"></textarea><div class="toolrow"><button class="mini-btn" id="copyNotes">کپی یادداشت</button><button class="mini-btn" id="clearNotes">پاک کردن</button><button class="mini-btn" id="backupData">⬇ پشتیبان‌گیری</button><span class="counter" id="notesStatus">ذخیره محلی</span></div></div>
 <div class="panel"><strong>✅ فهرست کارها</strong><p class="counter">کارها را اضافه کن و پس از انجام علامت بزن.</p><form id="todoForm" class="actions" style="margin-top:12px"><input class="tool-input" id="todoInput" maxlength="120" placeholder="مثلاً: ویدیوی جدید منتشر کنم" required><button class="btn primary" type="submit">افزودن</button></form><ul class="tool-list" id="todoList"></ul><div class="toolrow"><button class="mini-btn" id="clearCompletedTodos" type="button">پاک‌کردن کارهای انجام‌شده</button></div><p class="counter" id="todoStatus">کارها در همین مرورگر ذخیره می‌شوند.</p></div>
 </div>
-<div class="panel clockbox"><strong>📈 دفعات بازشدن در این مرورگر</strong><div class="clocktime" id="visitCount">1</div><div class="counter">این شمارنده فقط روی همین دستگاه ذخیره می‌شود و آمار عمومی بازدید سایت نیست.</div></div>
-<div class="panel clockbox"><strong>🌍 بازدیدهای کل سایت</strong><div class="clocktime" id="publicVisitCount">—</div><div class="counter" id="publicVisitStatus">در حال دریافت آمار عمومی…</div></div></section>
+<div class="counter">این شمارنده فقط روی همین دستگاه ذخیره می‌شود و آمار عمومی بازدید سایت نیست.</div></div>
+<div class="counter" id="publicVisitStatus">در حال دریافت آمار عمومی…</div></div></section>
 <section id="help"><div class="section-head"><h2>❔ راهنمای سایت</h2><p>چند نکته برای استفاده راحت‌تر.</p></div><div class="faq-list"><details><summary>چطور لینک‌ها را به علاقه‌مندی‌ها اضافه کنم؟</summary><p>روی علامت ستاره روی کارت هر شبکه بزن. انتخاب‌ها فقط در همین مرورگر ذخیره می‌شوند.</p></details><details><summary>چطور سایت را مثل اپ نصب کنم؟</summary><p>اگر دکمه نصب فعال نبود، منوی مرورگر را باز کن و «افزودن به صفحه اصلی» یا «Install app» را انتخاب کن.</p></details><details><summary>چرا خبرها داخل سایت خودکار به‌روز نمی‌شوند؟</summary><p>برای نمایش خودکار پست‌ها یا آمار عمومی، اتصال به یک منبع داده یا سرویس جداگانه لازم است؛ این نسخه لینک مستقیم کانال را می‌دهد.</p></details><details><summary>تنظیمات و علاقه‌مندی‌ها کجا ذخیره می‌شوند؟</summary><p>تم، افکت‌ها و لینک‌های محبوب روی همین دستگاه و مرورگر ذخیره می‌شوند و به حساب کاربری یا سرور فرستاده نمی‌شوند.</p></details></div></section>
-<div class="quick-launch" id="quickLaunch"><button data-act="top"><em>🚀</em>اول صفحه</button><button data-act="qr"><em>🔳</em>QR من</button><button data-act="share"><em>📤</em>اشتراک‌گذاری</button><button data-act="random"><em>🎲</em>لینک شانسی</button></div><section id="smart" class="wrap"><div class="section-head"><h2>🧠 داشبورد هوشمند</h2><p>اطلاعات لحظه‌ای دستگاه و وضعیت اتصال.</p></div><div class="smart-dashboard"><div class="smart-stat"><span>📱 دستگاه</span><b id="deviceType">—</b></div><div class="smart-stat"><span>🌐 شبکه</span><b id="networkType">—</b></div><div class="smart-stat"><span>📐 صفحه</span><b id="screenSize">—</b></div><div class="smart-stat"><span>⚡ نشست</span><b id="sessionCount">—</b></div></div></section><section class="creator-hub" id="creatorHub"><div class="creator-hub-grid"><div class="hub-card"><div class="hub-title">✨ مرکز کنترل Ashkan YT</div><div class="hub-sub" id="hubGreeting">خوش اومدی! اینجا مرکز ابزارهای سریعته.</div><div class="hub-meter"><i id="hubProgress"></i></div><div class="hub-sub" id="hubProgressText">در حال آماده‌سازی...</div><div class="hub-actions"><button class="hub-btn" id="surpriseBtn">🎁 سورپرایزم کن</button><button class="hub-btn alt" id="focusHubBtn">🎯 حالت تمرکز</button><button class="hub-btn alt" id="copyHubBtn">🔗 کپی لینک</button></div></div><div class="hub-card"><div class="hub-title">🏆 وضعیت</div><div class="hub-stats"><div class="hub-mini">🔥<b id="hubDays">1</b><span>روز</span></div><div class="hub-mini">⭐<b id="hubActions">0</b><span>عملیات</span></div><div class="hub-mini">💎<b id="hubLevel">1</b><span>سطح</span></div></div></div></div></section><section class="ultimate-panel" id="ultimatePanel"><div class="ultimate-head"><div><span class="ultimate-badge">⚡ ULTIMATE CREATOR MODE</span><h2>🚀 مرکز فرماندهی Ashkan YT</h2><p id="ultimateMsg">همه‌چیز برای یک تجربه سریع و حرفه‌ای اینجاست.</p></div><span id="ultimateLevel" class="ultimate-badge">⭐ سطح 1</span></div><div class="ultimate-grid"><button class="ultimate-btn" data-u="theme"><strong>🎨</strong>تغییر ظاهر</button><button class="ultimate-btn" data-u="full"><strong>⛶</strong>تمام‌صفحه</button><button class="ultimate-btn" data-u="copy"><strong>🔗</strong>کپی لینک</button><button class="ultimate-btn" data-u="share"><strong>📤</strong>اشتراک</button><button class="ultimate-btn" data-u="random"><strong>🎲</strong>شگفت‌زده‌ام کن</button><button class="ultimate-btn" data-u="install"><strong>📲</strong>نصب اپ</button><button class="ultimate-btn" data-u="top"><strong>🚀</strong>بالای صفحه</button><button class="ultimate-btn" data-u="focus"><strong>🎯</strong>تمرکز</button></div><div class="ultimate-progress"><i id="ultimateBar"></i></div><p id="ultimateXp" style="margin:8px 0 0;color:var(--muted);font-size:12px">XP: 0 / 100</p></section></main>
+
+<section class="panel utility-suite" id="utilities">
+  <div class="section-head" style="margin-top:0">
+    <h2>🧰 ابزارهای سریع</h2>
+    <p>ابزارهای کاربردی برای اشتراک‌گذاری، پشتیبان‌گیری و اجرای سریع کارها.</p>
+  </div>
+  <div class="utility-grid">
+    <button class="toolbtn" id="quickShareBtn">📤 اشتراک‌گذاری صفحه</button>
+    <button class="toolbtn" id="quickFullscreenBtn">⛶ تمام‌صفحه</button>
+    <button class="toolbtn" id="lowDataBtn" aria-pressed="false">⚡ حالت کم‌مصرف</button>
+    <button class="toolbtn" id="importDataBtn">📥 وارد کردن پشتیبان</button>
+    <button class="toolbtn" id="exportDataQuickBtn">📦 خروجی پشتیبان</button>
+    <button class="toolbtn" id="quickTopBtn">🚀 رفتن به بالا</button>
+  </div>
+  <input id="importDataFile" type="file" accept="application/json,.json" hidden>
+</section>
+<div class="command-palette" id="commandPalette" hidden>
+  <div class="command-backdrop" data-close-command></div>
+  <div class="command-dialog" role="dialog" aria-modal="true" aria-labelledby="commandTitle">
+    <div class="command-head"><strong id="commandTitle">⌘ مرکز فرمان سریع</strong><button class="toolbtn" type="button" data-close-command aria-label="بستن">✕</button></div>
+    <input id="commandSearch" class="searchbox" type="search" placeholder="دستور را جست‌وجو کن…" autocomplete="off">
+    <div id="commandList" class="command-list"></div>
+    <div class="counter">میانبر: Ctrl/Cmd + K • بستن: Esc • انتخاب: Enter</div>
+  </div>
+</div>
+<div class="quick-launch" id="quickLaunch"><button data-act="top"><em>🚀</em>اول صفحه</button><button data-act="qr"><em>🔳</em>QR من</button><button data-act="share"><em>📤</em>اشتراک‌گذاری</button><button data-act="random"><em>🎲</em>لینک شانسی</button></div><section id="smart" class="wrap"><div class="section-head"><h2>🧠 داشبورد هوشمند</h2><p>اطلاعات لحظه‌ای دستگاه و وضعیت اتصال.</p></div><div class="smart-dashboard"><div class="smart-stat"><span>📱 دستگاه</span><b id="deviceType">—</b></div><div class="smart-stat"><span>🌐 شبکه</span><b id="networkType">—</b></div><div class="smart-stat"><span>📐 صفحه</span><b id="screenSize">—</b></div><div class="smart-stat"><span>⚡ نشست</span><b id="sessionCount">—</b></div></div></section></main>
 <nav class="bottomnav" aria-label="منوی پایین"><a href="#top"><span>⌂</span>خانه</a><a href="#links"><span>✦</span>شبکه‌ها</a><a href="#videos"><span>▶</span>ویدیوها</a><a href="#qr"><span>▦</span>QR کد</a><a href="#message"><span>✉</span>پیام</a><a href="#extras"><span>⚙</span>تنظیمات</a></nav>
 <footer><span class="footbrand">ASHKAN YT</span><span>ساخته‌شده برای اشکان وای تی 💜</span><span>© <span id="year"></span> Ashkan YT</span></footer>
 </div>
@@ -713,11 +738,10 @@ const spotlights=[
 ["💜 اینجا فقط شروع ماجراست","سایت رو ذخیره کن تا هر وقت خواستی سریع به صفحه‌هام برسی."]
 ];let spotIndex=0;document.getElementById("surpriseBtn").addEventListener("click",()=>{spotIndex=(spotIndex+1+Math.floor(Math.random()*(spotlights.length-1)))%spotlights.length;document.getElementById("spotlightTitle").textContent=spotlights[spotIndex][0];document.getElementById("spotlightText").textContent=spotlights[spotIndex][1];document.querySelector(".spotlight-badge").textContent=["✦","⚡","🚀","💜"][spotIndex]});
 document.getElementById("copyBioBtn").addEventListener("click",async()=>{const bio="من Ashkan YT هستم 🎮\nهمه شبکه‌های اجتماعی من:\nتلگرام: https://t.me/ashkan_sh0p\nکانال تلگرام: https://t.me/ASHKAN_YT_FF\nاینستاگرام: https://instagram.com/ashkan_yt_ir\nروبیکا: https://rubika.ir/ashkan_yt\nسایت: https://ashkanre.github.io/ashkan-yt/";if(await copyText(bio))showToast("✓ متن معرفی و لینک‌ها کپی شد");else showToast("کپی انجام نشد؛ دوباره امتحان کن")});
-function tick(){const n=new Date();document.getElementById("clock").textContent=n.toLocaleTimeString("fa-IR",{hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false});document.getElementById("clockDate").textContent=n.toLocaleDateString("fa-IR",{weekday:"long",year:"numeric",month:"long",day:"numeric"});}tick();setInterval(tick,1000);
+function tick(){const n=new Date();document.getElementById("clock").textContent=n.toLocaleTimeString("fa-IR",{hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false});document.getElementById("clockDate").textContent=n.toLocaleDateString("fa-IR",{weekday:"long",year:"numeric",month:"long",day:"numeric"});setTimeout(tick,1000-(n.getTime()%1000)+20)}tick();
 const themes={blue:["#54e6ff","#b58cff","#ff5ca8"],red:["#ffb84d","#ff5d78","#ff4545"],green:["#48f0c4","#55ddff","#00d5b5"],pink:["#ff75c8","#b58cff","#ff65b8"]};
 function applyTheme(t){const c=themes[t]||themes.blue;document.documentElement.style.setProperty("--a",c[0]);document.documentElement.style.setProperty("--b",c[1]);document.documentElement.style.setProperty("--hot",c[2]);try{localStorage.setItem("ashkanYTTheme",t)}catch(e){}}
-try{const saved=localStorage.getItem("ashkanYTTheme");if(saved)applyTheme(saved);const key="ashkanYTVisits";const count=Number(localStorage.getItem(key)||0)+1;localStorage.setItem(key,String(count));document.getElementById("visitCount").textContent=count.toLocaleString("fa-IR");if(localStorage.getItem("ashkanYTNoMotion")==="1")document.body.classList.add("no-motion")}catch(e){}
-async function loadPublicVisits(){const output=document.getElementById("publicVisitCount"),status=document.getElementById("publicVisitStatus");const primary="https://api.counterapi.dev/v1/ashkan-yt-site/visits/up";const fallbackKey="ashkanYTPublicVisitFallback";try{const response=await fetch(primary,{cache:"no-store",mode:"cors"});if(!response.ok)throw new Error("counter unavailable");const data=await response.json();const value=Number(data.count??data.value);if(!Number.isFinite(value))throw new Error("invalid counter");output.textContent=value.toLocaleString("fa-IR");status.textContent="✓ آمار عمومی آنلاین؛ هر بار بازشدن صفحه ممکن است یک بازدید حساب شود.";try{localStorage.setItem(fallbackKey,String(value))}catch(e){}}catch(e){try{const saved=Number(localStorage.getItem(fallbackKey)||0);if(saved>0){output.textContent=saved.toLocaleString("fa-IR");status.textContent="آخرین عدد دریافت‌شده نمایش داده شد؛ اتصال شمارنده فعلاً در دسترس نیست."}else{output.textContent="—";status.textContent="شمارنده موقتاً در دسترس نیست؛ بعداً دوباره تلاش می‌کنیم."}}catch(err){output.textContent="—";status.textContent="شمارنده موقتاً در دسترس نیست."}}}if("requestIdleCallback" in window){requestIdleCallback(loadPublicVisits,{timeout:2500})}else{setTimeout(loadPublicVisits,1200)}
+try{const saved=localStorage.getItem("ashkanYTTheme");if(saved)applyTheme(saved);if(localStorage.getItem("ashkanYTNoMotion")==="1")document.body.classList.add("no-motion")}catch(e){}
 const notesArea=document.getElementById("quickNotes"),notesStatus=document.getElementById("notesStatus");
 try{notesArea.value=localStorage.getItem("ashkanYTQuickNotes")||""}catch(e){}
 let notesSaveTimer;
@@ -778,7 +802,7 @@ function hideAppSplash(){if(appSplash)appSplash.classList.add("is-hidden")}
 if(document.readyState==="complete")setTimeout(hideAppSplash,220);else window.addEventListener("load",()=>setTimeout(hideAppSplash,220),{once:true});
 setTimeout(hideAppSplash,2200);
 if("serviceWorker" in navigator)window.addEventListener("load",()=>{setTimeout(()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}),800)});
-(()=>{const m=matchMedia("(max-width:680px)"),f=()=>{document.getElementById("deviceType").textContent=m.matches?"موبایل":"دسکتاپ";document.getElementById("screenSize").textContent=innerWidth+"×"+innerHeight;document.getElementById("networkType").textContent=navigator.onLine?"آنلاین":"آفلاین"};try{const k="ashkanYTSessionCount",v=Number(localStorage.getItem(k)||0)+1;localStorage.setItem(k,String(v));document.getElementById("sessionCount").textContent=v.toLocaleString("fa-IR")}catch(e){}f();addEventListener("resize",f);addEventListener("online",f);addEventListener("offline",f)})();(()=>{const $=id=>document.getElementById(id),k="ashkanYTHubActions",actions=()=>{let n=+(localStorage.getItem(k)||0)+1;localStorage.setItem(k,n);$("hubActions").textContent=n.toLocaleString("fa-IR");$("hubLevel").textContent=Math.max(1,Math.floor(n/5)+1);$("hubProgress").style.width=Math.min(100,(n%5)*20||100)+"%";$("hubProgressText").textContent=(n%5?((n%5)*20)+"٪ تا سطح بعدی":"سطح بعدی آماده است!");};let h=new Date().getHours();$("hubGreeting").textContent=h<5?"🌙 شب بخیر، خسته نباشی!":h<12?"☀️ صبح بخیر! آماده‌ای؟":h<18?"⚡ ظهر بخیر! بزن بریم!":"🌆 عصر بخیر! وقت یه گشت خفن تو سایتته!";actions();$("surpriseBtn").onclick=()=>{actions();const a=[...document.querySelectorAll("a[href]")].filter(x=>x.href&&x.href.startsWith("http"));if(a.length)a[Math.floor(Math.random()*a.length)].click()};$("copyHubBtn").onclick=async()=>{actions();try{await navigator.clipboard.writeText(location.href);$("copyHubBtn").textContent="✅ کپی شد";setTimeout(()=>$("copyHubBtn").textContent="🔗 کپی لینک",1400)}catch(e){}};$("focusHubBtn").onclick=()=>{actions();document.body.classList.toggle("focus-mode");$("focusHubBtn").textContent=document.body.classList.contains("focus-mode")?"↩️ خروج از تمرکز":"🎯 حالت تمرکز"};})();(()=>{document.querySelectorAll("#quickLaunch button").forEach(b=>b.onclick=async()=>{const a=b.dataset.act;if(a==="top")scrollTo({top:0,behavior:"smooth"});if(a==="share"&&navigator.share)try{await navigator.share({title:document.title,url:location.href})}catch(e){}if(a==="random"){const x=[...document.querySelectorAll("a[href]")].filter(a=>a.href.startsWith("http"));if(x.length)x[Math.floor(Math.random()*x.length)].click()}if(a==="qr"){const q=document.querySelector("#qr")||document.querySelector("[id*='qr']");q?.scrollIntoView({behavior:"smooth"})}})})();(()=>{const key="ashkanUltimateXP";let xp=0;try{xp=+(localStorage.getItem(key)||0)}catch(e){}const bar=document.getElementById("ultimateBar"),xpText=document.getElementById("ultimateXp"),level=document.getElementById("ultimateLevel"),msg=document.getElementById("ultimateMsg");const render=()=>{bar.style.width=xp+"%";xpText.textContent="XP: "+xp+" / 100";level.textContent="⭐ سطح "+(Math.floor(xp/20)+1)};const gain=()=>{xp=(xp+10)%101;try{localStorage.setItem(key,String(xp))}catch(e){}render()};render();document.querySelectorAll("#ultimatePanel [data-u]").forEach(btn=>btn.addEventListener("click",async()=>{gain();const a=btn.dataset.u;if(a==="top")scrollTo({top:0,behavior:"smooth"});else if(a==="copy"){try{await navigator.clipboard.writeText(location.href);msg.textContent="✅ لینک سایت کپی شد!"}catch(e){msg.textContent="❌ کپی لینک در این مرورگر در دسترس نیست."}}else if(a==="share"){if(navigator.share){try{await navigator.share({title:document.title,text:"Ashkan YT",url:location.href})}catch(e){}}else msg.textContent="ℹ️ اشتراک‌گذاری مستقیم روی این دستگاه در دسترس نیست."}else if(a==="full"){try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();msg.textContent="⛶ حالت تمام‌صفحه تغییر کرد."}catch(e){msg.textContent="❌ تمام‌صفحه توسط مرورگر پشتیبانی نمی‌شود."}}else if(a==="theme"){const ts=["blue","red","green","pink"];let cur="blue";try{cur=localStorage.getItem("ashkanYTTheme")||"blue"}catch(e){}applyTheme(ts[(ts.indexOf(cur)+1)%ts.length]);msg.textContent="🎨 تم سایت تغییر کرد."}else if(a==="focus"){document.body.classList.toggle("focus-mode");msg.textContent=document.body.classList.contains("focus-mode")?"🎯 حالت تمرکز فعال شد.":"↩️ حالت تمرکز خاموش شد."}else if(a==="random"){const links=[...document.querySelectorAll('a[href]')].filter(x=>/^https?:/i.test(x.href)&&!x.href.includes(location.host));if(links.length)links[Math.floor(Math.random()*links.length)].click();else msg.textContent="ℹ️ لینک خارجی برای انتخاب تصادفی پیدا نشد."}else if(a==="install"){if(window.deferredPrompt){window.deferredPrompt.prompt();try{await window.deferredPrompt.userChoice}catch(e){}window.deferredPrompt=null}else if(/iphone|ipad|ipod/i.test(navigator.userAgent)){msg.textContent="📲 در iPhone/iPad از Share → Add to Home Screen استفاده کن."}else msg.textContent="📲 برای نصب، گزینه Install app را از منوی مرورگر انتخاب کن."}}));})();(()=>{let t;const reduce=()=>{clearTimeout(t);t=setTimeout(()=>document.documentElement.classList.toggle("mobile-lite",innerWidth<=700),120)};reduce();addEventListener("resize",reduce,{passive:true});})();(()=>{const low=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);if(low){document.documentElement.classList.add("mobile-device");const reduce=()=>{document.querySelectorAll("video").forEach(v=>{v.preload="metadata";v.playsInline=true});};if("requestIdleCallback"in window)requestIdleCallback(reduce,{timeout:1500});else setTimeout(reduce,1500)}})();</script>
+(()=>{const m=matchMedia("(max-width:680px)"),f=()=>{document.getElementById("deviceType").textContent=m.matches?"موبایل":"دسکتاپ";document.getElementById("screenSize").textContent=innerWidth+"×"+innerHeight;document.getElementById("networkType").textContent=navigator.onLine?"آنلاین":"آفلاین"};try{const k="ashkanYTSessionCount",v=Number(localStorage.getItem(k)||0)+1;localStorage.setItem(k,String(v));document.getElementById("sessionCount").textContent=v.toLocaleString("fa-IR")}catch(e){}f();addEventListener("resize",f);addEventListener("online",f);addEventListener("offline",f)})();(()=>{document.querySelectorAll("#quickLaunch button").forEach(b=>b.onclick=async()=>{const a=b.dataset.act;if(a==="top")scrollTo({top:0,behavior:"smooth"});if(a==="share"&&navigator.share)try{await navigator.share({title:document.title,url:location.href})}catch(e){}if(a==="random"){const x=[...document.querySelectorAll("a[href]")].filter(a=>a.href.startsWith("http"));if(x.length)x[Math.floor(Math.random()*x.length)].click()}if(a==="qr"){const q=document.querySelector("#qr")||document.querySelector("[id*='qr']");q?.scrollIntoView({behavior:"smooth"})}})})();(()=>{let t;const reduce=()=>{clearTimeout(t);t=setTimeout(()=>document.documentElement.classList.toggle("mobile-lite",innerWidth<=700),120)};reduce();addEventListener("resize",reduce,{passive:true});})();(()=>{const low=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);if(low){document.documentElement.classList.add("mobile-device");const reduce=()=>{document.querySelectorAll("video").forEach(v=>{v.preload="metadata";v.playsInline=true});};if("requestIdleCallback"in window)requestIdleCallback(reduce,{timeout:1500});else setTimeout(reduce,1500)}})();</script>
 
 <style id="ultimate-mobile-performance">
 /* همه قابلیت‌ها حفظ شده؛ فقط روی دستگاه‌های ضعیف، هزینهٔ paint/composite کم می‌شود. */
@@ -1579,5 +1603,159 @@ html.hero-offscreen .avatar-wrap:before{
   }
 }
 </style>
+
+
+<style id="practical-tools-ui">
+.utility-suite{margin-top:18px}
+.utility-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.command-palette[hidden]{display:none}
+.command-palette{position:fixed;inset:0;z-index:80;display:grid;place-items:start center;padding:10vh 16px}
+.command-backdrop{position:absolute;inset:0;background:rgba(2,4,11,.58);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.command-dialog{position:relative;width:min(680px,100%);border:1px solid #8ba7ff42;border-radius:22px;padding:16px;background:linear-gradient(145deg,rgba(15,24,48,.96),rgba(5,10,22,.98));box-shadow:0 30px 90px #0008,inset 0 1px #ffffff12}
+.command-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.command-head .toolbtn{padding:7px 10px}
+.command-list{display:grid;gap:7px;max-height:46vh;overflow:auto;margin-top:10px}
+.command-item{display:flex;align-items:center;gap:10px;width:100%;border:1px solid #8ba7ff24;border-radius:14px;background:#0a1124;color:var(--text);padding:12px;text-align:right;cursor:pointer}
+.command-item small{margin-inline-start:auto;color:var(--muted)}
+.command-item.active,.command-item:hover{border-color:#61f3ff70;background:#0d1830}
+.card-actions{position:absolute;left:10px;bottom:10px;display:flex;gap:6px;z-index:3}
+.card-action{width:32px;height:32px;border:1px solid #7d9bff38;border-radius:10px;background:#071022d9;color:var(--text);cursor:pointer;font-size:14px;padding:0;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+.card-action:hover{border-color:#61f3ff78;transform:translateY(-1px)}
+@media(max-width:680px){
+  .utility-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .command-dialog{padding:13px;border-radius:18px}
+  .command-list{max-height:55vh}
+}
+html.data-saver .orb{animation-duration:90s!important;opacity:.07!important;filter:blur(26px)!important}
+html.data-saver body:after{opacity:.045!important;animation-duration:60s!important}
+html.data-saver #ambient:before,html.data-saver #ambient:after{opacity:.22!important;animation-duration:70s!important}
+html.data-saver .hero h1{animation-duration:60s!important}
+html.data-saver .avatar-wrap:before{animation-duration:55s!important}
+html.data-saver .hero:after,html.data-saver .brandmark:after{animation-duration:50s!important}
+html.data-saver .card:before{filter:blur(24px)!important;opacity:.08!important}
+@media(max-width:700px){
+  html.data-saver .hero,html.data-saver .profile-strip,html.data-saver .spotlight,html.data-saver .panel,html.data-saver .card{backdrop-filter:blur(2px)!important;-webkit-backdrop-filter:blur(2px)!important}
+}
+</style>
+
+
+<script id="practical-tools-script">
+(()=>{
+  const $=id=>document.getElementById(id);
+  const root=document.documentElement;
+  const toastSafe=msg=>typeof showToast==="function"&&showToast(msg);
+
+  // Low-power/manual data saver, persisted locally.
+  try{
+    if(localStorage.getItem("ashkanYTDataSaver")==="1")root.classList.add("data-saver");
+  }catch(e){}
+  $("lowDataBtn").setAttribute("aria-pressed",String(root.classList.contains("data-saver")));
+  $("lowDataBtn").addEventListener("click",()=>{
+    root.classList.toggle("data-saver");
+    const on=root.classList.contains("data-saver");
+    $("lowDataBtn").setAttribute("aria-pressed",String(on));
+    try{localStorage.setItem("ashkanYTDataSaver",on?"1":"0")}catch(e){}
+    toastSafe(on?"⚡ حالت کم‌مصرف فعال شد":"✅ حالت عادی فعال شد");
+  });
+
+  // Native share + fullscreen.
+  $("quickShareBtn").addEventListener("click",async()=>{
+    if(navigator.share){try{await navigator.share({title:document.title,text:"صفحه رسمی Ashkan YT",url:location.href})}catch(e){}}
+    else if(await copyLink())toastSafe("✓ لینک سایت کپی شد");
+  });
+  $("quickFullscreenBtn").addEventListener("click",async()=>{
+    try{
+      if(document.fullscreenElement)await document.exitFullscreen();
+      else await document.documentElement.requestFullscreen();
+    }catch(e){toastSafe("تمام‌صفحه توسط این مرورگر در دسترس نیست")}
+  });
+  $("quickTopBtn").addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
+
+  // Reuse existing backup logic via the visible backup button when possible.
+  $("exportDataQuickBtn").addEventListener("click",()=>$("backupData")?.click());
+
+  // Safe JSON backup import.
+  const file=$("importDataFile");
+  $("importDataBtn").addEventListener("click",()=>file.click());
+  file.addEventListener("change",async()=>{
+    const f=file.files?.[0]; if(!f)return;
+    try{
+      const data=JSON.parse(await f.text());
+      if(!data||typeof data!=="object")throw new Error("invalid");
+      if(typeof data.notes==="string")localStorage.setItem("ashkanYTQuickNotes",data.notes.slice(0,5000));
+      if(Array.isArray(data.todos))localStorage.setItem("ashkanYTTodos",JSON.stringify(data.todos.filter(x=>x&&typeof x.text==="string").slice(0,100)));
+      if(Array.isArray(data.favorites))localStorage.setItem("ashkanYTFavorites",JSON.stringify(data.favorites.filter(x=>typeof x==="string").slice(0,50)));
+      if(["blue","red","green","pink"].includes(data.theme))localStorage.setItem("ashkanYTTheme",data.theme);
+      toastSafe("✓ پشتیبان وارد شد؛ سایت دوباره بارگذاری می‌شود");
+      setTimeout(()=>location.reload(),350);
+    }catch(e){toastSafe("❌ فایل پشتیبان معتبر نیست")}
+    file.value="";
+  });
+
+  // Per-card copy/share controls without nesting interactive elements inside anchors.
+  const wraps=document.querySelectorAll("#socialCards .card-wrap");
+  wraps.forEach(wrap=>{
+    const card=wrap.querySelector(".card");
+    if(!card||wrap.querySelector(".card-actions"))return;
+    const tools=document.createElement("div");
+    tools.className="card-actions";
+    const copy=document.createElement("button");
+    copy.type="button";copy.className="card-action";copy.textContent="⧉";copy.title="کپی لینک";copy.setAttribute("aria-label","کپی لینک");
+    copy.addEventListener("click",async e=>{e.preventDefault();e.stopPropagation();toastSafe(await copyText(card.href)?"✓ لینک کپی شد":"کپی انجام نشد")});
+    const share=document.createElement("button");
+    share.type="button";share.className="card-action";share.textContent="↗";share.title="اشتراک‌گذاری";share.setAttribute("aria-label","اشتراک‌گذاری");
+    share.addEventListener("click",async e=>{
+      e.preventDefault();e.stopPropagation();
+      if(navigator.share){try{await navigator.share({title:card.querySelector("h3")?.textContent||"Ashkan YT",url:card.href})}catch(err){}}
+      else toastSafe(await copyText(card.href)?"✓ لینک کپی شد":"کپی انجام نشد");
+    });
+    tools.append(copy,share);wrap.append(tools);
+  });
+
+  // Command palette.
+  const palette=$("commandPalette"),search=$("commandSearch"),list=$("commandList");
+  const cmds=[
+    ["🔎 جست‌وجوی شبکه‌ها",()=>{$("linkSearch").focus();palette.hidden=true}],
+    ["📤 اشتراک‌گذاری صفحه",()=>$("quickShareBtn").click()],
+    ["⛶ تمام‌صفحه",()=>$("quickFullscreenBtn").click()],
+    ["📥 وارد کردن پشتیبان",()=>$("importDataBtn").click()],
+    ["📦 خروجی پشتیبان",()=>$("exportDataQuickBtn").click()],
+    ["⚡ حالت کم‌مصرف",()=>$("lowDataBtn").click()],
+    ["▦ رفتن به QR",()=>document.getElementById("qr").scrollIntoView({behavior:"smooth"})],
+    ["💌 رفتن به پیام",()=>document.getElementById("message").scrollIntoView({behavior:"smooth"})],
+    ["⚙ رفتن به تنظیمات",()=>document.getElementById("extras").scrollIntoView({behavior:"smooth"})],
+    ["↺ بازنشانی فیلترها",()=>$("resetFilters").click()]
+  ];
+  let active=0;
+  function renderCommands(){
+    const q=search.value.trim().toLowerCase();
+    const filtered=cmds.filter(([label])=>label.toLowerCase().includes(q));
+    active=Math.max(0,Math.min(active,filtered.length-1));
+    list.replaceChildren();
+    filtered.forEach(([label,run],i)=>{
+      const b=document.createElement("button");
+      b.type="button";b.className="command-item"+(i===active?" active":"");b.textContent=label;
+      b.addEventListener("click",()=>{run();palette.hidden=true});
+      list.append(b);
+    });
+  }
+  function openPalette(){
+    palette.hidden=false;search.value="";active=0;renderCommands();requestAnimationFrame(()=>search.focus());
+  }
+  function closePalette(){palette.hidden=true}
+  document.querySelectorAll("[data-close-command]").forEach(x=>x.addEventListener("click",closePalette));
+  document.addEventListener("keydown",e=>{
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();openPalette();return}
+    if(palette.hidden)return;
+    if(e.key==="Escape"){closePalette();return}
+    const items=list.querySelectorAll(".command-item");
+    if(e.key==="ArrowDown"){e.preventDefault();active=(active+1)%Math.max(1,items.length);renderCommands()}
+    if(e.key==="ArrowUp"){e.preventDefault();active=(active-1+Math.max(1,items.length))%Math.max(1,items.length);renderCommands()}
+    if(e.key==="Enter"&&items[active]){e.preventDefault();items[active].click()}
+  });
+  search.addEventListener("input",()=>{active=0;renderCommands()});
+  renderCommands();
+})();
+</script>
 
 </body></html>
