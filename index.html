@@ -19,7 +19,7 @@
     :root{color-scheme:light;--bg:#f4f6f3;--paper:#fff;--ink:#1f2c27;--muted:#68756f;--line:#e1e7e2;--accent:#38695b;--accent-soft:#edf4f0;--radius:20px}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:"Vazirmatn","IRANSansX","IRANSans","Shabnam","Sahel",system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased}
     a{color:inherit;text-decoration:none}
     button,input,select,textarea{font:inherit}
     button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
@@ -51,20 +51,12 @@
     .social strong{display:block;font-size:14px;font-weight:720}
     .social small{display:block;color:var(--muted);font-size:12px;direction:ltr;text-align:right;overflow-wrap:anywhere}
     .social .arrow{margin-inline-start:auto;color:#82928a;flex:none;font-size:18px}
-    .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.78fr);gap:14px;align-items:stretch}
     .panel{min-width:0;border:1px solid var(--line);background:var(--paper);border-radius:var(--radius);padding:21px}
     .panel h3{margin:0 0 8px;font-size:17px}
     .panel p{margin:0;color:var(--muted);font-size:13px}
     .qr-row{display:flex;align-items:center;gap:16px;margin-top:16px}
     .qr-image{width:132px;height:132px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:12px;padding:5px;flex:none}
     .qr-note{font-size:12px;color:var(--muted);margin-top:9px}
-    .field{margin-top:13px}
-    .field label{display:block;font-size:13px;font-weight:650;margin-bottom:5px}
-    .field input,.field select,.field textarea{width:100%;min-width:0;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--ink);padding:10px 12px;outline-offset:2px}
-    .field textarea{min-height:92px;resize:vertical}
-    .field input::placeholder,.field textarea::placeholder{color:#99a39e}
-    .form-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
-    .hint{font-size:12px!important;margin-top:10px!important}
     .footer{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid var(--line);padding:20px 0 28px;margin-top:28px;color:var(--muted);font-size:12px}
     .footer strong{color:var(--ink)}
     .toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);max-width:calc(100vw - 28px);padding:9px 14px;border-radius:12px;background:var(--ink);color:#fff;font-size:13px;opacity:0;visibility:hidden;pointer-events:none}
@@ -178,6 +170,82 @@
       .social-icon{width:46px;height:46px;flex-basis:46px;border-radius:15px}
       .social-icon svg{width:25px;height:25px}
     }
+    /* Soft glass styling; the blur is limited to the hero and QR panel to keep scrolling light. */
+    :root{
+      --bg:#edf2ef;
+      --paper:rgba(255,255,255,.68);
+      --ink:#1d2c25;
+      --muted:#63716a;
+      --line:rgba(255,255,255,.82);
+      --accent:#3e6851;
+      --accent-soft:rgba(232,241,234,.78);
+    }
+    body{
+      background:
+        radial-gradient(ellipse at 10% 0%,rgba(205,227,213,.72),transparent 42%),
+        radial-gradient(ellipse at 92% 18%,rgba(226,231,219,.72),transparent 38%),
+        linear-gradient(160deg,#f6f8f5 0%,#eaf0eb 100%);
+      font-family:"Vazirmatn","IRANSansX","IRANSans","Shabnam","Sahel",system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+      line-height:1.9;
+    }
+    .brand h1,.hero h2,.section-head h3,.panel h3{letter-spacing:0}
+    .tag{
+      background:rgba(255,255,255,.62);
+      border-color:rgba(255,255,255,.88);
+      box-shadow:0 3px 12px rgba(39,67,49,.04);
+    }
+    .hero,.glass-panel{
+      background:rgba(255,255,255,.48);
+      border:1px solid rgba(255,255,255,.88);
+      box-shadow:0 14px 38px rgba(35,64,47,.075),inset 0 1px 0 rgba(255,255,255,.92);
+      -webkit-backdrop-filter:blur(13px);
+      backdrop-filter:blur(13px);
+    }
+    .hero{position:relative;isolation:isolate;overflow:hidden}
+    .hero:before{
+      content:"";position:absolute;z-index:-1;pointer-events:none;
+      width:220px;height:220px;left:-92px;bottom:-132px;border-radius:50%;
+      border:1px solid rgba(83,126,94,.15);
+      box-shadow:0 0 0 22px rgba(83,126,94,.035),0 0 0 44px rgba(83,126,94,.025);
+    }
+    .hero h2{font-size:clamp(28px,5vw,43px);line-height:1.48}
+    .eyebrow{
+      display:inline-block;padding:4px 12px;margin-bottom:14px;
+      border:1px solid rgba(83,126,94,.14);border-radius:999px;
+      background:rgba(232,241,234,.72);color:#365d43;font-size:12px;
+    }
+    .desc{line-height:2;max-width:620px}
+    .social{
+      background:rgba(255,255,255,.56);
+      border-color:rgba(255,255,255,.88);
+      box-shadow:0 7px 20px rgba(35,64,47,.045),inset 0 1px 0 rgba(255,255,255,.8);
+      border-radius:19px;
+    }
+    .social-copy strong{font-weight:750;letter-spacing:0}
+    .social-icon{box-shadow:0 5px 12px rgba(31,43,37,.08),inset 0 1px 0 rgba(255,255,255,.22)}
+    .qr-section{margin-top:30px}
+    .glass-panel{border-radius:24px;padding:clamp(18px,4vw,26px)}
+    .glass-panel h3{font-size:18px;margin-bottom:6px}
+    .glass-panel p{line-height:1.9}
+    .qr-row{gap:20px}
+    .qr-image{border:1px solid rgba(255,255,255,.98);box-shadow:0 7px 20px rgba(31,43,37,.055);border-radius:16px}
+    .qr-note{margin-top:10px;line-height:1.8}
+    .btn{font-family:inherit;border-radius:13px;transition:background-color .15s ease,border-color .15s ease,transform .15s ease}
+    .btn.primary{background:#365d43;border-color:#365d43;box-shadow:0 6px 15px rgba(54,93,67,.12)}
+    @media(hover:hover) and (pointer:fine){
+      .social:hover{transform:translateY(-2px);border-color:rgba(129,167,137,.65)}
+      .btn:hover{transform:translateY(-1px)}
+    }
+    @media(max-width:600px){
+      .hero,.glass-panel{-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+      .hero{border-radius:23px;padding:22px 18px}
+      .hero h2{font-size:clamp(27px,7.2vw,35px)}
+      .glass-panel{border-radius:20px;padding:17px}
+      .qr-row{gap:13px}
+      .qr-image{width:106px;height:106px}
+      .qr-note{font-size:11px}
+    }
+    @media(prefers-reduced-motion:reduce){.btn,.social{transition:none!important}}
   </style>
 </head>
 <body>
@@ -187,13 +255,13 @@
         <span class="mark" aria-hidden="true">AY</span>
         <div><h1>ASHKAN YT</h1><p>صفحه رسمی · راه‌های ارتباطی</p></div>
       </a>
-      <span class="tag">ارتباط و همکاری</span>
+      <span class="tag">صفحهٔ رسمی</span>
     </header>
 
     <section class="hero" aria-labelledby="hero-title">
       <p class="eyebrow">صفحهٔ رسمی · شبکه‌های اجتماعی</p>
       <h2 id="hero-title">ارتباط با <span>اشکان</span>، ساده و مستقیم.</h2>
-      <p class="desc">شبکه‌های اجتماعی، سفارش و همکاری؛ همه در یک صفحهٔ خلوت، خوش‌ساخت و سریع.</p>
+      <p class="desc">راه‌های ارتباطی و شبکه‌های اجتماعی در یک صفحهٔ خلوت، خوش‌ساخت و سریع.</p>
       <div class="actions">
         <a class="btn primary" href="https://t.me/ashkan_sh0p" target="_blank" rel="noopener noreferrer">ارتباط در تلگرام <span aria-hidden="true">↗</span></a>
         <button class="btn" id="shareSite" type="button">اشتراک‌گذاری صفحه</button>
@@ -206,7 +274,7 @@
       <nav class="socials" aria-label="شبکه‌های اجتماعی رسمی">
         <a class="social" href="https://t.me/ashkan_sh0p" target="_blank" rel="noopener noreferrer">
           <span class="social-icon telegram-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M23.72 4.36 20.2 21c-.26 1.18-.96 1.47-1.94.91l-5.35-3.94-2.58 2.48c-.29.29-.53.53-1.07.53l.38-5.44 9.91-8.95c.43-.38-.09-.59-.66-.21L6.67 14.2 1.4 12.54c-1.15-.36-1.17-1.15.24-1.7L22.26 2.9c.95-.35 1.79.23 1.46 1.46Z" fill="currentColor"/></svg></span>
-          <span class="social-copy"><strong>تلگرام شخصی / سفارش</strong><small>@ashkan_sh0p</small></span><span class="arrow" aria-hidden="true">↗</span>
+          <span class="social-copy"><strong>تلگرام شخصی</strong><small>@ashkan_sh0p</small></span><span class="arrow" aria-hidden="true">↗</span>
         </a>
         <a class="social" href="https://t.me/ASHKAN_YT_FF" target="_blank" rel="noopener noreferrer">
           <span class="social-icon telegram-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M23.72 4.36 20.2 21c-.26 1.18-.96 1.47-1.94.91l-5.35-3.94-2.58 2.48c-.29.29-.53.53-1.07.53l.38-5.44 9.91-8.95c.43-.38-.09-.59-.66-.21L6.67 14.2 1.4 12.54c-1.15-.36-1.17-1.15.24-1.7L22.26 2.9c.95-.35 1.79.23 1.46 1.46Z" fill="currentColor"/></svg></span>
@@ -219,26 +287,14 @@
       </nav>
     </section>
 
-    <section class="section split" aria-label="کد QR و همکاری">
-      <div class="panel" id="qr">
+    <section class="section qr-section" aria-label="کد QR سایت">
+      <div class="panel glass-panel" id="qr">
         <h3>کد QR سایت</h3>
         <p>با دوربین گوشی اسکن کن تا این صفحه باز شود.</p>
         <div class="qr-row">
           <img class="qr-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAFoAQAAAABSnlx4AAADhUlEQVR42u1b7Y7iMBCzq33vlBeP78d8JKUFWoR0t8fACkJrol1n4sw4WQoXHgsKXehCF7rQ/wb6BwBobQEU5zf4q98tBj+MJjjoj0s7dJMkGwJNy623JakX38/RZBBNJz2YZ97d9L0ed9dtHlR8X0QH4zyK7wxoD2dA1u7F4CX0CqxJMadYP0Q3oDnlCM578X0KvYZCECtWpsaMOEeKs+v33Yvd808dklR8Hzxi7bPlDw3yZ0f31gS8Qx89B7r4fpAPJkkpIAIAdnbOC+Dzvu+0p/TkGZoE6aIMGXOdIcic9UQS0GCa7WFvkW0ToAfsOxikItyUPwAoysoYyu6OvkmisQFoNHIFOdkCExxfBRTd5VzIjvsS6OVF8vg98c0D/W5othhatAqu14axFTD5hjfl4wjKRsP0R4vOZOv/T3xf40SSwDYCmS7m3YQk652YO6BFuM2bcAJsMgFAX6r6f4LmSigWSwqQnGEJ3Wuaue/1zMwpvh+hdQPAJjQR4VZREEhSnSKHOSKgueAgxSd1SUK/sF5+W/U/ZxwK0ymZQ4c6zH5K/U45scXUsxnZRdB4/h79fq/esbXSS/PxlhneQcW4FoPvohtAspl6+yJryy4Fkh2L7vtei8G39QQNDW1kf1nGACbHLsnLa7r5xXyvp/kGGrbqPct4OVCf1u9mEj4qdPgHAFL3pFDXxrLi+3F+Is9Phi1iwqL0tdMfTMfkGN2xH53flZ+Mqi4tC7dFmJWdCDcu5r9yfZn1RnwHhe47WVY9p4UqPTkR3+s5PWlu+EURY2MSrPcEFt/7tGB25S7G97wjGTvwgJAWa/H9Ef32dHCYgiEqnr2EnHwd3+tn0DrMT6KwV+7/ZpxXfL8Z33pUz1t4C5jsbyTpvfT7PHq9Z1uHejIZfJu9sjha8pszvL+pPtoQ/uMX2cyGZWw4yLLOBViAvuz9k+J7n59sadeBolDbD26qBtI2cRjfK0f7FXp9JeCbEyWYNSR0HB2HfmzF92v91o7x7YmpyL+1tU/QKz95Ue/cSAA3v3jDkm3b/qUDo770k1VjwdQc+eUPPnz87Mfh7sU67QdopHRzujKK/OL7LJrjcPECcCG47NCp2tlGmn7F98l8MM+ijX9dIJztRA/pGCfTRhp+6Tf5tvxknPc5lAcC80G05XkFmlbhhf8QUenJ0fLKff5dClHoQhe60L8G/QeJDlPRGBy3EAAAAABJRU5ErkJggg==" width="132" height="132" alt="کد QR لینک رسمی سایت Ashkan YT" loading="eager" decoding="async">
           <div><a class="btn" href="https://ashkanre.github.io/ashkan-yt/" target="_blank" rel="noopener noreferrer">باز کردن سایت ↗</a><p class="qr-note">تصویر QR داخل خود صفحه قرار دارد و از سایت دیگری بارگیری نمی‌شود.</p></div>
         </div>
-      </div>
-
-      <div class="panel" id="work">
-        <h3>همکاری و سفارش</h3>
-        <p>متنت رو بنویس تا پیام آماده در تلگرام باز شود؛ ارسال نهایی با خودت است.</p>
-        <form id="contactForm">
-          <div class="field"><label for="contactName">نام (اختیاری)</label><input id="contactName" name="name" maxlength="60" autocomplete="name" placeholder="نام شما"></div>
-          <div class="field"><label for="contactTopic">موضوع</label><select id="contactTopic" name="topic"><option>همکاری</option><option>سفارش</option><option>سؤال</option><option>سایر</option></select></div>
-          <div class="field"><label for="contactMessage">پیام</label><textarea id="contactMessage" name="message" maxlength="1200" required placeholder="پیام خودت رو بنویس…"></textarea></div>
-          <div class="form-actions"><button class="btn primary" type="submit">آماده‌کردن پیام در تلگرام ↗</button><button class="btn" id="copyMessage" type="button">کپی متن پیام</button></div>
-          <p class="hint">این فرم اطلاعات را روی سرور ذخیره نمی‌کند؛ فقط متن را آماده می‌کند.</p>
-        </form>
       </div>
     </section>
 
@@ -287,29 +343,6 @@
           if (navigator.share) await navigator.share({title:"Ashkan YT", text:"صفحه رسمی اشکان وای‌تی", url:siteUrl});
           else await copyText(siteUrl, "لینک سایت کپی شد.");
         } catch (_) {}
-      });
-      function makeMessage() {
-        const name = $("contactName").value.trim();
-        const topic = $("contactTopic").value;
-        const message = $("contactMessage").value.trim();
-        if (!message) {
-          $("contactMessage").focus();
-          notify("اول متن پیام رو بنویس.");
-          return "";
-        }
-        return "سلام اشکان، برای " + topic + " پیام می‌دم." +
-          (name ? "\nنام: " + name : "") +
-          "\n\n" + message;
-      }
-      $("contactForm").addEventListener("submit", event => {
-        event.preventDefault();
-        const message = makeMessage();
-        if (!message) return;
-        window.open("https://t.me/ashkan_sh0p?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
-      });
-      $("copyMessage").addEventListener("click", () => {
-        const message = makeMessage();
-        if (message) copyText(message, "متن پیام کپی شد.");
       });
     })();
   </script>
