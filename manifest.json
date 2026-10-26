@@ -1,15 +1,15 @@
 {
   "id": "./",
-  "name": "Ashkan YT Official",
+  "name": "Ashkan YT",
   "short_name": "Ashkan YT",
-  "description": "صفحه رسمی اشکان وای تی و شبکه‌های اجتماعی",
+  "description": "صفحه رسمی اشکان وای‌تی؛ راه‌های ارتباطی، شبکه‌های اجتماعی و همکاری.",
   "lang": "fa",
   "dir": "rtl",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#070916",
-  "theme_color": "#080a18",
+  "background_color": "#f4f6f3",
+  "theme_color": "#f4f6f3",
   "icons": [
     { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
   ]
