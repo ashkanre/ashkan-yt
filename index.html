@@ -71,6 +71,95 @@
     .toast.show{opacity:1;visibility:visible}
     @media(max-width:600px){.wrap{width:min(100% - 22px,860px)}.top{padding-top:17px}.hero{border-radius:20px;padding:22px 18px}.socials{grid-template-columns:1fr;gap:8px}.social{padding:12px}.split{grid-template-columns:1fr}.panel{padding:17px}.qr-row{justify-content:flex-start}.qr-image{width:116px;height:116px}.footer{align-items:flex-start;flex-direction:column;gap:4px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+      /* Premium, calm visual layer — CSS-only, no external fonts or animation libraries. */
+    :root{
+      --bg:#f4f4ef;
+      --paper:#fffefa;
+      --ink:#202b25;
+      --muted:#69746c;
+      --line:#e3e5dc;
+      --accent:#4f6a54;
+      --accent-soft:#edf1e8;
+      --radius:22px;
+    }
+    body{background:linear-gradient(180deg,#f8f8f4 0%,#f1f2ec 100%);color:var(--ink)}
+    .wrap{width:min(100% - 34px,900px)}
+    .top{padding-top:30px;padding-bottom:22px}
+    .mark{
+      background:linear-gradient(145deg,#23392c,#617761);
+      box-shadow:0 7px 18px rgba(36,57,44,.12);
+      border:1px solid rgba(255,255,255,.35);
+    }
+    .brand h1{letter-spacing:.55px}
+    .tag{background:#edf1e8;color:#48634c;border-color:#e0e7dc;padding:6px 13px;font-weight:650}
+    .hero{
+      position:relative;isolation:isolate;overflow:hidden;
+      background:linear-gradient(120deg,#fffefa 0%,#f7f8f2 62%,#eef2e8 100%);
+      border-color:#e0e5da;border-radius:30px;
+      box-shadow:0 12px 32px rgba(37,51,40,.045);
+    }
+    .hero:before{
+      content:"";position:absolute;z-index:-1;pointer-events:none;
+      width:240px;height:240px;left:-85px;bottom:-130px;
+      border:1px solid rgba(79,106,84,.13);border-radius:50%;
+      box-shadow:0 0 0 24px rgba(79,106,84,.025),0 0 0 48px rgba(79,106,84,.018);
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      border:1px solid #e0e7db;border-radius:999px;
+      background:rgba(237,241,232,.8);padding:4px 11px;margin-bottom:14px;
+      color:#48634c;font-size:12px;letter-spacing:.05px;
+    }
+    .hero h2{max-width:680px;line-height:1.45;letter-spacing:-.55px}
+    .hero h2 span{color:#4f6a54}
+    .desc{max-width:560px;line-height:2}
+    .btn{border-radius:13px;transition:background-color .16s ease,border-color .16s ease,transform .16s ease}
+    .btn.primary{background:#385642;border-color:#385642;box-shadow:0 5px 12px rgba(56,86,66,.09)}
+    .socials{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .social{
+      min-height:91px;padding:15px 14px;border-radius:18px;
+      background:rgba(255,254,250,.92);border-color:#e2e6dc;
+      box-shadow:0 5px 16px rgba(34,48,38,.025);
+    }
+    .social-icon{background:#eef2e9;border:1px solid #e5eadf;border-radius:14px;color:#426148}
+    .social strong{font-size:13px;line-height:1.7}
+    .social small{font-size:11px}
+    .social .arrow{font-size:17px;color:#6b806d}
+    .section{margin:32px 0}
+    .section-head{margin-bottom:15px}
+    .section-head h3{letter-spacing:-.2px}
+    .section-head p{font-size:12px}
+    .panel{
+      border-radius:22px;border-color:#e2e6dc;background:rgba(255,254,250,.94);
+      box-shadow:0 7px 20px rgba(34,48,38,.025);
+    }
+    .panel h3{letter-spacing:-.2px}
+    .qr-image{border-radius:15px;border-color:#e5e7df}
+    .field input,.field select,.field textarea{border-color:#dfe4da;border-radius:12px;background:#fffefa}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:#7c987f;outline:2px solid rgba(124,152,127,.15)}
+    .footer{border-color:#e0e4da}
+    .toast{box-shadow:0 8px 24px rgba(24,36,29,.15)}
+    @media(hover:hover) and (pointer:fine){
+      .btn:hover{transform:translateY(-1px);border-color:#c7d4c5}
+      .btn.primary:hover{background:#2f4b38;border-color:#2f4b38}
+      .social:hover{border-color:#bfcfbd;background:#fff;transform:translateY(-2px)}
+      .social .arrow{transition:transform .16s ease}
+      .social:hover .arrow{transform:translateX(-2px)}
+    }
+    @media(max-width:760px){.socials{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:600px){
+      .wrap{width:min(100% - 22px,900px)}
+      .top{padding-top:19px}
+      .hero{border-radius:23px;padding:23px 18px}
+      .hero:before{width:180px;height:180px;left:-95px;bottom:-105px}
+      .hero h2{font-size:clamp(27px,7vw,35px)}
+      .socials{grid-template-columns:1fr;gap:9px}
+      .social{min-height:78px;padding:12px 13px;border-radius:16px}
+      .social-icon{width:40px;height:40px;flex-basis:40px}
+      .panel{border-radius:19px}
+      .section{margin:27px 0}
+    }
+    @media(prefers-reduced-motion:reduce){.btn,.social,.social .arrow{transition:none!important}}
   </style>
 </head>
 <body>
@@ -84,9 +173,9 @@
     </header>
 
     <section class="hero" aria-labelledby="hero-title">
-      <p class="eyebrow">خوش اومدی</p>
-      <h2 id="hero-title">همه راه‌های ارتباط با <span>اشکان</span>، یک‌جا.</h2>
-      <p class="desc">از شبکه‌های اجتماعی دیدن کن یا برای سفارش و همکاری پیام بفرست. صفحه ساده نگه داشته شده تا سریع باز شود و روی گوشی‌های مختلف راحت استفاده شود.</p>
+      <p class="eyebrow">صفحهٔ رسمی · شبکه‌های اجتماعی</p>
+      <h2 id="hero-title">ارتباط با <span>اشکان</span>، ساده و مستقیم.</h2>
+      <p class="desc">شبکه‌های اجتماعی، سفارش و همکاری؛ همه در یک صفحهٔ خلوت، خوش‌ساخت و سریع.</p>
       <div class="actions">
         <a class="btn primary" href="https://t.me/ashkan_sh0p" target="_blank" rel="noopener noreferrer">ارتباط در تلگرام <span aria-hidden="true">↗</span></a>
         <button class="btn" id="shareSite" type="button">اشتراک‌گذاری صفحه</button>
@@ -95,7 +184,7 @@
     </section>
 
     <section class="section" id="links" aria-labelledby="links-title">
-      <div class="section-head"><h3 id="links-title">شبکه‌های اجتماعی</h3><p>صفحه‌های رسمی</p></div>
+      <div class="section-head"><h3 id="links-title">راه‌های ارتباطی</h3><p>انتخاب کن و وارد شو</p></div>
       <nav class="socials" aria-label="شبکه‌های اجتماعی رسمی">
         <a class="social" href="https://t.me/ashkan_sh0p" target="_blank" rel="noopener noreferrer">
           <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 14 21l-4-7-7-4 18-7Z"/><path d="m10 14 5-6"/></svg></span>
@@ -108,10 +197,6 @@
         <a class="social" href="https://instagram.com/ashkan_yt_ir" target="_blank" rel="noopener noreferrer">
           <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.6 6.5h.01" stroke-width="3" stroke-linecap="round"/></svg></span>
           <span class="social-copy"><strong>اینستاگرام</strong><small>@ashkan_yt_ir</small></span><span class="arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="social" href="https://rubika.ir/ashkan_yt" target="_blank" rel="noopener noreferrer">
-          <span class="social-icon" aria-hidden="true">R</span>
-          <span class="social-copy"><strong>روبیکا</strong><small>@ashkan_yt</small></span><span class="arrow" aria-hidden="true">↗</span>
         </a>
       </nav>
     </section>
