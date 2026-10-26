@@ -246,6 +246,59 @@
       .qr-note{font-size:11px}
     }
     @media(prefers-reduced-motion:reduce){.btn,.social{transition:none!important}}
+  
+    /* Pearl-white finish: clean white with restrained warm and sage undertones. */
+    :root{
+      --bg:#fbfbf8;
+      --paper:rgba(255,255,255,.86);
+      --ink:#243128;
+      --muted:#707970;
+      --line:rgba(222,228,220,.86);
+      --accent:#45684f;
+      --accent-soft:#edf2eb;
+    }
+    body{
+      background:
+        radial-gradient(ellipse at 7% 0%,rgba(222,235,223,.48) 0%,transparent 34%),
+        radial-gradient(ellipse at 96% 5%,rgba(248,239,225,.52) 0%,transparent 33%),
+        linear-gradient(180deg,#fdfdfa 0%,#fafbf8 48%,#f5f7f2 100%);
+      color:var(--ink);
+    }
+    .tag{
+      background:rgba(255,255,255,.88);
+      border-color:#e7ebe4;
+      box-shadow:0 4px 14px rgba(47,65,49,.035),inset 0 1px 0 #fff;
+    }
+    .hero,.glass-panel{
+      background:linear-gradient(135deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.78) 62%,rgba(249,251,246,.9) 100%);
+      border:1px solid rgba(255,255,255,.98);
+      box-shadow:0 16px 42px rgba(45,68,48,.055),0 1px 2px rgba(45,68,48,.035),inset 0 1px 0 #fff;
+      -webkit-backdrop-filter:blur(10px);
+      backdrop-filter:blur(10px);
+    }
+    .hero:before{
+      border-color:rgba(94,133,99,.105);
+      box-shadow:0 0 0 22px rgba(94,133,99,.022),0 0 0 44px rgba(94,133,99,.014);
+    }
+    .eyebrow{
+      color:#426348;
+      background:rgba(240,245,237,.9);
+      border-color:#e6ece2;
+    }
+    .social{
+      background:rgba(255,255,255,.88);
+      border-color:rgba(226,231,222,.92);
+      box-shadow:0 8px 22px rgba(35,55,39,.035),inset 0 1px 0 #fff;
+    }
+    .panel{background:rgba(255,255,255,.78);border-color:rgba(226,231,222,.86)}
+    .qr-image{box-shadow:0 8px 22px rgba(35,55,39,.045)}
+    .footer{border-color:#e6eae2}
+    @media(max-width:600px){
+      body{background:
+        radial-gradient(ellipse at 2% 0%,rgba(222,235,223,.42) 0%,transparent 30%),
+        linear-gradient(180deg,#fdfdfa 0%,#f8faf6 100%)}
+      .hero,.glass-panel{-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px)}
+    }
   </style>
 </head>
 <body>
