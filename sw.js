@@ -1,4 +1,4 @@
-const CACHE_NAME = "ashkan-yt-shell-v10";
+const CACHE_NAME = "ashkan-yt-shell-v11";
 const CORE = ["./", "./index.html", "./manifest.json", "./icon.svg"];
 
 self.addEventListener("install", event => {
