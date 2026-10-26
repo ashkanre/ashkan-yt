@@ -78,7 +78,7 @@
     <header class="top">
       <a class="brand" href="#top" aria-label="صفحه اصلی اشکان وای‌تی">
         <span class="mark" aria-hidden="true">AY</span>
-        <span><h1>ASHKAN YT</h1><p>صفحه رسمی · راه‌های ارتباطی</p></span>
+        <div><h1>ASHKAN YT</h1><p>صفحه رسمی · راه‌های ارتباطی</p></div>
       </a>
       <span class="tag">ارتباط و همکاری</span>
     </header>
@@ -209,6 +209,13 @@
         if (message) copyText(message, "متن پیام کپی شد.");
       });
     })();
+  </script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js").catch(() => {});
+      }, { once: true });
+    }
   </script>
 </body>
 </html>
