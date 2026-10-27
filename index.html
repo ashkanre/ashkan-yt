@@ -36,10 +36,15 @@
     body{
       margin:0;
       color:var(--ink);
-      background:
-        radial-gradient(ellipse at 8% 0%,rgba(221,235,220,.48),transparent 34%),
-        radial-gradient(ellipse at 96% 9%,rgba(249,239,220,.50),transparent 32%),
+      background-color:#fbfbf8;
+      background-image:
+        radial-gradient(ellipse at 8% 0%,rgba(205,229,207,.66),transparent 29rem),
+        radial-gradient(ellipse at 96% 10%,rgba(249,230,198,.58),transparent 27rem),
+        radial-gradient(circle,rgba(91,119,84,.105) .75px,transparent .9px),
         linear-gradient(180deg,#fdfdfa 0%,#fafbf8 52%,#f5f7f2 100%);
+      background-size:auto,auto,26px 26px,auto;
+      background-position:center,center,0 0,center;
+      background-repeat:no-repeat,no-repeat,repeat,no-repeat;
       font-family:"Vazirmatn","IRANSansX","IRANSans","Shabnam","Sahel",system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
       font-size:16px;line-height:1.9;
       -webkit-font-smoothing:antialiased;
@@ -172,6 +177,8 @@
       .topbar{padding-top:20px}
       .social-grid{grid-template-columns:1fr;gap:9px}
       .social-card{min-height:79px;padding:12px 14px;border-radius:17px}
+      /* Keep the glass look without blur work on smaller/older phones. */
+      .hero,.qr-panel{-webkit-backdrop-filter:none;backdrop-filter:none}
       .app-icon{width:46px;height:46px;flex-basis:46px;border-radius:15px}
       .qr-panel{grid-template-columns:1fr;gap:16px}
       .qr-side{justify-content:space-between;flex-direction:row-reverse}
