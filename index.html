@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4f6f3">
+  <meta name="theme-color" content="#fbfbf8">
   <meta name="color-scheme" content="light">
-  <meta name="description" content="صفحه رسمی اشکان وای‌تی؛ راه‌های ارتباطی، شبکه‌های اجتماعی و همکاری.">
+  <meta name="description" content="صفحه رسمی اشکان وای‌تی؛ راه‌های ارتباطی و شبکه‌های اجتماعی در یک صفحه.">
   <meta name="author" content="Ashkan YT">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Ashkan YT | صفحه رسمی">
@@ -16,342 +16,274 @@
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <title>Ashkan YT | صفحه رسمی</title>
   <style>
-    :root{color-scheme:light;--bg:#f4f6f3;--paper:#fff;--ink:#1f2c27;--muted:#68756f;--line:#e1e7e2;--accent:#38695b;--accent-soft:#edf4f0;--radius:20px}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:"Vazirmatn","IRANSansX","IRANSans","Shabnam","Sahel",system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}
-    button,input,select,textarea{font:inherit}
-    button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
-    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #8eb6a6;outline-offset:3px}
-    .wrap{width:min(100% - 32px,860px);margin-inline:auto}
-    .top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:26px 0 20px}
-    .brand{display:flex;align-items:center;gap:12px;min-width:0}
-    .mark{width:46px;height:46px;display:grid;place-items:center;flex:none;border-radius:14px;background:var(--ink);color:#fff;font-weight:750;font-size:17px;letter-spacing:-1px}
-    .brand h1{font-size:17px;line-height:1.35;margin:0;font-weight:760;letter-spacing:.2px}
-    .brand p{margin:4px 0 0;font-size:12px;color:var(--muted)}
-    .tag{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 11px;color:var(--muted);font-size:12px;white-space:nowrap}
-    .hero{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:clamp(22px,5vw,42px);margin-bottom:28px}
-    .eyebrow{font-size:13px;color:var(--accent);font-weight:700;margin:0 0 8px}
-    .hero h2{font-size:clamp(27px,5vw,42px);line-height:1.35;letter-spacing:-.8px;margin:0 0 12px;font-weight:780}
-    .hero h2 span{color:var(--accent)}
-    .desc{margin:0;color:var(--muted);max-width:590px;font-size:15px}
-    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:23px}
-    .btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:44px;padding:9px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-weight:650;font-size:14px;cursor:pointer}
-    .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
-    .section{margin:28px 0}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:13px}
-    .section-head h3{margin:0;font-size:18px;font-weight:750}
-    .section-head p{margin:0;color:var(--muted);font-size:12px}
-    .socials{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
-    .social{display:flex;align-items:center;gap:13px;min-width:0;padding:15px;background:var(--paper);border:1px solid var(--line);border-radius:16px}
-    .social-icon{width:42px;height:42px;flex:none;display:grid;place-items:center;border-radius:12px;background:var(--accent-soft);color:var(--accent);font-weight:800;font-size:17px}
-    .social svg{width:22px;height:22px;display:block}
-    .social-copy{min-width:0}
-    .social strong{display:block;font-size:14px;font-weight:720}
-    .social small{display:block;color:var(--muted);font-size:12px;direction:ltr;text-align:right;overflow-wrap:anywhere}
-    .social .arrow{margin-inline-start:auto;color:#82928a;flex:none;font-size:18px}
-    .panel{min-width:0;border:1px solid var(--line);background:var(--paper);border-radius:var(--radius);padding:21px}
-    .panel h3{margin:0 0 8px;font-size:17px}
-    .panel p{margin:0;color:var(--muted);font-size:13px}
-    .qr-row{display:flex;align-items:center;gap:16px;margin-top:16px}
-    .qr-image{width:132px;height:132px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:12px;padding:5px;flex:none}
-    .qr-note{font-size:12px;color:var(--muted);margin-top:9px}
-    .footer{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid var(--line);padding:20px 0 28px;margin-top:28px;color:var(--muted);font-size:12px}
-    .footer strong{color:var(--ink)}
-    .toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);max-width:calc(100vw - 28px);padding:9px 14px;border-radius:12px;background:var(--ink);color:#fff;font-size:13px;opacity:0;visibility:hidden;pointer-events:none}
-    .toast.show{opacity:1;visibility:visible}
-    @media(max-width:600px){.wrap{width:min(100% - 22px,860px)}.top{padding-top:17px}.hero{border-radius:20px;padding:22px 18px}.socials{grid-template-columns:1fr;gap:8px}.social{padding:12px}.split{grid-template-columns:1fr}.panel{padding:17px}.qr-row{justify-content:flex-start}.qr-image{width:116px;height:116px}.footer{align-items:flex-start;flex-direction:column;gap:4px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-      /* Premium, calm visual layer — CSS-only, no external fonts or animation libraries. */
     :root{
-      --bg:#f4f4ef;
-      --paper:#fffefa;
-      --ink:#202b25;
-      --muted:#69746c;
-      --line:#e3e5dc;
-      --accent:#4f6a54;
-      --accent-soft:#edf1e8;
-      --radius:22px;
+      color-scheme:light;
+      --page:#fbfbf8;
+      --ink:#202b24;
+      --muted:#707970;
+      --sage:#43654b;
+      --sage-deep:#304d38;
+      --sage-pale:#eef3eb;
+      --line:#e7ebe3;
+      --glass:rgba(255,255,255,.74);
+      --shadow:0 18px 50px rgba(41,61,43,.065);
+      --radius-xl:30px;
+      --radius-lg:21px;
+      --radius-md:15px;
     }
-    body{background:linear-gradient(180deg,#f8f8f4 0%,#f1f2ec 100%);color:var(--ink)}
-    .wrap{width:min(100% - 34px,900px)}
-    .top{padding-top:30px;padding-bottom:22px}
-    .mark{
-      background:linear-gradient(145deg,#23392c,#617761);
-      box-shadow:0 7px 18px rgba(36,57,44,.12);
-      border:1px solid rgba(255,255,255,.35);
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:20px}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(ellipse at 8% 0%,rgba(221,235,220,.48),transparent 34%),
+        radial-gradient(ellipse at 96% 9%,rgba(249,239,220,.50),transparent 32%),
+        linear-gradient(180deg,#fdfdfa 0%,#fafbf8 52%,#f5f7f2 100%);
+      font-family:"Vazirmatn","IRANSansX","IRANSans","Shabnam","Sahel",system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+      font-size:16px;line-height:1.9;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
-    .brand h1{letter-spacing:.55px}
-    .tag{background:#edf1e8;color:#48634c;border-color:#e0e7dc;padding:6px 13px;font-weight:650}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    button,a{-webkit-tap-highlight-color:transparent}
+    a:focus-visible,button:focus-visible{outline:3px solid #9ab49b;outline-offset:4px}
+    .shell{width:min(100% - 34px,900px);margin-inline:auto}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:27px 0 22px}
+    .brand{display:flex;align-items:center;gap:13px;min-width:0}
+    .brand-mark{
+      width:48px;height:48px;display:grid;place-items:center;flex:none;
+      color:#fff;font-size:15px;font-weight:800;letter-spacing:.25px;
+      border:1px solid rgba(255,255,255,.7);border-radius:16px;
+      background:linear-gradient(145deg,#263e2d,#638168);
+      box-shadow:0 8px 20px rgba(44,73,49,.14),inset 0 1px 0 rgba(255,255,255,.25);
+    }
+    .brand-name{display:block;font-size:17px;font-weight:820;letter-spacing:.45px;line-height:1.35}
+    .brand-caption{display:block;margin-top:4px;color:var(--muted);font-size:12px;line-height:1.6}
+    .top-label{
+      display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+      padding:6px 12px;border:1px solid rgba(223,230,219,.9);
+      border-radius:999px;background:rgba(255,255,255,.78);
+      color:#536b55;font-size:12px;font-weight:650;
+      box-shadow:0 4px 14px rgba(39,63,43,.03);
+    }
+    .top-dot{width:6px;height:6px;border-radius:50%;background:#6a8b6a}
     .hero{
       position:relative;isolation:isolate;overflow:hidden;
-      background:linear-gradient(120deg,#fffefa 0%,#f7f8f2 62%,#eef2e8 100%);
-      border-color:#e0e5da;border-radius:30px;
-      box-shadow:0 12px 32px rgba(37,51,40,.045);
+      padding:clamp(26px,5.6vw,52px);
+      border:1px solid rgba(255,255,255,.96);border-radius:var(--radius-xl);
+      background:linear-gradient(132deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.76) 60%,rgba(247,250,244,.9) 100%);
+      box-shadow:var(--shadow),inset 0 1px 0 #fff;
+      -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
     }
     .hero:before{
       content:"";position:absolute;z-index:-1;pointer-events:none;
-      width:240px;height:240px;left:-85px;bottom:-130px;
-      border:1px solid rgba(79,106,84,.13);border-radius:50%;
-      box-shadow:0 0 0 24px rgba(79,106,84,.025),0 0 0 48px rgba(79,106,84,.018);
+      width:250px;height:250px;left:-100px;bottom:-155px;border-radius:50%;
+      border:1px solid rgba(91,127,91,.13);
+      box-shadow:0 0 0 22px rgba(91,127,91,.025),0 0 0 46px rgba(91,127,91,.018);
     }
     .eyebrow{
-      display:inline-flex;align-items:center;gap:8px;
-      border:1px solid #e0e7db;border-radius:999px;
-      background:rgba(237,241,232,.8);padding:4px 11px;margin-bottom:14px;
-      color:#48634c;font-size:12px;letter-spacing:.05px;
+      display:inline-flex;align-items:center;gap:8px;margin:0 0 15px;padding:5px 12px;
+      color:var(--sage);background:rgba(239,244,236,.9);
+      border:1px solid #e7eee3;border-radius:999px;font-size:12px;font-weight:700;
     }
-    .hero h2{max-width:680px;line-height:1.45;letter-spacing:-.55px}
-    .hero h2 span{color:#4f6a54}
-    .desc{max-width:560px;line-height:2}
-    .btn{border-radius:13px;transition:background-color .16s ease,border-color .16s ease,transform .16s ease}
-    .btn.primary{background:#385642;border-color:#385642;box-shadow:0 5px 12px rgba(56,86,66,.09)}
-    .socials{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-    .social{
-      min-height:91px;padding:15px 14px;border-radius:18px;
-      background:rgba(255,254,250,.92);border-color:#e2e6dc;
-      box-shadow:0 5px 16px rgba(34,48,38,.025);
+    .eyebrow-mark{display:inline-block;width:7px;height:7px;border-radius:50%;background:#7e9a78}
+    h1,h2,h3,p{overflow-wrap:break-word}
+    .hero h1{max-width:700px;margin:0;font-size:clamp(29px,5.5vw,46px);line-height:1.5;letter-spacing:-.5px;font-weight:820}
+    .hero h1 span{color:var(--sage)}
+    .hero-copy{max-width:590px;margin:14px 0 0;color:var(--muted);font-size:15px;line-height:2.05}
+    .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:24px}
+    .button{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;
+      padding:10px 17px;border:1px solid #e2e8df;border-radius:14px;
+      color:var(--ink);background:rgba(255,255,255,.78);font-size:13px;font-weight:720;
+      cursor:pointer;transition:transform .16s ease,background-color .16s ease,border-color .16s ease;
     }
-    .social-icon{background:#eef2e9;border:1px solid #e5eadf;border-radius:14px;color:#426148}
-    .social strong{font-size:13px;line-height:1.7}
-    .social small{font-size:11px}
-    .social .arrow{font-size:17px;color:#6b806d}
-    .section{margin:32px 0}
-    .section-head{margin-bottom:15px}
-    .section-head h3{letter-spacing:-.2px}
-    .section-head p{font-size:12px}
-    .panel{
-      border-radius:22px;border-color:#e2e6dc;background:rgba(255,254,250,.94);
-      box-shadow:0 7px 20px rgba(34,48,38,.025);
+    .button svg{width:17px;height:17px;flex:none}
+    .button-primary{
+      color:#fff;background:linear-gradient(135deg,#456b4d,#34563d);
+      border-color:#456b4d;box-shadow:0 7px 17px rgba(52,86,61,.14);
     }
-    .panel h3{letter-spacing:-.2px}
-    .qr-image{border-radius:15px;border-color:#e5e7df}
-    .field input,.field select,.field textarea{border-color:#dfe4da;border-radius:12px;background:#fffefa}
-    .field input:focus,.field select:focus,.field textarea:focus{border-color:#7c987f;outline:2px solid rgba(124,152,127,.15)}
-    .footer{border-color:#e0e4da}
-    .toast{box-shadow:0 8px 24px rgba(24,36,29,.15)}
+    .section{margin-top:33px}
+    .section-heading{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:15px}
+    .section-heading h2{margin:0;font-size:19px;font-weight:800;letter-spacing:0}
+    .section-heading p{margin:0;color:var(--muted);font-size:12px}
+    .social-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+    .social-card{
+      display:flex;align-items:center;gap:13px;min-width:0;min-height:100px;
+      padding:17px 15px;border:1px solid rgba(229,234,225,.98);border-radius:var(--radius-lg);
+      background:rgba(255,255,255,.82);
+      box-shadow:0 8px 23px rgba(41,61,43,.035),inset 0 1px 0 #fff;
+      transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease;
+    }
+    .app-icon{
+      width:49px;height:49px;flex:0 0 49px;display:grid;place-items:center;
+      overflow:hidden;border:1px solid rgba(255,255,255,.7);border-radius:16px;color:#fff;
+      box-shadow:0 6px 14px rgba(32,50,35,.12),inset 0 1px 0 rgba(255,255,255,.3);
+    }
+    .app-icon svg{display:block;width:27px;height:27px;shape-rendering:geometricPrecision}
+    .telegram-icon{background:linear-gradient(145deg,#55ccf5 0%,#259bd3 54%,#197ab5 100%)}
+    .instagram-icon{background:linear-gradient(140deg,#f7c969 0%,#f27b53 30%,#dc4382 63%,#8b50c4 100%)}
+    .social-content{flex:1;min-width:0}
+    .social-title{display:block;font-size:13px;font-weight:780;line-height:1.75}
+    .social-handle{display:block;direction:ltr;text-align:right;overflow-wrap:anywhere;color:var(--muted);font-size:11px;line-height:1.7}
+    .social-arrow{color:#8a998a;font-size:19px;line-height:1;flex:none;transition:transform .16s ease}
+    .qr-panel{
+      display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:22px;
+      padding:clamp(19px,4vw,28px);
+      border:1px solid rgba(255,255,255,.97);border-radius:var(--radius-xl);
+      background:linear-gradient(125deg,rgba(255,255,255,.9),rgba(255,255,255,.7));
+      box-shadow:0 12px 34px rgba(41,61,43,.045),inset 0 1px 0 #fff;
+      -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    }
+    .qr-text h2{margin:0 0 7px;font-size:18px;font-weight:800}
+    .qr-text p{max-width:490px;margin:0;color:var(--muted);font-size:13px;line-height:2}
+    .qr-note{margin-top:13px!important;font-size:11px!important;color:#849084!important}
+    .qr-side{display:flex;align-items:center;gap:14px}
+    .qr-image{
+      display:block;width:118px;height:118px;flex:none;object-fit:contain;padding:5px;
+      border:1px solid #e8ece5;border-radius:17px;background:#fff;
+      box-shadow:0 7px 19px rgba(35,55,39,.045);
+    }
+    .qr-open{white-space:nowrap}
+    .footer{
+      display:flex;justify-content:space-between;align-items:center;gap:14px;
+      margin-top:31px;padding:19px 0 28px;border-top:1px solid #e8ece5;
+      color:var(--muted);font-size:12px;
+    }
+    .footer strong{color:var(--ink);font-weight:800}
+    .footer-note{font-size:11px;color:#90988e}
+    .toast{
+      position:fixed;z-index:5;bottom:18px;left:50%;transform:translateX(-50%);
+      max-width:calc(100vw - 28px);padding:10px 15px;border-radius:13px;
+      color:#fff;background:#25382a;box-shadow:0 8px 24px rgba(25,43,29,.18);
+      font-size:13px;opacity:0;visibility:hidden;pointer-events:none;
+    }
+    .toast.show{opacity:1;visibility:visible}
     @media(hover:hover) and (pointer:fine){
-      .btn:hover{transform:translateY(-1px);border-color:#c7d4c5}
-      .btn.primary:hover{background:#2f4b38;border-color:#2f4b38}
-      .social:hover{border-color:#bfcfbd;background:#fff;transform:translateY(-2px)}
-      .social .arrow{transition:transform .16s ease}
-      .social:hover .arrow{transform:translateX(-2px)}
+      .social-card:hover{transform:translateY(-3px);border-color:#d5e0d1;box-shadow:0 13px 28px rgba(41,61,43,.07),inset 0 1px 0 #fff}
+      .social-card:hover .social-arrow{transform:translateX(-2px)}
+      .button:hover{transform:translateY(-1px);border-color:#cbd9c9}
+      .button-primary:hover{background:linear-gradient(135deg,#3e6246,#2d4c36);border-color:#3e6246}
     }
-    @media(max-width:760px){.socials{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:600px){
-      .wrap{width:min(100% - 22px,900px)}
-      .top{padding-top:19px}
-      .hero{border-radius:23px;padding:23px 18px}
-      .hero:before{width:180px;height:180px;left:-95px;bottom:-105px}
-      .hero h2{font-size:clamp(27px,7vw,35px)}
-      .socials{grid-template-columns:1fr;gap:9px}
-      .social{min-height:78px;padding:12px 13px;border-radius:16px}
-      .social-icon{width:40px;height:40px;flex-basis:40px}
-      .panel{border-radius:19px}
-      .section{margin:27px 0}
+    @media(max-width:760px){
+      .shell{width:min(100% - 28px,900px)}
+      .topbar{padding-top:20px}
+      .social-grid{grid-template-columns:1fr;gap:9px}
+      .social-card{min-height:79px;padding:12px 14px;border-radius:17px}
+      .app-icon{width:46px;height:46px;flex-basis:46px;border-radius:15px}
+      .qr-panel{grid-template-columns:1fr;gap:16px}
+      .qr-side{justify-content:space-between;flex-direction:row-reverse}
+      .qr-image{width:104px;height:104px}
     }
-    @media(prefers-reduced-motion:reduce){.btn,.social,.social .arrow{transition:none!important}}
-    /* Crisp, scalable app marks: vector edges stay sharp at any display density. */
-    .social-icon{
-      width:50px;height:50px;flex-basis:50px;flex-shrink:0;
-      border:1px solid rgba(255,255,255,.62);
-      border-radius:16px;
-      box-shadow:0 5px 12px rgba(31,43,37,.09),inset 0 1px 0 rgba(255,255,255,.24);
-      display:grid;place-items:center;overflow:hidden;
-      color:#fff;
+    @media(max-width:480px){
+      .shell{width:min(100% - 22px,900px)}
+      .topbar{padding:17px 0 17px}
+      .brand{gap:10px}
+      .brand-mark{width:43px;height:43px;border-radius:14px}
+      .brand-name{font-size:15px}
+      .brand-caption{font-size:11px}
+      .top-label{padding:5px 9px;font-size:10px;gap:5px}
+      .hero{padding:23px 18px;border-radius:24px}
+      .hero:before{width:175px;height:175px;left:-90px;bottom:-110px}
+      .hero h1{font-size:clamp(27px,7vw,34px);line-height:1.55}
+      .hero-copy{font-size:14px;line-height:2}
+      .hero-actions{gap:8px;margin-top:20px}
+      .button{min-height:43px;padding:9px 12px;font-size:12px}
+      .section{margin-top:27px}
+      .section-heading h2{font-size:17px}
+      .section-heading p{font-size:11px}
+      .qr-panel{padding:17px;border-radius:22px}
+      .qr-text h2{font-size:17px}
+      .qr-text p{font-size:12px}
+      .footer{flex-direction:column;align-items:flex-start;gap:4px}
     }
-    .social-icon svg{display:block;width:27px;height:27px;overflow:visible;shape-rendering:geometricPrecision}
-    .telegram-icon{background:linear-gradient(145deg,#43c8ff 0%,#229ed9 52%,#147dbb 100%);color:#fff}
-    .instagram-icon{background:linear-gradient(140deg,#ffcf62 0%,#ff7653 29%,#df3d83 59%,#8549c6 100%);color:#fff}
-    .social:nth-child(1) .social-icon,.social:nth-child(2) .social-icon{border-color:rgba(34,158,217,.16)}
-    .social:nth-child(3) .social-icon{border-color:rgba(223,61,131,.16)}
-    @media(max-width:600px){
-      .social-icon{width:46px;height:46px;flex-basis:46px;border-radius:15px}
-      .social-icon svg{width:25px;height:25px}
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .button,.social-card,.social-arrow{transition:none!important}
     }
-    /* Soft glass styling; the blur is limited to the hero and QR panel to keep scrolling light. */
-    :root{
-      --bg:#edf2ef;
-      --paper:rgba(255,255,255,.68);
-      --ink:#1d2c25;
-      --muted:#63716a;
-      --line:rgba(255,255,255,.82);
-      --accent:#3e6851;
-      --accent-soft:rgba(232,241,234,.78);
-    }
-    body{
-      background:
-        radial-gradient(ellipse at 10% 0%,rgba(205,227,213,.72),transparent 42%),
-        radial-gradient(ellipse at 92% 18%,rgba(226,231,219,.72),transparent 38%),
-        linear-gradient(160deg,#f6f8f5 0%,#eaf0eb 100%);
-      font-family:"Vazirmatn","IRANSansX","IRANSans","Shabnam","Sahel",system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
-      line-height:1.9;
-    }
-    .brand h1,.hero h2,.section-head h3,.panel h3{letter-spacing:0}
-    .tag{
-      background:rgba(255,255,255,.62);
-      border-color:rgba(255,255,255,.88);
-      box-shadow:0 3px 12px rgba(39,67,49,.04);
-    }
-    .hero,.glass-panel{
-      background:rgba(255,255,255,.48);
-      border:1px solid rgba(255,255,255,.88);
-      box-shadow:0 14px 38px rgba(35,64,47,.075),inset 0 1px 0 rgba(255,255,255,.92);
-      -webkit-backdrop-filter:blur(13px);
-      backdrop-filter:blur(13px);
-    }
-    .hero{position:relative;isolation:isolate;overflow:hidden}
-    .hero:before{
-      content:"";position:absolute;z-index:-1;pointer-events:none;
-      width:220px;height:220px;left:-92px;bottom:-132px;border-radius:50%;
-      border:1px solid rgba(83,126,94,.15);
-      box-shadow:0 0 0 22px rgba(83,126,94,.035),0 0 0 44px rgba(83,126,94,.025);
-    }
-    .hero h2{font-size:clamp(28px,5vw,43px);line-height:1.48}
-    .eyebrow{
-      display:inline-block;padding:4px 12px;margin-bottom:14px;
-      border:1px solid rgba(83,126,94,.14);border-radius:999px;
-      background:rgba(232,241,234,.72);color:#365d43;font-size:12px;
-    }
-    .desc{line-height:2;max-width:620px}
-    .social{
-      background:rgba(255,255,255,.56);
-      border-color:rgba(255,255,255,.88);
-      box-shadow:0 7px 20px rgba(35,64,47,.045),inset 0 1px 0 rgba(255,255,255,.8);
-      border-radius:19px;
-    }
-    .social-copy strong{font-weight:750;letter-spacing:0}
-    .social-icon{box-shadow:0 5px 12px rgba(31,43,37,.08),inset 0 1px 0 rgba(255,255,255,.22)}
-    .qr-section{margin-top:30px}
-    .glass-panel{border-radius:24px;padding:clamp(18px,4vw,26px)}
-    .glass-panel h3{font-size:18px;margin-bottom:6px}
-    .glass-panel p{line-height:1.9}
-    .qr-row{gap:20px}
-    .qr-image{border:1px solid rgba(255,255,255,.98);box-shadow:0 7px 20px rgba(31,43,37,.055);border-radius:16px}
-    .qr-note{margin-top:10px;line-height:1.8}
-    .btn{font-family:inherit;border-radius:13px;transition:background-color .15s ease,border-color .15s ease,transform .15s ease}
-    .btn.primary{background:#365d43;border-color:#365d43;box-shadow:0 6px 15px rgba(54,93,67,.12)}
-    @media(hover:hover) and (pointer:fine){
-      .social:hover{transform:translateY(-2px);border-color:rgba(129,167,137,.65)}
-      .btn:hover{transform:translateY(-1px)}
-    }
-    @media(max-width:600px){
-      .hero,.glass-panel{-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-      .hero{border-radius:23px;padding:22px 18px}
-      .hero h2{font-size:clamp(27px,7.2vw,35px)}
-      .glass-panel{border-radius:20px;padding:17px}
-      .qr-row{gap:13px}
-      .qr-image{width:106px;height:106px}
-      .qr-note{font-size:11px}
-    }
-    @media(prefers-reduced-motion:reduce){.btn,.social{transition:none!important}}
-  
-    /* Pearl-white finish: clean white with restrained warm and sage undertones. */
-    :root{
-      --bg:#fbfbf8;
-      --paper:rgba(255,255,255,.86);
-      --ink:#243128;
-      --muted:#707970;
-      --line:rgba(222,228,220,.86);
-      --accent:#45684f;
-      --accent-soft:#edf2eb;
-    }
-    body{
-      background:
-        radial-gradient(ellipse at 7% 0%,rgba(222,235,223,.48) 0%,transparent 34%),
-        radial-gradient(ellipse at 96% 5%,rgba(248,239,225,.52) 0%,transparent 33%),
-        linear-gradient(180deg,#fdfdfa 0%,#fafbf8 48%,#f5f7f2 100%);
-      color:var(--ink);
-    }
-    .tag{
-      background:rgba(255,255,255,.88);
-      border-color:#e7ebe4;
-      box-shadow:0 4px 14px rgba(47,65,49,.035),inset 0 1px 0 #fff;
-    }
-    .hero,.glass-panel{
-      background:linear-gradient(135deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.78) 62%,rgba(249,251,246,.9) 100%);
-      border:1px solid rgba(255,255,255,.98);
-      box-shadow:0 16px 42px rgba(45,68,48,.055),0 1px 2px rgba(45,68,48,.035),inset 0 1px 0 #fff;
-      -webkit-backdrop-filter:blur(10px);
-      backdrop-filter:blur(10px);
-    }
-    .hero:before{
-      border-color:rgba(94,133,99,.105);
-      box-shadow:0 0 0 22px rgba(94,133,99,.022),0 0 0 44px rgba(94,133,99,.014);
-    }
-    .eyebrow{
-      color:#426348;
-      background:rgba(240,245,237,.9);
-      border-color:#e6ece2;
-    }
-    .social{
-      background:rgba(255,255,255,.88);
-      border-color:rgba(226,231,222,.92);
-      box-shadow:0 8px 22px rgba(35,55,39,.035),inset 0 1px 0 #fff;
-    }
-    .panel{background:rgba(255,255,255,.78);border-color:rgba(226,231,222,.86)}
-    .qr-image{box-shadow:0 8px 22px rgba(35,55,39,.045)}
-    .footer{border-color:#e6eae2}
-    @media(max-width:600px){
-      body{background:
-        radial-gradient(ellipse at 2% 0%,rgba(222,235,223,.42) 0%,transparent 30%),
-        linear-gradient(180deg,#fdfdfa 0%,#f8faf6 100%)}
-      .hero,.glass-panel{-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px)}
+    @supports not ((backdrop-filter:blur(2px)) or (-webkit-backdrop-filter:blur(2px))){
+      .hero,.qr-panel{background:#fff}
     }
   </style>
 </head>
 <body>
-  <main class="wrap" id="top">
-    <header class="top">
-      <a class="brand" href="#top" aria-label="صفحه اصلی اشکان وای‌تی">
-        <span class="mark" aria-hidden="true">AY</span>
-        <div><h1>ASHKAN YT</h1><p>صفحه رسمی · راه‌های ارتباطی</p></div>
+  <main class="shell" id="top">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="صفحه اصلی Ashkan YT">
+        <span class="brand-mark" aria-hidden="true">AY</span>
+        <span>
+          <span class="brand-name">ASHKAN YT</span>
+          <span class="brand-caption">صفحهٔ رسمی · راه‌های ارتباطی</span>
+        </span>
       </a>
-      <span class="tag">صفحهٔ رسمی</span>
+      <span class="top-label"><span class="top-dot" aria-hidden="true"></span>صفحهٔ رسمی</span>
     </header>
 
     <section class="hero" aria-labelledby="hero-title">
-      <p class="eyebrow">صفحهٔ رسمی · شبکه‌های اجتماعی</p>
-      <h2 id="hero-title">ارتباط با <span>اشکان</span>، ساده و مستقیم.</h2>
-      <p class="desc">راه‌های ارتباطی و شبکه‌های اجتماعی در یک صفحهٔ خلوت، خوش‌ساخت و سریع.</p>
-      <div class="actions">
-        <a class="btn primary" href="https://t.me/ashkan_sh0p" target="_blank" rel="noopener noreferrer">ارتباط در تلگرام <span aria-hidden="true">↗</span></a>
-        <button class="btn" id="shareSite" type="button">اشتراک‌گذاری صفحه</button>
-        <button class="btn" id="copySite" type="button">کپی لینک</button>
+      <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"></span>خوش اومدی</p>
+      <h1 id="hero-title">همه‌چیز برای ارتباط با <span>اشکان</span>، یک‌جا.</h1>
+      <p class="hero-copy">شبکه‌های اجتماعی و راه‌های ارتباطی رسمی؛ در یک فضای سفید، آرام و ساده که سریع باز می‌شود و استفاده از آن راحت است.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="https://t.me/ashkan_sh0p" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.72 4.36 20.2 21c-.26 1.18-.96 1.47-1.94.91l-5.35-3.94-2.58 2.48c-.29.29-.53.53-1.07.53l.38-5.44 9.91-8.95c.43-.38-.09-.59-.66-.21L6.67 14.2 1.4 12.54c-1.15-.36-1.17-1.15.24-1.7L22.26 2.9c.95-.35 1.79.23 1.46 1.46Z" fill="currentColor"/></svg>
+          ارتباط در تلگرام
+          <span aria-hidden="true">↗</span>
+        </a>
+        <button class="button" id="shareSite" type="button">اشتراک‌گذاری</button>
+        <button class="button" id="copySite" type="button">کپی لینک</button>
       </div>
     </section>
 
     <section class="section" id="links" aria-labelledby="links-title">
-      <div class="section-head"><h3 id="links-title">راه‌های ارتباطی</h3><p>انتخاب کن و وارد شو</p></div>
-      <nav class="socials" aria-label="شبکه‌های اجتماعی رسمی">
-        <a class="social" href="https://t.me/ashkan_sh0p" target="_blank" rel="noopener noreferrer">
-          <span class="social-icon telegram-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M23.72 4.36 20.2 21c-.26 1.18-.96 1.47-1.94.91l-5.35-3.94-2.58 2.48c-.29.29-.53.53-1.07.53l.38-5.44 9.91-8.95c.43-.38-.09-.59-.66-.21L6.67 14.2 1.4 12.54c-1.15-.36-1.17-1.15.24-1.7L22.26 2.9c.95-.35 1.79.23 1.46 1.46Z" fill="currentColor"/></svg></span>
-          <span class="social-copy"><strong>تلگرام شخصی</strong><small>@ashkan_sh0p</small></span><span class="arrow" aria-hidden="true">↗</span>
+      <div class="section-heading">
+        <h2 id="links-title">شبکه‌های اجتماعی</h2>
+        <p>انتخاب کن و وارد شو</p>
+      </div>
+      <nav class="social-grid" aria-label="شبکه‌های اجتماعی رسمی">
+        <a class="social-card" href="https://t.me/ashkan_sh0p" target="_blank" rel="noopener noreferrer">
+          <span class="app-icon telegram-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><path d="M23.72 4.36 20.2 21c-.26 1.18-.96 1.47-1.94.91l-5.35-3.94-2.58 2.48c-.29.29-.53.53-1.07.53l.38-5.44 9.91-8.95c.43-.38-.09-.59-.66-.21L6.67 14.2 1.4 12.54c-1.15-.36-1.17-1.15.24-1.7L22.26 2.9c.95-.35 1.79.23 1.46 1.46Z" fill="currentColor"/></svg>
+          </span>
+          <span class="social-content"><span class="social-title">تلگرام شخصی</span><span class="social-handle">@ashkan_sh0p</span></span>
+          <span class="social-arrow" aria-hidden="true">↗</span>
         </a>
-        <a class="social" href="https://t.me/ASHKAN_YT_FF" target="_blank" rel="noopener noreferrer">
-          <span class="social-icon telegram-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M23.72 4.36 20.2 21c-.26 1.18-.96 1.47-1.94.91l-5.35-3.94-2.58 2.48c-.29.29-.53.53-1.07.53l.38-5.44 9.91-8.95c.43-.38-.09-.59-.66-.21L6.67 14.2 1.4 12.54c-1.15-.36-1.17-1.15.24-1.7L22.26 2.9c.95-.35 1.79.23 1.46 1.46Z" fill="currentColor"/></svg></span>
-          <span class="social-copy"><strong>کانال تلگرام</strong><small>@ASHKAN_YT_FF</small></span><span class="arrow" aria-hidden="true">↗</span>
+
+        <a class="social-card" href="https://t.me/ASHKAN_YT_FF" target="_blank" rel="noopener noreferrer">
+          <span class="app-icon telegram-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><path d="M23.72 4.36 20.2 21c-.26 1.18-.96 1.47-1.94.91l-5.35-3.94-2.58 2.48c-.29.29-.53.53-1.07.53l.38-5.44 9.91-8.95c.43-.38-.09-.59-.66-.21L6.67 14.2 1.4 12.54c-1.15-.36-1.17-1.15.24-1.7L22.26 2.9c.95-.35 1.79.23 1.46 1.46Z" fill="currentColor"/></svg>
+          </span>
+          <span class="social-content"><span class="social-title">کانال تلگرام</span><span class="social-handle">@ASHKAN_YT_FF</span></span>
+          <span class="social-arrow" aria-hidden="true">↗</span>
         </a>
-        <a class="social" href="https://instagram.com/ashkan_yt_ir" target="_blank" rel="noopener noreferrer">
-          <span class="social-icon instagram-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.3" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.05" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.55" cy="6.65" r="1.15" fill="currentColor"/></svg></span>
-          <span class="social-copy"><strong>اینستاگرام</strong><small>@ashkan_yt_ir</small></span><span class="arrow" aria-hidden="true">↗</span>
+
+        <a class="social-card" href="https://instagram.com/ashkan_yt_ir" target="_blank" rel="noopener noreferrer">
+          <span class="app-icon instagram-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.3" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.05" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.55" cy="6.65" r="1.15" fill="currentColor"/></svg>
+          </span>
+          <span class="social-content"><span class="social-title">اینستاگرام</span><span class="social-handle">@ashkan_yt_ir</span></span>
+          <span class="social-arrow" aria-hidden="true">↗</span>
         </a>
       </nav>
     </section>
 
-    <section class="section qr-section" aria-label="کد QR سایت">
-      <div class="panel glass-panel" id="qr">
-        <h3>کد QR سایت</h3>
-        <p>با دوربین گوشی اسکن کن تا این صفحه باز شود.</p>
-        <div class="qr-row">
-          <img class="qr-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAFoAQAAAABSnlx4AAADhUlEQVR42u1b7Y7iMBCzq33vlBeP78d8JKUFWoR0t8fACkJrol1n4sw4WQoXHgsKXehCF7rQ/wb6BwBobQEU5zf4q98tBj+MJjjoj0s7dJMkGwJNy623JakX38/RZBBNJz2YZ97d9L0ed9dtHlR8X0QH4zyK7wxoD2dA1u7F4CX0CqxJMadYP0Q3oDnlCM578X0KvYZCECtWpsaMOEeKs+v33Yvd808dklR8Hzxi7bPlDw3yZ0f31gS8Qx89B7r4fpAPJkkpIAIAdnbOC+Dzvu+0p/TkGZoE6aIMGXOdIcic9UQS0GCa7WFvkW0ToAfsOxikItyUPwAoysoYyu6OvkmisQFoNHIFOdkCExxfBRTd5VzIjvsS6OVF8vg98c0D/W5othhatAqu14axFTD5hjfl4wjKRsP0R4vOZOv/T3xf40SSwDYCmS7m3YQk652YO6BFuM2bcAJsMgFAX6r6f4LmSigWSwqQnGEJ3Wuaue/1zMwpvh+hdQPAJjQR4VZREEhSnSKHOSKgueAgxSd1SUK/sF5+W/U/ZxwK0ymZQ4c6zH5K/U45scXUsxnZRdB4/h79fq/esbXSS/PxlhneQcW4FoPvohtAspl6+yJryy4Fkh2L7vtei8G39QQNDW1kf1nGACbHLsnLa7r5xXyvp/kGGrbqPct4OVCf1u9mEj4qdPgHAFL3pFDXxrLi+3F+Is9Phi1iwqL0tdMfTMfkGN2xH53flZ+Mqi4tC7dFmJWdCDcu5r9yfZn1RnwHhe47WVY9p4UqPTkR3+s5PWlu+EURY2MSrPcEFt/7tGB25S7G97wjGTvwgJAWa/H9Ef32dHCYgiEqnr2EnHwd3+tn0DrMT6KwV+7/ZpxXfL8Z33pUz1t4C5jsbyTpvfT7PHq9Z1uHejIZfJu9sjha8pszvL+pPtoQ/uMX2cyGZWw4yLLOBViAvuz9k+J7n59sadeBolDbD26qBtI2cRjfK0f7FXp9JeCbEyWYNSR0HB2HfmzF92v91o7x7YmpyL+1tU/QKz95Ue/cSAA3v3jDkm3b/qUDo770k1VjwdQc+eUPPnz87Mfh7sU67QdopHRzujKK/OL7LJrjcPECcCG47NCp2tlGmn7F98l8MM+ijX9dIJztRA/pGCfTRhp+6Tf5tvxknPc5lAcC80G05XkFmlbhhf8QUenJ0fLKff5dClHoQhe60L8G/QeJDlPRGBy3EAAAAABJRU5ErkJggg==" width="132" height="132" alt="کد QR لینک رسمی سایت Ashkan YT" loading="eager" decoding="async">
-          <div><a class="btn" href="https://ashkanre.github.io/ashkan-yt/" target="_blank" rel="noopener noreferrer">باز کردن سایت ↗</a><p class="qr-note">تصویر QR داخل خود صفحه قرار دارد و از سایت دیگری بارگیری نمی‌شود.</p></div>
-        </div>
+    <section class="section qr-panel" id="qr" aria-labelledby="qr-title">
+      <div class="qr-text">
+        <h2 id="qr-title">ورود سریع با QR</h2>
+        <p>کد را با دوربین گوشی اسکن کن تا صفحهٔ رسمی Ashkan YT باز شود.</p>
+        <p class="qr-note">QR مستقیماً داخل همین صفحه قرار دارد؛ برای نمایش آن نیازی به بارگیری تصویر از سایت دیگری نیست.</p>
+      </div>
+      <div class="qr-side">
+        <a class="button qr-open" href="https://ashkanre.github.io/ashkan-yt/" target="_blank" rel="noopener noreferrer">باز کردن سایت ↗</a>
+        <img class="qr-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAFoAQAAAABSnlx4AAADhUlEQVR42u1b7Y7iMBCzq33vlBeP78d8JKUFWoR0t8fACkJrol1n4sw4WQoXHgsKXehCF7rQ/wb6BwBobQEU5zf4q98tBj+MJjjoj0s7dJMkGwJNy623JakX38/RZBBNJz2YZ97d9L0ed9dtHlR8X0QH4zyK7wxoD2dA1u7F4CX0CqxJMadYP0Q3oDnlCM578X0KvYZCECtWpsaMOEeKs+v33Yvd808dklR8Hzxi7bPlDw3yZ0f31gS8Qx89B7r4fpAPJkkpIAIAdnbOC+Dzvu+0p/TkGZoE6aIMGXOdIcic9UQS0GCa7WFvkW0ToAfsOxikItyUPwAoysoYyu6OvkmisQFoNHIFOdkCExxfBRTd5VzIjvsS6OVF8vg98c0D/W5othhatAqu14axFTD5hjfl4wjKRsP0R4vOZOv/T3xf40SSwDYCmS7m3YQk652YO6BFuM2bcAJsMgFAX6r6f4LmSigWSwqQnGEJ3Wuaue/1zMwpvh+hdQPAJjQR4VZREEhSnSKHOSKgueAgxSd1SUK/sF5+W/U/ZxwK0ymZQ4c6zH5K/U45scXUsxnZRdB4/h79fq/esbXSS/PxlhneQcW4FoPvohtAspl6+yJryy4Fkh2L7vtei8G39QQNDW1kf1nGACbHLsnLa7r5xXyvp/kGGrbqPct4OVCf1u9mEj4qdPgHAFL3pFDXxrLi+3F+Is9Phi1iwqL0tdMfTMfkGN2xH53flZ+Mqi4tC7dFmJWdCDcu5r9yfZn1RnwHhe47WVY9p4UqPTkR3+s5PWlu+EURY2MSrPcEFt/7tGB25S7G97wjGTvwgJAWa/H9Ef32dHCYgiEqnr2EnHwd3+tn0DrMT6KwV+7/ZpxXfL8Z33pUz1t4C5jsbyTpvfT7PHq9Z1uHejIZfJu9sjha8pszvL+pPtoQ/uMX2cyGZWw4yLLOBViAvuz9k+J7n59sadeBolDbD26qBtI2cRjfK0f7FXp9JeCbEyWYNSR0HB2HfmzF92v91o7x7YmpyL+1tU/QKz95Ue/cSAA3v3jDkm3b/qUDo770k1VjwdQc+eUPPnz87Mfh7sU67QdopHRzujKK/OL7LJrjcPECcCG47NCp2tlGmn7F98l8MM+ijX9dIJztRA/pGCfTRhp+6Tf5tvxknPc5lAcC80G05XkFmlbhhf8QUenJ0fLKff5dClHoQhe60L8G/QeJDlPRGBy3EAAAAABJRU5ErkJggg==" width="118" height="118" alt="کد QR لینک رسمی سایت Ashkan YT" loading="eager" decoding="async">
       </div>
     </section>
 
-    <footer class="footer"><span>ساخته شده توسط <strong>اشکان</strong></span><span>ASHKAN YT · <span id="year">2026</span></span></footer>
+    <footer class="footer">
+      <span>ساخته شده توسط <strong>اشکان</strong></span>
+      <span class="footer-note">ASHKAN YT · <span id="year">2026</span></span>
+    </footer>
   </main>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script>
@@ -383,10 +315,8 @@
             if (!ok) throw new Error("copy");
           }
           notify(successMessage);
-          return true;
         } catch (_) {
           notify("کپی خودکار انجام نشد؛ لینک را از نوار آدرس کپی کن.");
-          return false;
         }
       }
       $("year").textContent = String(new Date().getFullYear());
